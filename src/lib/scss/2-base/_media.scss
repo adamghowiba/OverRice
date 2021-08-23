@@ -1,0 +1,126 @@
+@use '../1-plugins/mquery' as mq;
+@use '../1-plugins/responsive' as res;
+@use '../0-helpers/vars' as *;
+
+.hide {
+	&--mobile {
+		display: none;
+	}
+}
+
+@include mq.media("<desktop") {
+	.nav {
+		&__link {
+			padding-left: 0.6em !important;
+			padding-right: 0.6em !important;
+			color: red;
+		}
+	}
+}
+
+@include mq.media("<tablet") {
+	/* Shorten quick actions text and move flex direction columnn. */
+	.quick-action {
+		justify-content: space-around;
+		padding: 0.9em 0;
+		&__block {
+			flex-direction: column;
+		}
+
+		&__icon {
+			margin: 0 0 $pd-xs - 3 0;
+			max-width: 20px;
+		}
+
+		&-wrap {
+			justify-content: space-around;
+		}
+
+		.hide--mobile {
+			display: block;
+		}
+
+		.text:not(.hide--mobile) {
+			display: none;
+		}
+	}
+
+	.flex {
+		&__col {
+			padding: 0;
+		}
+	}
+	
+	.nav {
+		&__items {
+			display: none;
+		}
+
+		&-wrap {
+			padding-right: 1em;
+			padding-left: 1em;
+			width: 100%;
+		}
+
+		&__logo {
+			width: 120px;
+		}
+		#hamburger {
+			display: flex;
+		}
+	}
+
+	.container {
+		padding: 0em 1em;
+	}
+
+	.button {
+		padding: 0.35em 1.8em;
+		font-size: $fs-nav - 2px;
+		margin: 0 !important;
+		width: auto;
+	}
+}
+
+/* Currently meant for the fixing the cards */
+@include mq.media('<606px') {
+	.card {
+		margin-bottom: $pd-xl;
+		&-wrap {
+			flex-direction: column;
+			padding-left: $pd-md;
+			padding-right: $pd-md;
+		}
+	}
+}
+
+@include mq.media("<phone") {
+	.hero__headings {
+		text-align: center;
+
+		&__button-wrap {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	.card {
+		&-wrap {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+
+		&__image {
+			height: 10em;
+		}
+
+		&__content {
+			padding: 1.3em;
+		}
+	}
+
+	.section--cta {
+		h2 {
+		}
+	}
+}
