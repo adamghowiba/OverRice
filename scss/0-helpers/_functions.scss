@@ -1,7 +1,0 @@
-@use './vars' as *;
-
-@function calcRem($px, $root: $fs-base) {
-    $remSize: $px / $root;
-    @return #{$remSize}rem;
-}
-
