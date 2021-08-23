@@ -1,11 +1,10 @@
-<div class="container">
-    <h3>Test</h3>
-</div>
+<script lang="ts" context="module">
+    import type { Load } from "@sveltejs/kit";
 
-<style lang="scss">
-    div {
-        h3 {
-            color: green;
+    export const load: Load = () => {
+        return {
+            status: 301,
+            redirect: '/home'
         }
     }
-</style>
+</script>
