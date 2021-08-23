@@ -1,0 +1,18 @@
+@use '../0-helpers/vars' as *;
+
+.button {
+    background-color: $color-green;
+    border-radius: $br-button;
+    padding: $pd-btn-y $pd-btn-x;
+    max-width: 300px;
+    color: $color-white;
+    font-size: $fs-button;
+    
+    border: 2px solid $color-green;
+
+    &--outlined {
+        background-color: transparent;
+        border: 2px solid $color-green;
+        color: $color-green;
+    }
+}

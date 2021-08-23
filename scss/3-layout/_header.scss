@@ -1,0 +1,44 @@
+@use '../0-helpers/vars' as *;
+
+/* Hero Header */
+.hero {
+    height: 100%;
+    background-image: url('../assets/images/over_rice_chicken_kabab.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero__headings {
+    color: white;
+    position: relative;
+    top: 53%;
+    transform: translateY(-50%);
+    max-width: 70ch;
+    
+    &__button-wrap .button:nth-child(1) {
+        margin-right: $pd-lg;
+    }
+
+    &__h1 {
+        text-transform: uppercase;
+    }
+
+    &__p {
+        margin-bottom: $pd-text-body;
+        letter-spacing: 1px;
+        line-height: 1.5;
+    }
+
+    h1 {
+        text-transform: uppercase;
+    }
+}
+
+
+.logo {
+    width: auto;
+    min-width: 60px;
+    object-fit: contain;
+}
+
+

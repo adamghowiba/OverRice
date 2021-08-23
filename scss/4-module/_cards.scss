@@ -1,0 +1,52 @@
+@use '../0-helpers/vars' as *;
+@use '../0-helpers/mixins' as mix;
+
+/* Card's Wrapper */
+.card-wrap {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Indivual Food Item Card */
+.card {
+    border-radius: $br-tile;
+    height: auto;
+    background-color: $color-snow;
+
+    &__image {
+        width: 100%;
+        height: 15em;
+        object-fit: cover;
+        border-radius: $br-tile $br-tile 0 0;
+    }
+
+    &__content {
+        padding: clamp(1.5em, 7%, 3em);
+    }
+
+    &__heading {
+        color: $color-green;
+        font-size: $heading-5;
+    }
+
+    &__p {
+        color: $color-heading;
+    }
+
+    &__caption {
+        display: block;
+        font-weight: 300;
+        // font-size: $fs-caption;
+        margin: $pd-xs 0 $pd-md - 2 0;
+    }
+
+    &__button {
+        display: block;
+        margin-top: $pd-md;
+        color: $color-red
+    }
+
+    /* X, Y, BLUR, SIZE */
+    @include mix.card-shadow;
+    margin: 0 0.7em;
+}

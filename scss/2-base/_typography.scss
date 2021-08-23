@@ -1,0 +1,61 @@
+@use '../0-helpers/vars' as *;
+@use '../0-helpers/functions' as f;
+@use '../1-plugins/responsive.scss' as res;
+
+// ? What's the goal here
+// * Create a function for each font size that takes a min, preffered, and max.
+
+body {
+	color: $color-text;
+	font-size: 1rem;
+	font-family: 'Le Havre';
+}
+
+h1 {
+	// font-size: f.calcRem($fs-heading-1);
+	// @include res.fluid-type(320px, 1040px, 37px, $fs-heading-1 - 10px);
+	font-family: 'Le Havre Black';
+	font-size: $heading-2;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: $heading-3;
+	font-weight: bold;
+}
+
+// h3 {
+//     font-size: f.calcRem($fs-heading-3);
+//     font-weight: bold;
+// }
+
+// h4 {
+//     font-size: f.calcRem($fs-heading-4);
+//     font-weight: bold;
+// }
+
+p {
+	font-size: $fs-heading-6;
+    font-weight: 300;
+}
+
+.subtitle {
+	@include res.fluid-type(320px, 1040px, 20px, $fs-subtitle);
+	color: $color-green;
+	letter-spacing: 2px;
+	font-weight: 200;
+	font-family: 'Pristina';
+}
+
+.caption {
+	font-size: $fs-caption;
+}
+
+.text {
+	&--sm {
+		font-size: $fs-body-sm;
+	}
+
+    &--nav {
+    }
+}

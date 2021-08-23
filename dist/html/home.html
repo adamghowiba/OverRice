@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/main.min.css">
+    <title>OverRice Food Truck</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+    <script type="module" src="../scripts/Animations.js"></script>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="overlay"></div>
+
+        <div class="container">
+            <!-- Navigation Bar -->
+            <nav class="nav">
+
+                <div class="nav-wrap">
+                    <div class="nav__items nav__items--right">
+                        <a class="nav__link" href="/home.html">Home</a>
+                        <a class="nav__link" href="/contact.html">Contact</a>
+                        <a class="nav__link" href="/about.html">About Us</a>
+                    </div>
+
+                    <a class="nav__logo" href="https://www.webrevived.com"><img class="logo"
+                            src="../assets/images/logo_trans.png" alt="OverRice logo of hawaiian woman"></a>
+
+                    <div class="nav__items nav__items--left">
+                        <a class="nav__link" href="/menu.html">Menu</a>
+                        <a class="nav__link" href="/location.html">Our Location</a>
+                        <a class="nav__link" href="/catering.html">Catering Info</a>
+                    </div>
+
+                    <div id="hamburger">
+                        <span class="hamburer__line"></span>
+                        <span class="hamburer__line"></span>
+                        <span class="hamburer__line"></span>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hero Heading Wrapper -->
+            <div class="hero__headings">
+                <h2 class="subtitle">Filipino and Hawaiian food.</h2>
+                <h1 class="hero__headings__h1"> Always fresh always <br /> from the heart</h1>
+                <p class="hero__headings__p">With passion and the insipration of years living in Hawaii, later on the
+                    idea of OverRice was born. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, minima.
+                </p>
+                <div class="hero__headings__button-wrap">
+                    <button class="button">Order Online</button>
+                    <button class="button button--outlined">View Menu</button>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- Our Favorites (Card Section) -->
+        <section class="section section--white">
+            <div class="container">
+
+                <header class="con-head">
+                    <h1 class="subtitle">Flavorful & Authentic</h1>
+                    <h2>Our Favorites</h2>
+                </header>
+
+                <!-- Cards Wrapper -->
+                <div class="card-wrap">
+
+                    <div class="card">
+                        <img class="card__image" src="../assets/images/breaded_chicken.jpg" alt="">
+
+                        <div class="card__content">
+                            <h4 class="card__heading">Chicken Katsu Platter</h4>
+                            <span class="card__caption">Serves with french fries + drink</span>
+                            <p class="card__p">
+                                We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10
+                                years ago and most of the food we serve is the food and recipes wegrew with.
+                            </p>
+                            <span class="card__button">Get One Now</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img class="card__image" src="../assets/images/over_rice_lunch_special.jpg" alt="">
+                        <div class="card__content">
+                            <h4 class="card__heading">Chicken Katsu Platter</h4>
+                            <span class="card__caption">Serves with french fries + drink</span>
+                            <p class="card__p">
+                                We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10
+                                years ago and most of the food we serve is the food and recipes wegrew with.
+                            </p>
+                            <span class="card__button">Get One Now</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img class="card__image" src="../assets/images/over_rice_lunch_combo.jpg" alt="">
+                        <div class="card__content">
+                            <h4 class="card__heading">Chicken Katsu Platter</h4>
+                            <span class="card__caption">Serves with french fries + drink</span>
+                            <p class="card__p">
+                                We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10
+                                years ago and most of the food we serve is the food and recipes wegrew with.
+                            </p>
+                            <span class="card__button">Get One Now</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Call To Action  -->
+        <section class="section section--cta">
+            <img src="../assets/images/food_platter.jpg" alt="" class="background-image">
+            <div class="overlay"></div>
+            
+            <div class="container">
+                <h2>Serving love in the form of delicious food</h2>
+                <button class="button button--outlined">See Our Menu</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="moving-images-section" class="section section--white">
+            <div class="container">
+
+                <!-- TODO: Could be "flex" or "grid". (Will use flex for now) -->
+                <!-- Column Wrapper -->
+                <div class="flex">
+
+                    <!-- First Columns (Images) -->
+                    <div class="flex__col">
+                        <div class="moving-images-wrap">
+                            <div id="moving-images-1" class="moving-images">
+                                <img class="moving-images__img" src="../assets/images/over_rice_chicken_platter.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_lunch_combo.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_lunch_combo.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_chicken_platter.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_lunch_combo.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_chicken_platter.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_lunch_combo.jpg" alt="">
+                            </div>
+                            <div id="moving-images-2" class="moving-images">
+                                <img class="moving-images__img" src="../assets/images/over_rice_chicken_kabab.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_pork_bowl.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_chicken_kabab.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_chicken_kabab.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_pork_bowl.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_chicken_kabab.jpg" alt="">
+                                <img class="moving-images__img" src="../assets/images/over_rice_pork_bowl.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Column (Text) -->
+                    <div class="flex__col">
+                        <h1 class="subtitle">Welcome To</h1>
+                        <h2>Authentically Delicious Filipino Food</h2>
+                        <p>
+                            Over Rice is a Filipino & Hawaiian food truck that specializes in serving homemade delicious
+                            food. We started as a group of friends just wanting the opportunity to share our families'
+                            recipes so we can introduce them to the public and hopefully bring joy and comfort to others
+                        </p>
+                        <button class="button button--outlined">Discover More</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Review Slider Section -->
+        <section class="section section--small">
+            <div class="review-wrap">
+                <div class="review">
+                    <img src="" alt="Green Quote Icon">
+                    <p>
+                        Shannon's new suggestion for the Hawaii Five O bowl is my new favorite after seemingly hundreds
+                        of All American bowls!!
+                        Good stuff. Ask for their suggestions to have the right bowl made for you!
+                    </p>
+                    <span class="review__name"></span>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+<!-- Hero Bottom Bar -->
+<div class="quick-action">
+    <div class="container quick-action-wrap">
+        <div class="quick-action__block">
+            <img class="quick-action__icon" src="../assets/icons/location.svg" alt="Pin Location Icon">
+            <span class="text text--nav text--bold">Find where we are now</span>
+            <span class="text text--nav text--bold hide--mobile">Location</span>
+        </div>
+        <div class="quick-action__block">
+            <img class="quick-action__icon" src="../assets/icons/phone.svg" alt="Green Phone Icon">
+            <span class="text text--nav text--bold">(386) 416-9030</span>
+            <span class="text text--nav text--bold hide--mobile">Call</span>
+        </div>
+        <div class="quick-action__block">
+            <img class="quick-action__icon" src="../assets/icons/time.svg" alt="Green Clock Icon">
+            <span class="text text--nav text--bold">9 AM - 5 PM</span>
+            <span class="text text--nav text--bold hide--mobile">Hours</span>
+        </div>
+        <div class="quick-action__block">
+            <img class="quick-action__icon" src="../assets/icons/shopping-cart.svg" alt="Green Shopping Cart Icon">
+            <span class="text text--nav text--bold">Takeout & Catering</span>
+            <span class="text text--nav text--bold hide--mobile">Menu</span>
+        </div>
+    </div>
+</div>
+
+</html>
