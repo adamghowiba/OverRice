@@ -1,0 +1,62 @@
+@use '../0-helpers/vars' as *;
+/* Body */
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Container */
+.container {
+    position: relative;
+    padding: 0 2em;
+    max-width: 1140px;
+    height: 100%;
+
+    display: block;
+    margin: 0 auto;
+
+}
+
+.con-head {
+    text-align: center;
+    margin-bottom: 4em;
+
+}
+
+
+/* Section */
+.section {
+    position: relative;
+    padding-top: $pd-section;
+    padding-bottom: $pd-section;
+    overflow-y: hidden;
+    
+    &--white {
+        background-image: url('/images/background.jpg');
+        background-size: cover;
+    }
+
+    &--cta {
+        $padding: clamp(1.5em, 5%, 4em);
+        // $padding: 2em;
+
+        padding-top: $padding;
+        padding-bottom: $padding;
+        border: 1px solid red;
+        color: white;
+        text-align: center;
+
+        h2 {
+            margin-bottom: $pd-sm;
+        }
+    }
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;    
+}
