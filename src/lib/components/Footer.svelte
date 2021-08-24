@@ -11,13 +11,13 @@
                     </p>
                     <div class="footer__nav">
                         <div class="footer__nav-wrap">
-                            <div class="footer__nav__item">Contact Us</div>
-                            <div class="footer__nav__item">About Us</div>
-                            <div class="footer__nav__item">Catering Services</div>
+                            <a href="/contact" class="footer__nav__item">Contact Us</a>
+                            <a href="/about" class="footer__nav__item">About Us</a>
+                            <a href="/catering" class="footer__nav__item">Catering Services</a>
                         </div>
                         <div class="footer__nav-wrap">
-                            <div class="footer__nav__item">Menu</div>
-                            <div class="footer__nav__item">Our Location</div>
+                            <a href="/menu" class="footer__nav__item">Menu</a>
+                            <a href="/location" class="footer__nav__item">Our Location</a>
                         </div>
                     </div>
                     <div class="footer__social">
@@ -71,6 +71,9 @@
 
             &__item {
                 margin: 0 $pd-sm;
+                text-decoration: none;
+
+                &:visited { color: inherit; }
             }
         
         }

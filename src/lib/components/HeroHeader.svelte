@@ -7,17 +7,18 @@
 </script>
 
 <Header>
-    <div class="contact">
-        <h1 class="contact__header">{header}</h1>
-        <p class="contact__breadcrumbs">{breadcrumbs}</p>
-        <p class="contact__quote">{quote}</p>
+    <div class="hero">
+        <h1 class="hero__header">{header}</h1>
+        <p class="hero__breadcrumbs">{breadcrumbs}</p>
+        <p class="hero__quote">{quote}</p>
     </div>
 </Header>
 
 <style lang="scss">
     @use '../scss/0-helpers/vars' as *;
+    @use '../scss/1-plugins/mquery' as mq;
 
-    .contact {
+    .hero {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, min-content);
@@ -30,6 +31,8 @@
         
         text-align: center;
         color: white;
+        transition: gap 0.2s ease-in-out;
+        
         
         &__header {
             font-family: 'Le Havre';
@@ -37,6 +40,8 @@
             font-size: 5.6rem;
             height: min-content;
             line-height: 0.8;
+            white-space: nowrap;
+            transition: font-size 0.2s ease-in-out;
         }
 
         &__breadcrumbs {
@@ -48,8 +53,21 @@
         
         &__quote {
             font-weight: normal; 
-            font-size: 1.75rem; 
+            font-size: 1.75rem;
             height: min-content;          
+            transition: font-size 0.2s ease-in-out;
+        }
+
+        @include mq.media("<tablet") {
+            gap: 1rem;
+
+            &__header {
+                font-size: 4.5rem;
+            }
+
+            &__quote {
+                font-size: 1.5rem;     
+            }
         }
     }
 </style>

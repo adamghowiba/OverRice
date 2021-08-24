@@ -1,4 +1,9 @@
+<script>
+    import Footer from '$lib/components/Footer.svelte';
+</script>
+
 <slot />
+<Footer />
 
 <style global lang="scss">
     @use '../lib/scss/2-base/reset';

@@ -4,7 +4,6 @@
     import Button from '$lib/components/Button.svelte'
     import About from './_components/About.svelte'
     import BottomBar from './_components/BottomBar.svelte';
-    import Footer from '../../lib/components/Footer.svelte';
 </script>
 
 <HeroHeader 
@@ -81,7 +80,6 @@
 </main>
 
 <BottomBar />
-<Footer />
 
 <style lang="scss">
     @use '../../lib/scss/0-helpers/vars' as *;
