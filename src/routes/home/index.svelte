@@ -24,21 +24,21 @@
                     title = "Chicken Katsu Platter"
                     caption = "Serves with french fries + drink"
                     content= "We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-                    src="static/images/breaded_chicken.jpg"
+                    src="images/breaded_chicken.jpg"
                 />
 
                 <Card 
                     title = "Chicken Katsu Platter"
                     caption = "Serves with french fries + drink"
                     content = "We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-                    src = "static/images/over_rice_lunch_special.jpg"
+                    src = "images/over_rice_lunch_special.jpg"
                 />
 
                 <Card 
                     title = "Chicken Katsu Platter"
                     caption = "Serves with french fries + drink"
                     content = "We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-                    src = "static/images/over_rice_lunch_combo.jpg"
+                    src = "images/over_rice_lunch_combo.jpg"
                 />
             </div>
 
@@ -47,7 +47,7 @@
 
     <!-- Call To Action  -->
     <section class="section section--cta">
-        <img src="static/images/food_platter.jpg" alt="" class="background-image">
+        <img src="images/food_platter.jpg" alt="" class="background-image">
         <div class="overlay"></div>
         
         <div class="container">

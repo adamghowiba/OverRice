@@ -32,7 +32,7 @@
     /* Hero Header */
     .hero {
         height: 100%;
-        background-image: url('static/images/over_rice_chicken_kabab.jpg');
+        background-image: url('/images/over_rice_chicken_kabab.jpg');
         background-repeat: no-repeat;
         background-size: cover;
     }

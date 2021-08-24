@@ -6,8 +6,13 @@
             <a class="nav__link" href="/about">About Us</a>
         </div>
 
-        <a class="nav__logo" href="https://www.webrevived.com"><img class="logo"
-                src="static/images/logo_trans.png" alt="OverRice logo of hawaiian woman"></a>
+        <a class="nav__logo" href="https://www.webrevived.com">
+            <img 
+                class="logo"
+                src="images/logo_trans.png" 
+                alt="OverRice logo of hawaiian woman"
+            />
+        </a>
 
         <div class="nav__items nav__items--left">
             <a class="nav__link" href="/menu">Menu</a>
