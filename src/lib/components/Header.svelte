@@ -2,13 +2,13 @@
     import NavBar from "./NavBar.svelte";
 </script>
 
-<section>
+<header>
     <NavBar />
     <slot/>
-</section>
+</header>
 
 <style lang="scss">
-    section {
+    header {
         position: relative;
 
         width: 100%;
