@@ -1,13 +1,16 @@
 <script lang="typescript">
-    import Header from './_components/Header.svelte'
+    import HeroHeader from './_components/HeroHeader.svelte';
     import Card from './_components/Card.svelte'
     import Button from '$lib/components/Button.svelte'
     import About from './_components/About.svelte'
     import BottomBar from './_components/BottomBar.svelte';
-    import Footer from '../../lib/components/Footer.svelte';
 </script>
 
-<Header/>
+<HeroHeader 
+    --height = "100%"
+    --url = "url('/images/over_rice_chicken_kabab.jpg')"
+    --bg-pos = "top"
+/>
 
 <main>
     <!-- Our Favorites (Card Section) -->
@@ -77,7 +80,6 @@
 </main>
 
 <BottomBar />
-<Footer />
 
 <style lang="scss">
     @use '../../lib/scss/0-helpers/vars' as *;

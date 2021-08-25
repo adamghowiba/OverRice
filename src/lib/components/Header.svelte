@@ -2,17 +2,17 @@
     import NavBar from "./NavBar.svelte";
 </script>
 
-<section>
+<header>
     <NavBar />
     <slot/>
-</section>
+</header>
 
 <style lang="scss">
-    section {
+    header {
         position: relative;
 
         width: 100%;
-        min-height: var(--height, 445px);
+        min-height: var(--height, 500px);
         
         background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), var(--url);
         background-repeat: no-repeat;
