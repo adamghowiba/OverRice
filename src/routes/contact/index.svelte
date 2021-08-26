@@ -61,7 +61,7 @@
                 <Input id="name" bind:value={input} placeholder="Full Name" />
             </div>
             
-            <div class="contact__form__container">
+            <div id="email" class="contact__form__container">
                 <Input id="email" bind:value={email} placeholder="Email Address" />
             </div>
             
@@ -77,6 +77,7 @@
 
 <style lang="scss">
     @use '../../lib/scss/0-helpers/vars' as *;
+    @use '../../lib/scss/1-plugins/mquery' as mq;
 
     .contact {
         position: relative;
@@ -90,6 +91,9 @@
 
         &__header {
             margin: 110px 0 80px 0;
+            @include mq.media("<tablet") {
+                margin: 60px 0;
+            }
         }
 
         &__info {
@@ -97,6 +101,18 @@
             
             display: flex;
             gap: 60px;
+
+            @include mq.media("<tablet") {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
+                margin-bottom: 60px;
+            }
+
+            @include mq.media("<phone") {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+            }
 
             place-self: center;
         }
@@ -109,13 +125,22 @@
             gap: 50px;
 
             form {
-                width: 630px;
+                width: 100vw;
+                min-width: 250px;
+                max-width: 630px;
                 display: grid;
                 place-self: center;
                 
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: min-content 1fr;
                 gap: 19px;
+
+                @include mq.media("<phone") {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: min-content min-content 1fr;
+
+                    padding: 0 20px;
+                }
             }
 
             &__container {
@@ -128,6 +153,11 @@
                 width: 100%;
                 grid-column: 1 / 3;
                 grid-row: 2 / 3;
+
+                @include mq.media("<phone") {
+                    grid-column: 1 / 2;
+                    grid-row: 3 / 4;
+                }
             }
 
             &__submit {
@@ -141,6 +171,11 @@
                 cursor: pointer;
                 justify-self: center;
                 grid-column: 1 / 3;
+
+                @include mq.media("<phone") {
+                    grid-column: 1 / 2;
+                    padding: 8px 32px;
+                }
             }
         }
     }
