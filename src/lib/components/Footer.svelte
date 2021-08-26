@@ -1,36 +1,30 @@
-<script>
-</script>
-
-    <div class="footer">
-        <div class="container">
-            <div class="footer-warp">
-                <img src="/images/logo.png" class="footer__logo" alt="Overrice Logo">
-                <p class="footer__p">Our passion of serving and sharing food for friends, had move to a next level where we
-                    realize how important food is, how creates connection, creates experiences and definitely
-                    brings people together.
-                    </p>
-                    <div class="footer__nav">
-                        <div class="footer__nav-wrap">
-                            <a href="/contact" class="footer__nav__item">Contact Us</a>
-                            <a href="/about" class="footer__nav__item">About Us</a>
-                            <a href="/catering" class="footer__nav__item">Catering Services</a>
-                        </div>
-                        <div class="footer__nav-wrap">
-                            <a href="/menu" class="footer__nav__item">Menu</a>
-                            <a href="/location" class="footer__nav__item">Our Location</a>
-                        </div>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-warp">
+            <img src="/images/logo.png" class="footer__logo" alt="Overrice Logo">
+            <p class="footer__p">Our passion of serving and sharing food for friends, had move to a next level where we
+                realize how important food is, how creates connection, creates experiences and definitely
+                brings people together.
+                </p>
+                <div class="footer__nav">
+                    <div class="footer__nav-wrap">
+                        <a href="/contact" class="footer__nav__item">Contact Us</a>
+                        <a href="/about" class="footer__nav__item">About Us</a>
+                        <a href="/catering" class="footer__nav__item">Catering Services</a>
                     </div>
-                    <div class="footer__social">
-                        <div class="footer__icon"></div>
-                        <div class="footer__icon"></div>
-                        <div class="footer__icon"></div>
+                    <div class="footer__nav-wrap">
+                        <a href="/menu" class="footer__nav__item">Menu</a>
+                        <a href="/location" class="footer__nav__item">Our Location</a>
                     </div>
-            </div>
+                </div>
+                <div class="footer__social">
+                    <div class="footer__icon"></div>
+                    <div class="footer__icon"></div>
+                    <div class="footer__icon"></div>
+                </div>
         </div>
-    
-    
     </div>
-
+</footer>
 
 <style lang='scss'>
     @use '../scss/0-helpers/vars' as *;
