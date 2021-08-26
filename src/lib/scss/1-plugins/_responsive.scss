@@ -1,3 +1,4 @@
+@use "sass:math";
 // I'm now recommending this technique:
 
 @mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value) {
@@ -23,7 +24,7 @@
 // Requires the calc-interpolation function which can also be used independently
 
 @function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
-	$a: ($max-value - $min-value) / ($max-screen - $min-screen);
+	$a: math.div( ($max-value - $min-value),($max-screen - $min-screen));
 	$b: $min-value - $a * $min-screen;
 
 	$sign: "+";
@@ -54,7 +55,7 @@
 /* Fluid Typography Option 2 */
 
 @function strip-unit($value) {
-	@return $value / ($value * 0 + 1);
+	@return math.div($value, ($value * 0 + 1));
 }
 
 @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
