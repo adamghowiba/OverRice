@@ -26,7 +26,6 @@
 <style lang="scss">
     @use '../../../lib/scss/0-helpers/vars' as *;
     @use '../../../lib/scss/1-plugins/responsive' as res;
-    @use '../../../lib/scss/2-base/media';
     @use '../../../lib/scss/1-plugins/mquery' as mq;
 
     .quick-action {
