@@ -36,7 +36,6 @@
         position: fixed;
         right: 0;
         left: 0;
-        // width: 100%;
         
         &-wrap {
             max-width: 1100px;
