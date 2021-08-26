@@ -46,6 +46,6 @@
 
     @include mq.media("<tablet") {
         h2, h1, p { --gap: 0.3; }
-        h1 { font-size: 2.3rem }   
+        h1 { font-size: 2.3rem }
     }
 </style>

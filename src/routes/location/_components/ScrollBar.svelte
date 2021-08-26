@@ -55,6 +55,7 @@
             left: 30%;
             background: $color-green;
             border-radius: 11px;
+            user-select: none;
 
             &:hover { background: rgb(142, 177, 101); }
             &--active, &--active:hover { background: rgb(118, 148, 85); }

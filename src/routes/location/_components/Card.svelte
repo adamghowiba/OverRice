@@ -77,6 +77,7 @@
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: min-content 1fr min-content;
+            height: 100%;
 
             h1, li, a { text-align: left; }
 
@@ -147,7 +148,7 @@
         .heart {
             position: absolute;
             right: 18px;
-            left: 10;
+            top: 10px;
 
             width: 23px;
             height: 23px;

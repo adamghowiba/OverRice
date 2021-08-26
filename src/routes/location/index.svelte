@@ -163,6 +163,10 @@
             border-radius: 11px;
             overflow: hidden;
 
+            &--container::-webkit-scrollbar {
+                display: none;
+            }
+
             
             &--container {
                 display: flex;
