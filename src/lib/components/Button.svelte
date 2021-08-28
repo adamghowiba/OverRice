@@ -1,11 +1,21 @@
 <script lang="ts">
     export let outline: boolean = false
-    export let href = '/'
+    export let href = '/';
+    export let form = false;
 </script>
 
+{#if !form}
 <a {href} class="button" class:button--outlined={outline}>
     <slot/>
 </a>
+{:else}
+
+<button class="button" class:button--outlined={outline}>
+    <slot/>
+</button>
+
+{/if}
+
 
 <style lang="scss">
     @use '../scss/0-helpers/vars' as *;
