@@ -7,6 +7,7 @@
 <h2>{title}</h2>
 <h1>{body}</h1>
 <p>{footer}</p>
+<slot />
 
 <style lang="scss">
     @use '../scss/0-helpers/vars' as *;
@@ -42,6 +43,7 @@
         line-height: 24px;
         letter-spacing: 0.02em;
         color: $color-text;
+        margin-bottom: calc(23px * var(--gap))
     }
 
     @include mq.media("<tablet") {

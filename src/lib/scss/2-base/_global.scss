@@ -29,11 +29,24 @@ html, body {
     position: relative;
     padding-top: $pd-section;
     padding-bottom: $pd-section;
-    overflow-y: hidden;
+    overflow: hidden;
+
+    &__footer {
+        position: relative;
+        top: 4rem;
+        text-align: center;
+    }
     
     &--white {
         background-image: url('/images/background.jpg');
         background-size: cover;
+    }
+
+    &--small {
+        $padding: clamp(1.5em, 5%, 4em);
+
+        padding-top: $padding;
+        padding-bottom: $padding;
     }
 
     &--cta {
@@ -42,7 +55,6 @@ html, body {
 
         padding-top: $padding;
         padding-bottom: $padding;
-        border: 1px solid red;
         color: white;
         text-align: center;
 
@@ -59,4 +71,15 @@ html, body {
     object-fit: cover;
     width: 100%;
     height: 100%;    
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.image-card-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
