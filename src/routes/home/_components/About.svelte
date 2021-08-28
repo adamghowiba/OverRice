@@ -49,13 +49,13 @@
                         id="moving-images-2" 
                         class="moving-images"
                     >
-                        <img class="moving-images__img" src="images/over_rice_chicken_kabab.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_pork_bowl.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_chicken_kabab.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_chicken_kabab.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_pork_bowl.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_chicken_kabab.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_pork_bowl.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
                     </div>
                 </div>
             </div>

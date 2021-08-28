@@ -1,22 +1,22 @@
 <div class="quick-action">
     <div class="container quick-action-wrap">
         <div class="quick-action__block">
-            <img class="quick-action__icon" src="icons/location.svg" alt="Pin Location Icon">
+            <img class="quick-action__icon" src="/icons/location.svg" alt="Pin Location Icon">
             <span class="text text--nav text--bold">Find where we are now</span>
             <span class="text text--nav text--bold hide--mobile">Location</span>
         </div>
         <div class="quick-action__block">
-            <img class="quick-action__icon" src="icons/phone.svg" alt="Green Phone Icon">
+            <img class="quick-action__icon" src="/icons/phone.svg" alt="Green Phone Icon">
             <span class="text text--nav text--bold">(386) 416-9030</span>
             <span class="text text--nav text--bold hide--mobile">Call</span>
         </div>
         <div class="quick-action__block">
-            <img class="quick-action__icon" src="icons/time.svg" alt="Green Clock Icon">
+            <img class="quick-action__icon" src="/icons/time.svg" alt="Green Clock Icon">
             <span class="text text--nav text--bold">9 AM - 5 PM</span>
             <span class="text text--nav text--bold hide--mobile">Hours</span>
         </div>
         <div class="quick-action__block">
-            <img class="quick-action__icon" src="icons/shopping-cart.svg" alt="Green Shopping Cart Icon">
+            <img class="quick-action__icon" src="/icons/shopping-cart.svg" alt="Green Shopping Cart Icon">
             <span class="text text--nav text--bold">Takeout & Catering</span>
             <span class="text text--nav text--bold hide--mobile">Menu</span>
         </div>
