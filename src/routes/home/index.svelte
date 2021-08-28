@@ -80,10 +80,10 @@
         <section class="section section--small">
             <div class="container">
                 <div class="image-card-wrap">
-                    <ImageCard --rotate = "15deg" --url = "url(images/breaded_chicken.jpg)"/>
-                    <ImageCard --rotate = "-15deg" --url = "url(images/over_rice_chicken_kabab.jpg)"/>
-                    <ImageCard --rotate = "15deg" --url = "url(images/about.jpg)"/>
-                    <ImageCard --rotate = "-15deg" --url = "url(images/food_platter.jpg)"/>
+                    <ImageCard --rotate = "15deg" --url = "url(/images/breaded_chicken.jpg)"/>
+                    <ImageCard --rotate = "-15deg" --url = "url(/images/over_rice_chicken_kabab.jpg)"/>
+                    <ImageCard --rotate = "15deg" --url = "url(/images/about.jpg)"/>
+                    <ImageCard --rotate = "-15deg" --url = "url(/images/food_platter.jpg)"/>
                 </div>
             </div>
         </section>
@@ -96,10 +96,6 @@
                         <Button form> Send </Button>
                     </ContactSection>
                     
-                    <div class="contact__map">
-                        
-                    </div>
-        
                 </div>
             </div>
         </section>
