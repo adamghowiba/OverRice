@@ -9,7 +9,7 @@
         <a class="nav__logo" href="https://www.webrevived.com">
             <img 
                 class="logo"
-                src="images/logo_trans.png" 
+                src="/images/logo_trans.png" 
                 alt="OverRice logo of hawaiian woman"
             />
         </a>

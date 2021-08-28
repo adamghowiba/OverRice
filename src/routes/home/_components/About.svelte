@@ -26,13 +26,13 @@
                         id="moving-images-1" 
                         class="moving-images"
                     >
-                        <img class="moving-images__img" src="images/over_rice_chicken_platter.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_lunch_combo.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_lunch_combo.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_chicken_platter.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_lunch_combo.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_chicken_platter.jpg" alt="">
-                        <img class="moving-images__img" src="images/over_rice_lunch_combo.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
+                        <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
                     </div>
                     <div 
                         use:to={{

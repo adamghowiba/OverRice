@@ -4,7 +4,7 @@
 
 <!-- Call To Action  -->
     <section class="section section--cta">
-        <img src="images/food_platter.jpg" alt="" class="background-image">
+        <img src="/images/food_platter.jpg" alt="" class="background-image">
         <div class="overlay"></div>
         
         <div class="container">
