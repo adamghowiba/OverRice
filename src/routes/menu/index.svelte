@@ -1,6 +1,9 @@
 <script>
     import HeroHeader from '$lib/components/HeroHeader.svelte';
     import IntroHeading from '$lib/components/IntroHeading.svelte';
+    import FaqCard from './_components/FAQCard.svelte';
+    import FoodCard from './_components/FoodCard.svelte';
+    import Highlighed from './_components/Highlighed.svelte';
     import Member from './_components/Member.svelte';
 </script>
 
@@ -11,6 +14,87 @@
 />
 
 <main>
+
+    <section class="plates">
+        <div class="plates__container">
+            <div class="plates__heading">
+                <h1>Main Plates</h1>
+                <p>Please let us know if you have any allergies or dietary restrictions prior to ordering!</p>
+            </div>
+    
+            <div class="plates__list">
+                <FoodCard
+                    src = "/images/over_rice_lunch_special.jpg"
+                    title = "Huli Huli Chicken"
+                    sides = "Serves with french fries + drink"
+                    description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken."
+                    price = {12.39}
+                />
+                <FoodCard
+                    src = "/images/over_rice_lunch_combo.jpg"
+                    title = "Kamayan Dinner Platter"
+                    sides = "Serves with french fries + drink"
+                    description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken."
+                    price = {11.29}
+                />
+                <FoodCard
+                    src = "/images/over_rice_chicken_platter.jpg"
+                    title = "Chicken Katsu Platter"
+                    sides = "Serves with french fries + drink"
+                    description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken."
+                    price = {8.36}
+                />
+                <FoodCard
+                    src = "/images/over_rice_chicken_kabab.jpg"
+                    title = "Adobo Bowl Platter"
+                    sides = "Serves with french fries + drink"
+                    description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken."
+                    price = {15.67}
+                />
+            </div>
+        </div>
+
+        <Highlighed 
+            title = "Huli Huli Chicken"
+            sides = "Serves with french fries + drink"
+            description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
+            price = {12.39}
+            --url = "url('/images/over_rice_lunch_special.jpg')"
+        />
+    </section>
+
+    <section class="steps">
+        <div class="steps__heading">
+            <h1>How It Works</h1>
+            <p>
+                With the passion and the inspiration of his years living in Hawaii, later on the idea of OverRice was born.
+            </p>
+        </div>
+
+        <div class="steps__cards">
+            <FaqCard
+                --icon = "url('/icons/work_cursor.svg')"
+                title = "Pick Meals"
+                description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
+            />
+            <FaqCard
+                --icon = "url('/icons/work_coin.svg')"
+                title = "Choose Payments"
+                description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
+            />
+            <FaqCard
+                --icon = "url('/icons/work_location.svg')"
+                title = "Select Address"
+                description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
+            />
+            <FaqCard
+                --icon = "url('/icons/work_delivery.svg')"
+                title = "Fast Delivery"
+                description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
+            />
+        </div>
+    </section>
+
     <section class="team">
         <div>
             <IntroHeading
@@ -53,6 +137,89 @@
     @use '../../lib/scss/0-helpers/vars' as *;
     @use '../../lib/scss/1-plugins/mquery' as mq;
 
+    .plates {
+        position: relative;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        gap: 98px;
+        
+        width: 100%;
+        min-height: 1105px;
+        background: url('/images/background.jpg');
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        
+        h1 { color: $color-heading }
+        p { 
+            color: $color-green; 
+            font-weight: 400;
+            font-size: 1.2rem;
+            width: 490px; 
+            letter-spacing: 0.02em;
+            line-height: 21px;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    .steps {
+        position: relative;
+        width: 100%;
+        min-height: 579px;
+        padding: 60px 0;
+        background: linear-gradient(rgba(black, 0.7), rgba(black, 0.7)), url('/images/WorksBackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        display: grid;
+
+        &__heading {
+            text-align: center;
+            width: 100%;
+            max-width: 430px;
+            
+            justify-self: center;
+            
+            h1 { color: white; }
+            p {
+                font-size: 1rem;
+                font-weight: 400; 
+                line-height: 18px;
+                letter-spacing: 0.02em;
+                color: $color-green;
+                margin: 0 20px;
+            }
+        }
+
+        &__cards {
+            place-self: center;
+            display: flex;
+            gap: 50px;
+
+            @include mq.media("<1200px") {
+                margin-top: 60px;
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @include mq.media("<600px") {
+                display: flex;
+                flex-direction: column;
+            
+            }
+        }
+    }
+
     .team {
         position: relative;
         width: 100%;
@@ -88,6 +255,4 @@
         }
 
     }
-
-
 </style>
