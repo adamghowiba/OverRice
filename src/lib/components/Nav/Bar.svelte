@@ -1,3 +1,21 @@
+<script lang="ts">
+    import NavMenu from './Menu.svelte'
+    import HamBurger from './HamBurger.svelte'
+    import { onMount } from 'svelte';
+    
+    let menu = false
+    const toggleMenu = () => menu = !menu
+
+    const resize = () => {
+        if (window.innerWidth >= 768) menu = false
+    }
+
+    onMount(() => {
+        resize()
+        window.addEventListener('resize', resize)
+    })
+</script>
+
 <nav class="nav">
     <div class="nav-wrap">
         <div class="nav__items nav__items--right">
@@ -20,23 +38,21 @@
             <a class="nav__link" href="/catering">Catering Info</a>
         </div>
 
-        <div id="hamburger">
-            <span class="hamburer__line"></span>
-            <span class="hamburer__line"></span>
-            <span class="hamburer__line"></span>
-        </div>
+        <HamBurger on:click={toggleMenu} show={menu} />
     </div>
+
+    <NavMenu show={menu} />
 </nav>
 
 <style lang="scss">
-    @use '../scss/0-helpers/vars' as *;
-    @use '../scss/1-plugins/mquery' as mq;
+    @use '../../scss/0-helpers/vars' as *;
+    @use '../../scss/1-plugins/mquery' as mq;
 
     .nav {
         position: fixed;
         right: 0;
         left: 0;
-        
+
         &-wrap {
             max-width: 1100px;
             padding: 1.5em 0;
@@ -64,27 +80,22 @@
             text-align: center;
             width: 100%;
             display: flex;
-            justify-content: space-around;
-
-            a {
-                color: white;
-                text-decoration: none;
-                font-size: $fs-nav;
-                padding: 0 $pd-lg;
-                white-space: nowrap;
-            }
-        
+            justify-content: space-around;        
         }
 
-        @include mq.media("<desktop") {
-            &__link {
-                padding-left: 0.6em !important;
-                padding-right: 0.6em !important;
-                color: red;
-            }
+        &__link {
+            color: white;
+            text-decoration: none;
+            font-size: $fs-nav;
+            padding: 0 $pd-lg;
+            white-space: nowrap;
+            padding-left: 0.6em;
+            padding-right: 0.6em;
         }
 
         @include mq.media("<tablet") {
+            z-index: 4;
+
             &__items {
 		    	display: none;
 	    	}
@@ -99,24 +110,6 @@
                 width: 120px;
             }
             
-            #hamburger {
-                display: flex;
-            }
-        }
-    }
-
-    #hamburger {
-        width: 25px;
-        height: 25px;
-        display: none;
-        justify-content: space-between;
-        flex-direction: column;
-        grid-area: 1/4;
-
-        span {
-            width: 100%;
-            height: 3px;
-            background-color: white;
         }
     }
 </style>

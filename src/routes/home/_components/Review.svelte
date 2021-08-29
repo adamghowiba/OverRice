@@ -68,7 +68,6 @@
     position: relative;
     height: 100%;
     padding: clamp(2rem, 6%, 5rem);
-    z-index: 10;
 
             
     background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), var(--review);
