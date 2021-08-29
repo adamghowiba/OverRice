@@ -71,6 +71,7 @@
 
             &__item {
                 margin: 0 $pd-sm;
+                color: inherit;
                 text-decoration: none;
 
                 &:visited { color: inherit; }
