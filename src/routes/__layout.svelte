@@ -1,5 +1,13 @@
 <script>
     import Footer from '$lib/components/Footer.svelte';
+    import { afterUpdate } from 'svelte';
+    import { page } from '$app/stores'
+    import { RouteHistory } from '$lib/stores'
+
+    afterUpdate ( () => {
+        $RouteHistory = { prev: $RouteHistory.curr, curr: $page.path }
+        console.log( $RouteHistory )
+    } )
 </script>
 
 <slot />
