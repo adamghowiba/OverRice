@@ -59,10 +59,18 @@
     } )
 
     
+
+    let opacity = 1
+    let display = 'initial'
+
     // if the list is not mounted (ie list will be null if not mounted)
     $: if (list) {
         $scroll
 
+        
+        opacity = 1 - ($scroll / (list.clientHeight - $scroll))
+        display = opacity <= 0.24 ? 'none' : 'initial'
+        
         list.scrollTo( {
             top: ($scroll / list.clientHeight) * list.scrollHeight
         } )
@@ -100,7 +108,7 @@
                     />
                 {/each}
             </div>
-            <div class="location__list--overlay-fade"></div>
+            <div class="location__list--overlay-fade" style="--opacity: {opacity}; --display: {display}"></div>
         </div>
 
         <ScrollBar --height = "{height}px" />
@@ -183,9 +191,13 @@
             }
 
             &--overlay-fade {
+                opacity: var(--opacity);
+
                 position: absolute;
                 left: 0;
                 bottom: 0;
+
+                display: var(--display);
 
                 background: linear-gradient(
                     rgba(255, 255, 255, 0) 0%, 
