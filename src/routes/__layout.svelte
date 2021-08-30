@@ -6,7 +6,6 @@
 
     afterUpdate ( () => {
         $RouteHistory = { prev: $RouteHistory.curr, curr: $page.path }
-        console.log( $RouteHistory )
     } )
 </script>
 
