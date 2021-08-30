@@ -79,7 +79,6 @@
 
 <HeroHeader 
     header = 'Our Location'
-    breadcrumbs = "Home > Location"
     quote = "OverRice is a Food Truck. Using the given calender you can find us"
     --url = "url('/images/location.jpg')"
     --bg-pos = "0 51%"

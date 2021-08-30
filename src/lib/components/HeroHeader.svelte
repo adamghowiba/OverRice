@@ -1,15 +1,21 @@
 <script lang="ts">
     import Header from '$lib/components/Header.svelte'
-    
+    import { RouteHistory } from '$lib/stores'
+
     export let header: string
-    export let breadcrumbs: string
     export let quote: string
 </script>
 
 <Header>
     <div class="hero">
         <h1 class="hero__header">{header}</h1>
-        <p class="hero__breadcrumbs">{breadcrumbs}</p>
+        <div class="hero__breadcrumbs">
+            {#if $RouteHistory.prev != null && $RouteHistory.curr != null}
+                <a href={$RouteHistory.prev}>{$RouteHistory.prev.substring(1, $RouteHistory.prev.length)}</a>
+                >
+                <a href={$RouteHistory.curr}>{$RouteHistory.curr.substring(1, $RouteHistory.curr.length)}</a>
+            {/if}
+        </div>
         <p class="hero__quote">{quote}</p>
     </div>
 </Header>
@@ -49,6 +55,14 @@
             font-weight: normal; 
             color: $color-green;
             height: min-content;
+
+            a { 
+                color: inherit;
+                text-decoration: none;
+                text-transform: capitalize;
+                
+                &:visited { color: inherit; }
+            }
         }
         
         &__quote {
