@@ -1,6 +1,6 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
-    import { to } from '$lib/actions/gsap.ts'
+    import { to } from '$lib/actions/gsap'
 
     const onMoveImages = (direction) => {
         let gsapConfig = {
