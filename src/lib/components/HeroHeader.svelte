@@ -3,7 +3,6 @@
     import { RouteHistory } from '$lib/stores'
 
     export let header: string
-    export let breadcrumbs: string
     export let quote: string
 </script>
 
