@@ -31,6 +31,7 @@
         color: $color-white;
         font-size: $fs-button;
         text-decoration: none;
+        cursor: pointer;
     
         border: 2px solid $color-green;
 
