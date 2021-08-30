@@ -10,6 +10,12 @@
     } )
 </script>
 
+<svelte:head>
+	<title>Over Rice Food Truck</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ofn2ttu.css">
+	<html lang="en" />
+</svelte:head>
+
 <slot />
 <Footer />
 

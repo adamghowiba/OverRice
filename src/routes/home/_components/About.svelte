@@ -1,6 +1,28 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
     import { to } from '$lib/actions/gsap.ts'
+
+    const onMoveImages = (direction) => {
+        let gsapConfig = {
+            yPercent: direction == 'up' ? "-=100" : "+=100",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#moving-images-section",
+                start: "top center",
+                end: "+=150%",
+                scrub: 1,
+            },
+            duration: 1,
+        }
+
+        // Remove Y percent on mobile
+        if (window.innerWidth <= 768) {
+            delete gsapConfig['yPercent'];
+            gsapConfig['xPercent'] = direction == 'up' ? "-=200" : "+=200";
+        }
+
+       return gsapConfig;
+    }
 </script>
 
 <section id="moving-images-section" class="section section--white">
@@ -9,22 +31,12 @@
         <!-- Column Wrapper -->
         <div class="flex">
             <!-- First Columns (Images) -->
-            <div class="flex__col">
+            <div class="flex__col flex__col--images">
                 <div class="moving-images-wrap">
                     <div 
-                        use:to={{
-                            yPercent: "-=100",
-                            ease: "none",
-                            scrollTrigger: {
-                              trigger: "#moving-images-section",
-                              start: "top center",
-                              end: "+=150%",
-                              scrub: 1,
-                            },
-                            duration: 1,
-                        }}
                         id="moving-images-1" 
                         class="moving-images"
+                        use:to={onMoveImages("up")}
                     >
                         <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
                         <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
@@ -35,19 +47,9 @@
                         <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
                     </div>
                     <div 
-                        use:to={{
-                            yPercent: "+=100",
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: "#moving-images-section",
-                                start: "top center",
-                                end: "bottom top",
-                                scrub: 1
-                            },
-                            duration: 1,
-                        }}
                         id="moving-images-2" 
                         class="moving-images"
+                        use:to={onMoveImages("down")}
                     >
                         <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
                         <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
@@ -78,20 +80,23 @@
 <style lang="scss">
     @use '../../../lib/scss/0-helpers/vars' as *;
     @use '../../../lib/scss/0-helpers/mixins' as mix;
+    @use '../../../lib/scss/1-plugins/mquery' as mq;
 
     .flex {
         display: flex;
+        gap: 1rem;
 
         &__col {
-            padding: 0 $pd-lg;
             width: 50%;
+        }
+        &__col--images {
+            width: 65%;
         }
     }
 
     .moving-images {
         &-wrap {
             display: flex;
-            position: relative;
             width: 50%;
             position: absolute;
 
@@ -102,7 +107,8 @@
             border-radius: $br-picture;
             margin-bottom: 1.5em;
             
-            width:  170px;
+            max-width: 280px;
+            width: 100%;
             height: 200px;
             
             object-fit: cover;
@@ -119,4 +125,38 @@
         transform: translateY(-80%);
         right: 0;
     }
+
+    @include mq.media('<tablet') {
+        .flex {
+            flex-direction: column;
+        }
+        .flex__col {
+            width: 100%;
+        }
+        .moving-images {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+
+            &__img {
+                min-width: 150px;
+                min-height: 150px;
+                width: 150px;
+                height: 150px;
+                
+                margin: 0;
+            }
+        }
+        .moving-images-wrap {
+            flex-direction: column;
+            margin-bottom: $pd-md;
+            position: relative;
+        }
+        #moving-images-2 {
+            transform: translateX(-100px);
+            border: 1px solid red;
+        }
+    }
+
+
 </style>

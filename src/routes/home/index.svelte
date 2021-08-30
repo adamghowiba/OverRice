@@ -60,7 +60,7 @@
     <!-- About Section -->
     <About />
 
-    <section class="section section--white">
+    <section class="section--white">
 
         <!-- Review Slider Section -->
         <Review --review='url(/images/food_platter.jpg)'/>

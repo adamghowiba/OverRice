@@ -2,7 +2,6 @@
 </script>
 
 <!-- Review Section -->
-<section class="section section--small">
     <div class="review-wrap">
         <!-- <img class="review__image" src="{image}" alt="Chicken kabab"/> -->
         
@@ -19,7 +18,6 @@
         </div>
     
     </div>
-</section>
 
 <style lang="scss">
     @use '../../../lib/scss/0-helpers/vars' as *;

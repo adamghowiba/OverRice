@@ -43,7 +43,7 @@ html, body {
     }
 
     &--small {
-        $padding: clamp(1.5em, 5%, 4em);
+        $padding: clamp(2em, 5%, 4em);
 
         padding-top: $padding;
         padding-bottom: $padding;
