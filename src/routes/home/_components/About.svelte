@@ -1,28 +1,27 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
     import { to } from '$lib/actions/gsap'
+    import { onMount } from "svelte";
 
-    const onMoveImages = (direction) => {
-        let gsapConfig = {
-            yPercent: direction == 'up' ? "-=100" : "+=100",
-            ease: "none",
-            scrollTrigger: {
-                trigger: "#moving-images-section",
-                start: "top center",
-                end: "+=150%",
-                scrub: 1,
-            },
-            duration: 1,
-        }
-
-        // Remove Y percent on mobile
-        if (window.innerWidth <= 768) {
-            delete gsapConfig['yPercent'];
-            gsapConfig['xPercent'] = direction == 'up' ? "-=200" : "+=200";
-        }
-
-       return gsapConfig;
+    let gsapConfig = {
+        ease: "none",
+        scrollTrigger: {
+            trigger: "#moving-images-section",
+            start: "top center",
+            end: "+=150%",
+            scrub: 1,
+        },
+        duration: 1,
     }
+
+    let width: null | number;
+    onMount( () => {
+        width = window.innerWidth
+        window.addEventListener('resize', () => {
+            width = window.innerWidth
+        } )
+    } )
+
 </script>
 
 <section id="moving-images-section" class="section section--white">
@@ -32,34 +31,36 @@
         <div class="flex">
             <!-- First Columns (Images) -->
             <div class="flex__col flex__col--images">
-                <div class="moving-images-wrap">
-                    <div 
-                        id="moving-images-1" 
-                        class="moving-images"
-                        use:to={onMoveImages("up")}
-                    >
-                        <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
+                {#key width > 768}                    
+                    <div class="moving-images-wrap">
+                        <div 
+                            id="moving-images-1" 
+                            class="moving-images"
+                            use:to={ width > 768 ? { ...gsapConfig, yPercent: "-=100" } : { ...gsapConfig, xPercent: "-=200" } }
+                        >
+                            <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
+                        </div>
+                        <div 
+                            id="moving-images-2" 
+                            class="moving-images"
+                            use:to={ width > 768 ? { ...gsapConfig, yPercent: "+=100" } : { ...gsapConfig, xPercent: "+=200" } }
+                        >
+                            <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
+                            <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
+                        </div>
                     </div>
-                    <div 
-                        id="moving-images-2" 
-                        class="moving-images"
-                        use:to={onMoveImages("down")}
-                    >
-                        <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
-                        <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
-                    </div>
-                </div>
+                {/key}
             </div>
 
             <!-- Second Column (Text) -->
@@ -154,7 +155,6 @@
         }
         #moving-images-2 {
             transform: translateX(-100px);
-            border: 1px solid red;
         }
     }
 

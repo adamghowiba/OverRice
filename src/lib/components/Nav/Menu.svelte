@@ -10,7 +10,7 @@
 
 {#if show}
     <div 
-        transition:fly = {{ x: 400, duration: durations.container }} 
+        transition:fly|local = {{ x: 400, duration: durations.container }} 
         class="nav__menu"
     >
         <a in:fade = {{ delay: durations.a * 1,   duration: durations.a }} class="nav__menu__item" href="/home">Home</a>

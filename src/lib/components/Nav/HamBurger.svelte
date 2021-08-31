@@ -8,7 +8,7 @@
     <span class="hamburger__line" class:hamburger__line--active={show}></span>
     <span class="hamburger__line" class:hamburger__line--active={show}></span>
     {#if !show}
-        <span transition:fly={{ x: -25 }} class="hamburger__line"></span>
+        <span transition:fly|local={{ x: -25 }} class="hamburger__line"></span>
     {/if}
 </button>
 
