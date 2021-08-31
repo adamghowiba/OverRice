@@ -6,9 +6,13 @@
 
     afterUpdate ( () => {
         $RouteHistory = { prev: $RouteHistory.curr, curr: $page.path }
-        console.log( $RouteHistory )
     } )
 </script>
+
+<svelte:head>
+	<title>Over Rice Food Truck</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ofn2ttu.css">
+</svelte:head>
 
 <slot />
 <Footer />

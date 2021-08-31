@@ -60,7 +60,7 @@
     <!-- About Section -->
     <About />
 
-    <section class="section section--white">
+    <section class="open__hours section--white">
 
         <!-- Review Slider Section -->
         <Review --review='url(/images/food_platter.jpg)'/>
@@ -142,5 +142,7 @@
         }
 
     }
+
+    .open__hours { position: relative; }
 
 </style>

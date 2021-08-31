@@ -20,6 +20,7 @@
   },
   "type": "module",
   "dependencies": {
+    "gsap": "^3.7.1",
     "leaflet": "^1.7.1",
     "svelte-motion": "^0.11.2"
   }
