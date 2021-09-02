@@ -1,10 +1,30 @@
-<script>
+<script lang="ts">
+    import BottomBar from '$lib/components/Bottom/Bar.svelte';
+    import BottomBarItem from '$lib/components/Bottom/Item.svelte'
     import HeroHeader from '$lib/components/HeroHeader.svelte';
     import IntroHeading from '$lib/components/IntroHeading.svelte';
     import FaqCard from './_components/FAQCard.svelte';
     import FoodCard from './_components/FoodCard.svelte';
+    import LunchCard from './_components/LunchCard.svelte';
     import Highlighed from './_components/Highlighed.svelte';
     import Member from './_components/Member.svelte';
+    import Food from '$lib/foods'
+
+    let selectedMenu: "Mains" | "Sides" | "Pupus" = "Mains"
+    let menu: BaseFood[] = Food[selectedMenu]
+    $: menu = Food[selectedMenu]
+
+    let selected = menu[0];
+    let _selected = selected // this is purpley so we can remain the previous selected for highlights
+    $: highlight = selected != null ? selected : _selected
+    const select = (order: BaseFood) => () => {
+        _selected = selected
+        if (selected?.title === order.title) {
+            selected = null
+        } else {
+            selected = order
+        }
+    }
 </script>
 
 <HeroHeader 
@@ -14,52 +34,41 @@
 />
 
 <main>
-
     <section class="plates">
         <div class="plates__container">
             <div class="plates__heading">
-                <h1>Main Plates</h1>
+                <h1>
+                    {selectedMenu}
+                </h1>
                 <p>Please let us know if you have any allergies or dietary restrictions prior to ordering!</p>
             </div>
     
             <div class="plates__list">
-                <FoodCard
-                    src = "/images/over_rice_lunch_special.jpg"
-                    title = "Huli Huli Chicken"
-                    sides = "Serves with french fries + drink"
-                    description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken."
-                    price = {12.39}
-                />
-                <FoodCard
-                    src = "/images/over_rice_lunch_combo.jpg"
-                    title = "Kamayan Dinner Platter"
-                    sides = "Serves with french fries + drink"
-                    description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken."
-                    price = {11.29}
-                />
-                <FoodCard
-                    src = "/images/over_rice_chicken_platter.jpg"
-                    title = "Chicken Katsu Platter"
-                    sides = "Serves with french fries + drink"
-                    description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken."
-                    price = {8.36}
-                />
-                <FoodCard
-                    src = "/images/over_rice_chicken_kabab.jpg"
-                    title = "Adobo Bowl Platter"
-                    sides = "Serves with french fries + drink"
-                    description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken."
-                    price = {15.67}
-                />
+                {#each menu as food}
+                    {#if selectedMenu === "Mains"}
+                        <LunchCard
+                            {...food}
+                            selected = {selected?.title === food.title}
+                            --icon-url = { selected?.title === food.title ? "url('/icons/plates_open.svg')" : "url('/icons/plates_close.svg')" }
+                            on:click = {select(food)}
+                        />
+                    {:else}
+                        <FoodCard
+                            {...food}
+                            selected = {selected?.title === food.title}
+                            on:click = {select(food)}
+                        />
+                    {/if}
+                {/each}
             </div>
         </div>
 
         <Highlighed 
-            title = "Huli Huli Chicken"
-            sides = "Serves with french fries + drink"
+            title = {highlight.title}
+            sides = {highlight.sides}
             description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-            price = {12.39}
-            --url = "url('/images/over_rice_lunch_special.jpg')"
+            price = {highlight.price}
+            --url = "url('{highlight.src}')"
         />
     </section>
 
@@ -133,16 +142,41 @@
     </section>
 </main>
 
+<BottomBar>
+    <BottomBarItem
+        --cursor="pointer"
+        src = "/icons/Lunch.svg"
+        content = "Main Lunch Plates"
+        prefix = "Mains"
+        on:click = { () => selectedMenu = "Mains" }
+    />
+    <BottomBarItem 
+        --cursor="pointer"
+        src = "/icons/Pupus.svg"
+        content = "Pupus"
+        prefix = "Pupus"
+        on:click = { () => selectedMenu = "Pupus" }
+    />
+    <BottomBarItem 
+        --cursor="pointer"
+        src = "/icons/Sides.svg"
+        content = "Sides"
+        prefix = "Sides"
+        on:click = { () => selectedMenu = "Sides" }
+    />
+</BottomBar>    
+
 <style lang="scss">
     @use '../../lib/scss/0-helpers/vars' as *;
     @use '../../lib/scss/1-plugins/mquery' as mq;
 
     .plates {
         position: relative;
-        display: flex;
-        place-content: center;
-        place-items: center;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: min-content 1fr;
         gap: 98px;
+        padding: 85px 0 0 13.5vw;
         
         width: 100%;
         min-height: 1105px;

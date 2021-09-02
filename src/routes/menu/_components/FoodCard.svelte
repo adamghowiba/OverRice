@@ -10,7 +10,7 @@
 </script>
 
 
-<button class="card" class:card--active={selected}>
+<button on:click class="card" class:card--active={selected}>
     <img {src} alt={title} />
 
     <h1 class="card__title">{title}</h1>
@@ -32,6 +32,7 @@
         min-width: 300px;
         max-width: 480px;
         height: 142px;
+
         padding: 0;
         margin: 0;
         overflow: hidden;
@@ -39,6 +40,10 @@
         border-radius: 11px;
         border: none;
         text-align: left;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content 1fr;
 
         position: relative;
         display: grid;
@@ -109,12 +114,12 @@
             text-indent: -9999px;
 
             position: absolute;
-            bottom: 10px;
+            top: 100px;
             right: 22px;
 
             width: 32px;
             height: 32px;
-            background: $color-green url('/icons/cart.svg') no-repeat 45% 50%;
+            background: $color-green var(--icon-url, url('/icons/cart.svg')) no-repeat 50% 50%;
             border-radius: 50%;
         }
     }
