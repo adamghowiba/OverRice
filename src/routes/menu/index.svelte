@@ -12,6 +12,7 @@
 
     let selectedMenu: "Mains" | "Sides" | "Pupus" = "Mains"
     let menu: BaseFood[] = Food[selectedMenu]
+    $: ItemComponent = selectedMenu === "Mains" ? LunchCard : FoodCard 
     $: menu = Food[selectedMenu]
 
     let selected = menu[0];
@@ -45,20 +46,14 @@
     
             <div class="plates__list">
                 {#each menu as food}
-                    {#if selectedMenu === "Mains"}
-                        <LunchCard
+                    <div style="display: contents; --icon-url: {selectedMenu != "Mains" ? null : selected?.title === food.title ? "url('/icons/plates_open.svg')" : "url('/icons/plates_close.svg')" };">
+                        <svelte:component
                             {...food}
-                            selected = {selected?.title === food.title}
-                            --icon-url = { selected?.title === food.title ? "url('/icons/plates_open.svg')" : "url('/icons/plates_close.svg')" }
-                            on:click = {select(food)}
-                        />
-                    {:else}
-                        <FoodCard
-                            {...food}
+                            this = {ItemComponent}
                             selected = {selected?.title === food.title}
                             on:click = {select(food)}
                         />
-                    {/if}
+                    </div>
                 {/each}
             </div>
         </div>

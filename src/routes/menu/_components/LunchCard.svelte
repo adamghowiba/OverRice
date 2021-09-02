@@ -69,7 +69,6 @@
 </button>
     
 <style lang="scss">
-
     @use '../../../lib/scss/0-helpers/vars' as *;
 
     .card {
