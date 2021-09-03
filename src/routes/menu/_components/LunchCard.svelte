@@ -35,7 +35,7 @@
         <p class="card__description">{description}</p>
         <p class="card__pricing">${price}</p>
     
-        <button class="card__cart">
+        <button class="card__action">
             Find more
         </button>
     </div>
@@ -70,13 +70,12 @@
     
 <style lang="scss">
     @use '../../../lib/scss/0-helpers/vars' as *;
+    @use '../../../lib/scss/1-plugins/mquery' as mq;
 
     .card {
-        width: 100vw;
-        min-width: 300px;
-        max-width: 480px;
-        --min-height: 140px;
-        --max-height: 419px;
+        width: 480px;
+        --min-height: 142px;
+        --max-height: 430px;
         --height: var(--min-height);
         height: var(--height);
         transition: height 0.2s ease-in-out;
@@ -91,7 +90,7 @@
 
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: min-content 1fr;
+        grid-template-rows: var(--min-height) 1fr;
 
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
             
@@ -105,7 +104,7 @@
             position: relative;
             display: grid;
             grid-template-columns: 117px 1fr;
-            grid-template-rows: repeat(4, min-content);
+            grid-template-rows: repeat(4, max-content);
             gap: 0 24px;
             grid-template-areas: 
                 "img title"
@@ -178,13 +177,13 @@
         img {
             grid-area: img;
             width: 100%;  
-            height: 100%; 
+            height: var(--min-height); 
             object-fit: cover;
         }
 
         &__title {
             font-family: 'Le Havre Bold';
-            margin-top: 14px;
+            transform: translateY(14px);
             grid-area: title; 
             font-weight: 700;
             font-size: 1.3rem;
@@ -195,28 +194,27 @@
         
         &__sides { 
             grid-area: sides;
-            margin-top: 4px;
+            transform: translateY(4px);
             font-weight: 400;
             font-size: .75rem;
             line-height: 15px;
             color: $color-text;
+            width: 80%;
         }
         
         &__description { 
             grid-area: description;
-            margin-top: 10px;
-            width: 75%;
+            transform: translateY(0px);
+            width: 80%;
             font-weight: 400;
             font-size: 1rem;
             line-height: 18px;
             color: $color-heading;
-            white-space: nowrap;
         }
         
         &__pricing { 
             grid-area: pricing;
-            margin-top: 8px;
-            margin-bottom: 14px;
+            transform: translateY(0px);
             font-family: 'Le Havre Bold';
             font-size: .75rem;
             font-weight: 700;
@@ -224,7 +222,7 @@
             color: $color-red;
         }
 
-        &__cart {
+        &__action {
              // this is to hide they text, that i placed for accesability reason only
             text-indent: -9999px;
 
@@ -239,6 +237,36 @@
             border: none;
 
             cursor: pointer;
+        }
+
+        @include mq.media ("<530px") {
+            width: 320px;
+            --min-height: 130px;
+            padding: 0;
+
+
+            &__head {
+                gap: 0 10px;
+                grid-template-columns: 80px 1fr;
+
+
+                grid-template-areas: 
+                    "img title"
+                    "img description"
+                    "img pricing";
+            }
+
+            &__description {
+                transform: translateY(3px);
+            }
+
+            &__sides {
+                display: none;
+            }
+
+            &__action {
+                top: 90px;
+            }
         }
     }
 </style>

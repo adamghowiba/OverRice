@@ -26,6 +26,7 @@
 
 <style lang="scss">
     @use '../../../lib/scss/0-helpers/vars' as *;
+    @use '../../../lib/scss/1-plugins/mquery' as mq;
 
     .highlight {
         position: relative;
@@ -38,6 +39,9 @@
             rgba(0, 0, 0, 0.48) 47.92%,
             rgba(0, 0, 0, 0) 100%
         ), var(--url);
+
+        @include mq.media ("<1230px") { display: none; }
+
 
         &__container {
             position: absolute;

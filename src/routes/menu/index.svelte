@@ -35,6 +35,30 @@
 />
 
 <main>
+    <section class="plates__nav">
+        <BottomBarItem
+            --cursor="pointer"
+            src = "/icons/Lunch.svg"
+            content = "Main Lunch Plates"
+            prefix = "Mains"
+            on:click = { () => selectedMenu = "Mains" }
+        />
+        <BottomBarItem 
+            --cursor="pointer"
+            src = "/icons/Pupus.svg"
+            content = "Pupus"
+            prefix = "Pupus"
+            on:click = { () => selectedMenu = "Pupus" }
+        />
+        <BottomBarItem 
+            --cursor="pointer"
+            src = "/icons/Sides.svg"
+            content = "Sides"
+            prefix = "Sides"
+            on:click = { () => selectedMenu = "Sides" }
+        />
+    </section>
+
     <section class="plates">
         <div class="plates__container">
             <div class="plates__heading">
@@ -135,35 +159,27 @@
             />
         </div>
     </section>
-</main>
-
-<BottomBar>
-    <BottomBarItem
-        --cursor="pointer"
-        src = "/icons/Lunch.svg"
-        content = "Main Lunch Plates"
-        prefix = "Mains"
-        on:click = { () => selectedMenu = "Mains" }
-    />
-    <BottomBarItem 
-        --cursor="pointer"
-        src = "/icons/Pupus.svg"
-        content = "Pupus"
-        prefix = "Pupus"
-        on:click = { () => selectedMenu = "Pupus" }
-    />
-    <BottomBarItem 
-        --cursor="pointer"
-        src = "/icons/Sides.svg"
-        content = "Sides"
-        prefix = "Sides"
-        on:click = { () => selectedMenu = "Sides" }
-    />
-</BottomBar>    
+</main>   
 
 <style lang="scss">
     @use '../../lib/scss/0-helpers/vars' as *;
     @use '../../lib/scss/1-plugins/mquery' as mq;
+    @use '../../lib/scss/1-plugins/responsive' as res;
+
+    .plates__nav {
+        position: relative;
+        width: 100%;
+        height: 72px;
+        background: black;
+        padding: 0 22vw;
+        @include mq.media("<phone") { padding: 0 2em; }
+        
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        
+        @include res.interpolate(font-size, 320px, 1440px, $fs-nav - 6, $fs-nav);
+    }
 
     .plates {
         position: relative;
@@ -173,6 +189,11 @@
         gap: 98px;
         padding: 85px 0 0 13.5vw;
         
+        @include mq.media("<1440px") {
+            padding: 60px 3em 0 3em;
+            gap: 30px;
+        }
+
         width: 100%;
         min-height: 1105px;
         background: url('/images/background.jpg');
@@ -183,20 +204,35 @@
             gap: 50px;
         }
         
-        h1 { color: $color-heading }
-        p { 
-            color: $color-green; 
-            font-weight: 400;
-            font-size: 1.2rem;
-            width: 490px; 
-            letter-spacing: 0.02em;
-            line-height: 21px;
+        &__heading {
+            width: 490px;
+            h1 { color: $color-heading }
+            p { 
+                color: $color-green; 
+                font-weight: 400;
+                font-size: 1.2rem;
+                letter-spacing: 0.02em;
+                line-height: 21px;
+            }
         }
+
 
         &__list {
             display: flex;
             flex-direction: column;
             gap: 40px;
+        }
+
+        @include mq.media("<1230px") {
+            padding-top: 30px;
+            grid-template: 1fr / 1fr;
+            justify-items: center;
+
+            &__heading {
+                width: 360px; 
+                h1, p { text-align: center; }
+                place-self: center;
+            }
         }
     }
 
