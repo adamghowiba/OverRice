@@ -1,4 +1,5 @@
 <script lang="ts">
+    export let href = "/"
     export let duelprice: number = 2;
     export let includes: string[] = []
     export let meats: Meats[] = [
@@ -42,6 +43,8 @@
             {/each}
         </ul>
     </div>
+
+    <a class="card__description__action" {href}>Order now</a>
 </div>
 
 <style lang="scss">
@@ -49,6 +52,7 @@
     @use '../../../lib/scss/1-plugins/mquery' as mq;
     
     .card__description {
+        position: relative;
         padding: 20px 40px;
         text-align: left;
 
@@ -107,6 +111,25 @@
 
                 span { color: $color-red; }
             }
+        }
+
+        &__action {
+            display: none;
+            position: absolute;
+            right: 30px;
+            bottom: 25px;
+            
+            color: white;
+            text-decoration: none;
+            background: $color-green;
+            
+            padding: 5px 16px;
+            border-radius: 5px;
+
+            font-size: .75rem;
+            
+            @include mq.media("<1100px") { display: inline; }
+            @include mq.media("<400px") { top: 25px; bottom: inherit; }
         }
     }
 

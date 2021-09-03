@@ -32,12 +32,14 @@
             <p class="plate__item__head__description">{description}</p>
             <p class="plate__item__head__price">${priceFixed}</p>
 
-            <button class="plate__item__head__action" />
+            <button class="plate__item__head__action">
+                <slot name="head_action" />
+            </button>
         </div>
     </div>
 
     <div class="plate__item__body--wrapper" bind:this={bodyWrapper}>
-        <slot />
+        <slot name="body" />
     </div>
 </button>
 
@@ -128,6 +130,9 @@
             }
 
             &__action {
+                display: grid;
+                place-content: center;
+
                 position: absolute;
                 bottom: 10px;
                 right: 10px;
@@ -140,7 +145,7 @@
                 border: none;
                 cursor: pointer;
 
-                background: $color-green var(--action-bg-url, url('/icons/cart.svg')) no-repeat center;
+                background: $color-green;
             }
         }
 

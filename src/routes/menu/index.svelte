@@ -73,9 +73,17 @@
                             active = { food.title === selected?.title }
                             on:click = { select(food) }
                         >
-                            {#if selectedMenu === "Mains"}
-                                <CardDescription includes = { food?.includes } />
-                            {/if}
+                            <img 
+                                slot = "head_action" 
+                                src = {selectedMenu != "Mains" ? '/icons/cart.svg' : selected?.title === food.title ? '/icons/plates_open.svg' : '/icons/plates_close.svg'} 
+                                alt = ""
+                            />    
+
+                            <div slot="body">
+                                {#if selectedMenu === "Mains"}
+                                    <CardDescription includes = { food?.includes } />
+                                {/if}
+                            </div>
                         </Card>
                 {/each}
             </div>
