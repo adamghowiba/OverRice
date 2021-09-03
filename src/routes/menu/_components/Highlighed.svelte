@@ -7,6 +7,8 @@
     export let sides: string;
     export let description: string;
     export let price: number;
+
+    $: _price = price.toFixed(2) 
 </script>
 
 <div class="highlight">
@@ -21,7 +23,7 @@
         </div>
     </div>
 
-    <p class="highlight__price">${price}</p>
+    <p class="highlight__price">${_price}</p>
 </div>
 
 <style lang="scss">
@@ -30,7 +32,13 @@
 
     .highlight {
         position: relative;
-        width: 655px;
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 41px 65px;
+        color: white;
+      
+        min-width: 500px;
+        max-width: 655px;
         height: 790px;
         border-radius: 11px;
         background: linear-gradient(
@@ -39,16 +47,14 @@
             rgba(0, 0, 0, 0.48) 47.92%,
             rgba(0, 0, 0, 0) 100%
         ), var(--url);
+        
 
-        @include mq.media ("<1230px") { display: none; }
+        @include mq.media ("<1230px") { 
+            padding: 41px 35px;
+        }
 
-
-        &__container {
-            position: absolute;
-            bottom: 41px;
-            left: 65px;
-
-            color: white;
+        @include mq.media("<1100px") {
+            display: none;
         }
 
         &__title {
@@ -72,7 +78,6 @@
             font-size: 1.3rem;
             font-weight: 400;
             line-height: 27px;
-            width: 45ch;
             margin-bottom: 27px;
         }
 

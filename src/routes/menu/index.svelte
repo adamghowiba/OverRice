@@ -1,18 +1,16 @@
 <script lang="ts">
-    import BottomBar from '$lib/components/Bottom/Bar.svelte';
     import BottomBarItem from '$lib/components/Bottom/Item.svelte'
     import HeroHeader from '$lib/components/HeroHeader.svelte';
     import IntroHeading from '$lib/components/IntroHeading.svelte';
     import FaqCard from './_components/FAQCard.svelte';
-    import FoodCard from './_components/FoodCard.svelte';
-    import LunchCard from './_components/LunchCard.svelte';
     import Highlighed from './_components/Highlighed.svelte';
     import Member from './_components/Member.svelte';
     import Food from '$lib/foods'
+    import Card from './_components/Card.svelte'
+    import CardDescription from './_components/CardDescription.svelte'
 
     let selectedMenu: "Mains" | "Sides" | "Pupus" = "Mains"
-    let menu: BaseFood[] = Food[selectedMenu]
-    $: ItemComponent = selectedMenu === "Mains" ? LunchCard : FoodCard 
+    let menu: Mains[] | BaseFood[] = Food[selectedMenu]
     $: menu = Food[selectedMenu]
 
     let selected = menu[0];
@@ -70,14 +68,15 @@
     
             <div class="plates__list">
                 {#each menu as food}
-                    <div style="display: contents; --icon-url: {selectedMenu != "Mains" ? null : selected?.title === food.title ? "url('/icons/plates_open.svg')" : "url('/icons/plates_close.svg')" };">
-                        <svelte:component
-                            {...food}
-                            this = {ItemComponent}
-                            selected = {selected?.title === food.title}
-                            on:click = {select(food)}
-                        />
-                    </div>
+                        <Card 
+                            { ...food }
+                            active = { food.title === selected?.title }
+                            on:click = { select(food) }
+                        >
+                            {#if selectedMenu === "Mains"}
+                                <CardDescription includes = { food?.includes } />
+                            {/if}
+                        </Card>
                 {/each}
             </div>
         </div>
@@ -189,6 +188,8 @@
         gap: 98px;
         padding: 85px 0 0 13.5vw;
         
+        transition: padding 0.2s ease-in-out, margin 0.2s ease-in-out;
+
         @include mq.media("<1440px") {
             padding: 60px 3em 0 3em;
             gap: 30px;
@@ -199,13 +200,14 @@
         background: url('/images/background.jpg');
 
         &__container {
+            min-width: 500px;
             display: flex;
             flex-direction: column;
             gap: 50px;
         }
         
         &__heading {
-            width: 490px;
+            max-width: 490px;
             h1 { color: $color-heading }
             p { 
                 color: $color-green; 
@@ -223,13 +225,16 @@
             gap: 40px;
         }
 
-        @include mq.media("<1230px") {
-            padding-top: 30px;
+        @include mq.media("<1100px") {
+            padding: 30px 1em;
             grid-template: 1fr / 1fr;
             justify-items: center;
 
+            &__container {
+                min-width: 0;
+            }
+
             &__heading {
-                width: 360px; 
                 h1, p { text-align: center; }
                 place-self: center;
             }
