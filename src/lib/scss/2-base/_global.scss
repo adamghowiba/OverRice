@@ -48,7 +48,7 @@ html, body {
     }
 
     &--cta {
-        $padding: clamp(1.5em, 5%, 4em);
+        $padding: clamp(4em, 8%, 6em);
         // $padding: 2em;
 
         padding-top: $padding;
@@ -56,9 +56,6 @@ html, body {
         color: white;
         text-align: center;
 
-        h2 {
-            margin-bottom: $pd-sm;
-        }
     }
 }
 

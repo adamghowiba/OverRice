@@ -42,6 +42,8 @@
         
         &__button-wrap {
             height: max-content;
+            display: flex;
+            gap: 20px;
         }
 
         &__button-wrap :global(.button:nth-child(1)) {
@@ -65,6 +67,7 @@
 
         @include mq.media("<tablet") {
             padding: 0 1em;
+
         }
 
         @include mq.media("<phone") {

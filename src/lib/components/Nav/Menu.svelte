@@ -55,23 +55,6 @@
             color: white;
             text-decoration: none;
             &:visited { color: white; }
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -10%;
-                left: 50%;
-                
-                width: 100%;
-                height: 2px;
-                background: white;
-                
-                transform: translateX(-50%) scaleX(var(--scale-x));
-                transition: transform 0.2s ease-in-out;
-            }
-
-            --scale-x: 0%;
-            &:hover { --scale-x: 100%; }
         }
     }
 </style>
