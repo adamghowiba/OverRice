@@ -5,7 +5,6 @@
   import IntroHeading from "$lib/components/IntroHeading.svelte";
   import { onMount } from "svelte";
   import ContactInfo from "./_components/ContactInfo.svelte";
-  import {gsap} from 'gsap';
 
   let input: string | null = null;
   let email: string | null = null;

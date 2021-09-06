@@ -121,18 +121,24 @@
   <BottomBarItem
     src="/icons/location.svg"
     content="Find where we are now"
+    --cursor="pointer"
     prefix="Location"
-  />
-  <BottomBarItem
+    href="/location"
+    />
+    <BottomBarItem
     src="/icons/phone.svg"
     content="(386) 416-9030"
+    --cursor="pointer"
     prefix="Call"
+    href="tel: 3864169030"
   />
-  <BottomBarItem src="/icons/time.svg" content="9 AM - 5 PM" prefix="Hours" />
+  <BottomBarItem src="/icons/time.svg" content="9 AM - 5 PM" prefix="Hours" href="/contact" />
   <BottomBarItem
     src="/icons/shopping-cart.svg"
-    content="Takeout & Catering"
+    content="Menu"
+    --cursor="pointer"
     prefix="Menu"
+    href="/menu"
   />
 </BottomBar>
 

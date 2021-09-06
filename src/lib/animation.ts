@@ -1,10 +1,4 @@
-/* This is the might animation library created by the mighty Adam.
-   Cheers.
-*/
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 // function textScrollUp() {
 // gsap.
@@ -43,21 +37,9 @@ gsap.registerPlugin(ScrollTrigger);
 //    })
 // })
 
-export const ani = (node: string, options: object) => {
-}
-
-export const setupQuickAction = () => {
-
-   let timeline = gsap.timeline();
-   timeline.add(gsap.set(".bottom__bar__item", {opacity: 1}));
-   timeline.add(gsap.from('.bottom__bar__item', {opacity: 0, y: "-=20", stagger: 0.4}));
-
-   return timeline;
-}
-
 export const setupHeaderAnimation = () => {
    let timeline = gsap.timeline();
-
+   
    timeline.set(".bottom__bar__item", {opacity: 0})
    timeline.add(gsap.from('.hero__headings__h1', { delay: 0.3, opacity: 0, yPercent: 100, rotate: '5deg', duration: 0.5, ease: 'power1' }));
    timeline.add(gsap.from('.hero__headings__p, .hero__headings__button-wrap, .subtitle--hero',
@@ -66,7 +48,11 @@ export const setupHeaderAnimation = () => {
    }));
    timeline.add(setupQuickAction, "<");
 }
+export const setupQuickAction = () => {
 
-export const setupSectionHeadingAnimation = () => {
+   let timeline = gsap.timeline();
+   timeline.add(gsap.set(".bottom__bar__item", {opacity: 1}));
+   timeline.add(gsap.from('.bottom__bar__item', {opacity: 0, y: "-=20", stagger: 0.4}));
 
+   return timeline;
 }
