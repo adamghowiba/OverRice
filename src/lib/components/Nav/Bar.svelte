@@ -2,6 +2,7 @@
     import NavMenu from './Menu.svelte'
     import HamBurger from './HamBurger.svelte'
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
     
     let menu = false
     const toggleMenu = () => menu = !menu
@@ -16,7 +17,8 @@
     })
 </script>
 
-<nav class="nav">
+<nav class="nav" >
+    
     <div class="nav-wrap">
         <div class="nav__items nav__items--right">
             <a class="nav__link" href="/home">Home</a>
