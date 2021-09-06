@@ -1,8 +1,8 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
-    import { to } from '$lib/actions/gsap'
     import { onMount } from "svelte";
-
+    
+    
     let gsapConfig = {
         ease: "none",
         scrollTrigger: {
@@ -13,9 +13,12 @@
         },
         duration: 1,
     }
-
+    
+    
     let width: null | number;
-    onMount( () => {
+    onMount( async () => {
+        // const { gsap } = await import('gsap/all');
+        
         width = window.innerWidth
         window.addEventListener('resize', () => {
             width = window.innerWidth
@@ -36,7 +39,6 @@
                         <div 
                             id="moving-images-1" 
                             class="moving-images"
-                            use:to={ width > 768 ? { ...gsapConfig, yPercent: "-=100" } : { ...gsapConfig, xPercent: "-=200" } }
                         >
                             <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
                             <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
@@ -49,7 +51,6 @@
                         <div 
                             id="moving-images-2" 
                             class="moving-images"
-                            use:to={ width > 768 ? { ...gsapConfig, yPercent: "+=100" } : { ...gsapConfig, xPercent: "+=200" } }
                         >
                             <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
                             <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
