@@ -1,9 +1,10 @@
 <div class="image-card" />
 
 <style lang="scss">
+
     .image-card {
-        width: var(--width, 250px);
-        height: var(--heigh, 250px);
+        min-width: var(--width, 250px);
+        min-height: var(--height, 250px);
         background: var(--url);
         background-repeat: no-repeat;
         background-size: cover;

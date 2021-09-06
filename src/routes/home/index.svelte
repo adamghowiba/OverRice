@@ -4,7 +4,8 @@
     import Button from '$lib/components/Button.svelte';
     import IntroHeading from '$lib/components/IntroHeading.svelte';
     import About from './_components/About.svelte'
-    import BottomBar from './_components/BottomBar.svelte';
+    import BottomBar from '$lib/components/Bottom/Bar.svelte';
+    import BottomBarItem from '$lib/components/Bottom/Item.svelte';
     import Review from './_components/Review.svelte';
     import ImageCard from '$lib/components/ImageCard.svelte';
     import ContactSection from '$lib/components/forms/ContactSection.svelte';
@@ -102,7 +103,28 @@
 
 </main>
 
-<BottomBar />
+<BottomBar>
+    <BottomBarItem 
+        src = "/icons/location.svg" 
+        content = "Find where we are now"
+        prefix = "Location"
+    />
+    <BottomBarItem 
+        src = "/icons/phone.svg" 
+        content = "(386) 416-9030"
+        prefix = "Call"
+    />
+    <BottomBarItem 
+        src = "/icons/time.svg" 
+        content = "9 AM - 5 PM"
+        prefix = "Hours"
+    />
+    <BottomBarItem 
+        src = "/icons/shopping-cart.svg"
+        content = "Takeout & Catering"
+        prefix = "Menu"
+    />
+</BottomBar>
 
 <style lang="scss">
     @use '../../lib/scss/0-helpers/vars' as *;
@@ -125,22 +147,12 @@
     }
 
     .contact {
-
         &-wrap {
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-start;
             gap: 2.5rem;
         }
-
-        &__map {
-            width: 50%; 
-            height: 20em;
-            min-width: min(100%, 500px);
-            background-color: rgba(148, 233, 98, 0.504);
-            border-radius: 5px;
-        }
-
     }
 
     .open__hours { position: relative; }

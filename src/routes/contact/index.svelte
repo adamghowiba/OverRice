@@ -22,7 +22,6 @@
 />
 
 <main class="contact">
-
     <section class="contact__header">
         <IntroHeading 
             title =  "Contact form"
@@ -41,6 +40,7 @@
             src="/icons/large_phone.svg"
             alt = "phone number"
         >(386) 416-9030</ContactInfo>
+
         <ContactInfo 
             src="/icons/large_clock.svg"
             alt = "opening and closing times"
@@ -51,7 +51,6 @@
             alt = "email"
         >OverRice@gmail.com</ContactInfo>
     </section>
-
 
     <section class="contact__form">
         <form on:submit|preventDefault={onSubmit}>

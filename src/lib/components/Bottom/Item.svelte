@@ -1,0 +1,50 @@
+<script lang="ts">
+    export let src: string;
+    export let content: string;
+    export let prefix: string;
+</script>
+
+<div class="bottom__bar__item" on:click>
+    <img class="bottom__bar__icon" {src} alt="Green Clock Icon">
+    <span class="text text--nav text--bold">{content}</span>
+    <span class="text text--nav text--bold hide--mobile">{prefix}</span>
+</div>
+
+<style lang="scss">
+    @use '../../scss/0-helpers/vars' as *;
+    @use '../../scss/1-plugins/mquery' as mq;
+
+    .bottom__bar {
+        &__item {
+            cursor: var(--cursor, default);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        &__icon {
+            margin-right: $pd-sm;
+        }
+
+        @include mq.media("<tablet") {
+            &__item {
+                flex-direction: column;
+            }
+    
+            &__icon {
+                margin: 0 0 $pd-xs - 3 0;
+                max-width: 20px;
+            }
+            
+            &__item {
+                .hide--mobile {
+                    display: block;
+                }
+        
+                .text:not(.hide--mobile) {
+                    display: none;
+                }
+            }
+        }
+    }
+</style>

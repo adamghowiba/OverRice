@@ -24,9 +24,9 @@
 </div>
 
 <style lang="scss">
-    @use '../../../lib/scss/0-helpers/vars' as *;
-    @use '../../../lib/scss/1-plugins/responsive' as res;
-    @use '../../../lib/scss/1-plugins/mquery' as mq;
+    @use '..//scss/0-helpers/vars' as *;
+    @use '../scss/1-plugins/responsive' as res;
+    @use '../scss/1-plugins/mquery' as mq;
 
     .quick-action {
         bottom: 0;
