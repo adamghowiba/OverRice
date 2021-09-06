@@ -26,6 +26,8 @@
   p {
     --gap: 1;
     text-align: center;
+    max-width: 70ch;
+    margin: 0 auto;
   }
 
   h2 {
@@ -35,7 +37,7 @@
     line-height: 44px;
 
     color: $color-green;
-    margin-bottom: calc(10px * var(--gap));
+    margin-bottom: --gap;
   }
 
   h1 {
