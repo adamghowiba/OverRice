@@ -32,13 +32,22 @@
         font-size: $fs-button;
         text-decoration: none;
         cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
     
         border: 2px solid $color-green;
+        transition: transform 0.55s cubic-bezier(0.23, 1, 0.320, 1), background-color 0.2s linear, color 0.2s ease-in, box-shadow 0.2s ease-out;
 
         &--outlined {
             background-color: transparent;
             border: 2px solid $color-green;
             color: $color-green;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+            background-color: $color-green;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 20px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+            color: white;
         }
 
         @include mq.media("<tablet") {
@@ -48,4 +57,5 @@
             width: auto;
         }
     }
+
 </style>

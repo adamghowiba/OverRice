@@ -29,9 +29,14 @@
   <section class="section section--white">
     <div class="container">
       <header class="con-head">
-        <h1 class="subtitle">Flavorful & Authentic</h1>
-        <h2>Our Favorites</h2>
+        <!-- <h1 class="subtitle">Flavorful & Authentic</h1> -->
+        <!-- <h2>Our Favorites</h2> -->
+        <IntroHeading
+        title="Falvorful & Authentic"
+        body="Our Favorites"
+      />
       </header>
+
 
       <!-- Cards Wrapper -->
       <div class="card-wrap">

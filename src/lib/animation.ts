@@ -31,17 +31,17 @@ gsap.registerPlugin(ScrollTrigger);
 //    toggleActions: 'play reverse play reverse',
 // })
 
-gsap.utils.toArray(['.section']).forEach(elem => {
-   const element = elem as Element;
+// gsap.utils.toArray(['.container']).forEach(elem => {
+//    const element = elem as Element;
 
-   ScrollTrigger.create({
-      trigger: element,
-      start: 'center center', 
-      end: 'top+=100px center',
-      markers: true
-   })
-})
-
+//    ScrollTrigger.create({
+//       trigger: element,
+//       start: 'top-=40px center', 
+//       end: 'bottom center',
+//       markers: true,
+//       animation: gsap.from('h2', {opacity: 0})
+//    })
+// })
 
 export const ani = (node: string, options: object) => {
 }
@@ -59,10 +59,10 @@ export const setupHeaderAnimation = () => {
    let timeline = gsap.timeline();
 
    timeline.set(".bottom__bar__item", {opacity: 0})
-   timeline.add(gsap.from('.hero__headings__h1', { delay: 0.5, opacity: 0, yPercent: 100, rotate: '5deg', duration: 0.5, ease: 'power1' }));
-   timeline.add(gsap.from('.hero__headings__p, .hero__headings__button-wrap',
+   timeline.add(gsap.from('.hero__headings__h1', { delay: 0.3, opacity: 0, yPercent: 100, rotate: '5deg', duration: 0.5, ease: 'power1' }));
+   timeline.add(gsap.from('.hero__headings__p, .hero__headings__button-wrap, .subtitle--hero',
    {
-      delay: 0.5, opacity: 0, yPercent: 100, rotate: '5deg', duration: 0.5, ease: 'power1', stagger: 0.7,
+      delay: 0.3, opacity: 0, yPercent: 100, rotate: '5deg', duration: 0.5, ease: 'power1', stagger: 0.4,
    }));
    timeline.add(setupQuickAction, "<");
 }

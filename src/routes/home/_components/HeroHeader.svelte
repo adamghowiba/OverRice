@@ -6,7 +6,7 @@
 <Header>
     <div class="hero__headings">
         <div class="text-mask">
-            <h2 class="subtitle">Filipino and Hawaiian food.</h2>
+            <h2 class="subtitle subtitle--hero">Filipino and Hawaiian food.</h2>
         </div>
         <div class="text-mask">
             <h1 class="hero__headings__h1"> Always fresh always <br /> from the heart</h1>
