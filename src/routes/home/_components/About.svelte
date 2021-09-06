@@ -1,6 +1,7 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
     import { onMount } from "svelte";
+    import {to} from '$lib/actions/gsap';
     
     
     let gsapConfig = {
@@ -8,11 +9,13 @@
         scrollTrigger: {
             trigger: "#moving-images-section",
             start: "top center",
-            end: "+=150%",
+            end: "center top",
             scrub: 1,
         },
         duration: 1,
     }
+
+    
     
     
     let width: null | number;
@@ -39,6 +42,7 @@
                         <div 
                             id="moving-images-1" 
                             class="moving-images"
+                            use:to={width > 768 ? { ...gsapConfig, yPercent: "-=100" } : { ...gsapConfig, xPercent: "-=200" } }
                         >
                             <img class="moving-images__img" src="/images/over_rice_chicken_platter.jpg" alt="">
                             <img class="moving-images__img" src="/images/over_rice_lunch_combo.jpg" alt="">
@@ -51,6 +55,7 @@
                         <div 
                             id="moving-images-2" 
                             class="moving-images"
+                            use:to={ width > 768 ? { ...gsapConfig, yPercent: "+=100" } : { ...gsapConfig, xPercent: "+=200" } }
                         >
                             <img class="moving-images__img" src="/images/over_rice_chicken_kabab.jpg" alt="">
                             <img class="moving-images__img" src="/images/over_rice_pork_bowl.jpg" alt="">
@@ -83,6 +88,11 @@
     @use '../../../lib/scss/0-helpers/vars' as *;
     @use '../../../lib/scss/0-helpers/mixins' as mix;
     @use '../../../lib/scss/1-plugins/mquery' as mq;
+
+    p {
+        margin-top: $pd-sm;
+        margin-bottom: $pd-md;
+    }
 
     .flex {
         display: flex;
