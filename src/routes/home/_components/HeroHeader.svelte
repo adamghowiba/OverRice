@@ -5,11 +5,17 @@
 
 <Header>
     <div class="hero__headings">
-        <h2 class="subtitle">Filipino and Hawaiian food.</h2>
-        <h1 class="hero__headings__h1"> Always fresh always <br /> from the heart</h1>
-        <p class="hero__headings__p">With passion and the insipration of years living in Hawaii, later on the
-            idea of OverRice was born. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, minima.
-        </p>
+        <div class="text-mask">
+            <h2 class="subtitle subtitle--hero">Filipino and Hawaiian food.</h2>
+        </div>
+        <div class="text-mask">
+            <h1 class="hero__headings__h1"> Always fresh always <br /> from the heart</h1>
+        </div>
+        <div class="text-mask">
+            <p class="hero__headings__p">With passion and the insipration of years living in Hawaii, later on the
+                idea of OverRice was born. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, minima.
+            </p>
+        </div>
         <div class="hero__headings__button-wrap">
             <Button>Order Online</Button>
             <Button outline href="/menu">View Menu</Button>
@@ -36,6 +42,8 @@
         
         &__button-wrap {
             height: max-content;
+            display: flex;
+            gap: 20px;
         }
 
         &__button-wrap :global(.button:nth-child(1)) {
@@ -59,6 +67,7 @@
 
         @include mq.media("<tablet") {
             padding: 0 1em;
+
         }
 
         @include mq.media("<phone") {

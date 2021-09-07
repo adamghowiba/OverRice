@@ -1,6 +1,8 @@
 <script lang="ts">
     export let src: string;
     export let alt: string;
+
+  import {fadeIn} from '$lib/actions/gsap';
 </script>
 
 <div class="contact__info">

@@ -12,7 +12,7 @@
         <h4 class="card__heading">{title}</h4>
         <span class="card__caption">{caption}</span>
         <p class="card__p">{content}</p>
-        <span class="card__button">Get One Now</span>
+        <a href="/" class="card__button">Get One Now</a>
     </div>
 </div>
 
@@ -21,10 +21,24 @@
     @use '../../../lib/scss/0-helpers/mixins' as mix;
     @use '../../../lib/scss/1-plugins/mquery' as mq;
 
+    .card__button:before {
+        content: '';
+        background-color: red;
+        width: 0%;
+        height: 1px;
+        bottom: 0;
+        position: absolute;
+        display: block;
+        
+        transition: width 0.35s ease-out;
+    }
+
     .card {
         border-radius: $br-tile;
         height: auto;
         background-color: $color-snow;
+        transition: transform 0.55s cubic-bezier(0.23, 1, 0.320, 1), box-shadow 0.2s ease-out;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 
         &__image {
             width: 100%;
@@ -54,13 +68,28 @@
         }
 
         &__button {
-            display: block;
+            display: inline-block;
+            position: relative;
             margin-top: $pd-md;
-            color: $color-red
+            color: $color-red;
+
+            &:hover:before {
+                width: 100%;
+            }
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 20px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
+        }
+
+
         /* X, Y, BLUR, SIZE */
-        @include mix.card-shadow;
         margin: 0 0.7em;
 
         @include mq.media("<606px") {
@@ -77,4 +106,5 @@
             }
         }
     }
+
 </style>
