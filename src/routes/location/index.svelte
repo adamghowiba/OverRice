@@ -6,7 +6,7 @@
   import Map from "./_components/Map.svelte";
   import { onDestroy, onMount } from "svelte";
   import { scroll } from "$lib/stores";
-  import { getPublicFuck } from "$lib/google";
+  import { getPublic, constructExportUrl } from "$lib/google";
 
   let days: Locations[] = [
     {
@@ -65,21 +65,14 @@
     showMap = window.innerWidth > BREAKPOINT;
     window.onresize = () => (showMap = window.innerWidth > BREAKPOINT);
 
-    // getAccessToken().then(acess_token => getCalendarEvents(acess_token.access_token));
-  });
-
-  /* Loop Through Events Returned And Change Hard Coded "days" Object */
-  (async function () {
-    const events = await getPublicFuck(days.length.toString());
-    console.log(events);
-    console.log(days.length.toString())
-
+    const events = await getPublic(days.length.toString());
     for (const [i, event] of events.items.entries()) {
-        days[i].location = event.location;
-
-        // days[i].times = `${event.start.time ? event.start.Datetime : ""}`;
+      console.log(event.attachments)      
+      days[i].location = event.location;
+      if (event.attachments) days[i].src = constructExportUrl(event.attachments[0].fileId)
     }
-  })();
+
+  });
 
   let opacity = 1;
   let display = "initial";
@@ -96,6 +89,8 @@
     });
   }
 </script>
+
+<img src="https://drive.google.com/uc?export=view&id=1wQQNxJYpwNiLcgu_-gnKHKfVUFUtQMbU" alt="">
 
 <HeroHeader
   header="Our Location"
@@ -118,7 +113,6 @@
       <div bind:this={list} class="location__list--container">
         {#each days as day}
           <Card
-            src="/images/Stock-flordia.png"
             alt="flordia"
             active={selected.day === day.day}
             {...day}
@@ -185,7 +179,7 @@
 
       width: 40vw;
       min-width: 350px;
-      max-width: 437px;
+      max-width: 500px;
       height: 700px;
       border-radius: 11px;
       overflow: hidden;

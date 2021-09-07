@@ -12,8 +12,6 @@
     }
 
     const onDragEnd = () => isDragging = false
-    
-
 </script>
 
 <div 

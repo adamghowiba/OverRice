@@ -4,13 +4,10 @@ const getFutureDate = (amount=7) => {
     const futureDate = new Date();
     futureDate.setDate(currentDate.getDate()  + amount);
 
-    console.log(currentDate);
-    console.log(futureDate);
-
     return futureDate;
 }
 
-function getPublicFuck(maxResults="7") {
+function getPublic(maxResults="7") {
     const calendarId = "c_mdel5kkfj8i0c42v3up7erm940@group.calendar.google.com"
     const apiKey = "AIzaSyAix6OcLoOvh009OoPCM4WwKSo0bxSdDQc"
 
@@ -57,4 +54,4 @@ function constructExportUrl(id) {
     return exportUrl;
 }
 
-export { getPublicFuck }
+export { getPublic, constructExportUrl }
