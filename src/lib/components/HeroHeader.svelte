@@ -12,7 +12,7 @@
         <div class="hero__breadcrumbs">
             {#if $RouteHistory.prev != null && $RouteHistory.curr != null}
                 <a href={$RouteHistory.prev}>{$RouteHistory.prev.substring(1, $RouteHistory.prev.length)}</a>
-                >
+                <span>></span>
                 <a href={$RouteHistory.curr}>{$RouteHistory.curr.substring(1, $RouteHistory.curr.length)}</a>
             {/if}
         </div>
@@ -39,6 +39,9 @@
         color: white;
         transition: gap 0.2s ease-in-out;
         
+        span {
+            margin: 0 0.3rem;
+        }
         
         &__header {
             font-family: 'Le Havre';

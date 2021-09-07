@@ -19,8 +19,8 @@
 </script>
 
 <HeroHeader
---height="100%"
---url="url('/images/over_rice_chicken_kabab.jpg')"
+  --height="100%"
+  --url="url('/images/over_rice_chicken_kabab.jpg')"
   --bg-pos="top"
 />
 
@@ -31,41 +31,38 @@
       <header class="con-head">
         <!-- <h1 class="subtitle">Flavorful & Authentic</h1> -->
         <!-- <h2>Our Favorites</h2> -->
-        <IntroHeading
-        title="Falvorful & Authentic"
-        body="Our Favorites"
-      />
+        <IntroHeading title="Falvorful & Authentic" body="Our Favorites" />
       </header>
-
 
       <!-- Cards Wrapper -->
       <div class="card-wrap">
         <Card
-          title="Chicken Katsu Platter"
-          caption="Serves with french fries + drink"
-          content="We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-          src="/images/breaded_chicken.jpg"
+          title="Huli Huli Chicken Platter"
+          caption="Served with rice & one side"
+          content="Boneless skinless chicken thighs marinated overnight in our house huli huli sauce,
+          grilled to perfection. Served over a bed of white rice paired with our Mac Salad"
+          src="/images/chicke_over_rice.jpg"
         />
 
         <Card
           title="Chicken Katsu Platter"
-          caption="Serves with french fries + drink"
-          content="We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-          src="/images/over_rice_lunch_special.jpg"
+          caption="Served with rice & one side"
+          content="Deep fried to golden brown perfection. A combination of a sweet and salty sauce with a crispy fried chicken cutlet. Served over a bed of white rice paired with our Mac Salad"
+          src="/images/breaded_chicken_over_rice.jpg"
         />
 
         <Card
-          title="Chicken Katsu Platter"
-          caption="Serves with french fries + drink"
-          content="We are a restaurant on wheels, we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-          src="/images/over_rice_lunch_combo.jpg"
+          title="Kalua Pig Platter"
+          caption="Served with rice & one side"
+          content="Pork shoulder seasoned w/ hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs. Served over a bed of white rice paired with our Mac Salad"
+          src="/images/pork_over_rice.jpg"
         />
       </div>
     </div>
   </section>
 
   <!-- Call To Action Section -->
-  <CallToAction />
+  <CallToAction img="/images/owner_serving_customer.jpg"/>
 
   <!-- About Section -->
   <About />
@@ -76,15 +73,19 @@
 
     <!-- Open Hours Section -->
     <section class="section section--small">
-      <IntroHeading
-        title="Our Opening Hours"
-        body="OPENED FROM 7 AM TO 5 PM"
-        footer="OverRice is an Filipino, Hawaiian Food Truck and Takeaway in Orlando, FL"
-      >
-        <div class="center">
-          <Button href="">Our Location</Button>
-        </div>
-      </IntroHeading>
+      
+      <header class="intro-wrap">
+        <IntroHeading
+          title="Our Schedule"
+          body="See if we're going to be in your area"
+          footer="Since we're a resturant on wheels, we move around alot. We've made it easy to see our schedule."
+        >
+          <div class="center">
+            <Button href="">Our Location</Button>
+          </div>
+        </IntroHeading>
+      </header>
+
     </section>
 
     <!-- Images Section -->
@@ -124,15 +125,20 @@
     --cursor="pointer"
     prefix="Location"
     href="/location"
-    />
-    <BottomBarItem
+  />
+  <BottomBarItem
     src="/icons/phone.svg"
     content="(386) 416-9030"
     --cursor="pointer"
     prefix="Call"
     href="tel: 3864169030"
   />
-  <BottomBarItem src="/icons/time.svg" content="9 AM - 5 PM" prefix="Hours" href="/contact" />
+  <BottomBarItem
+    src="/icons/time.svg"
+    content="9 AM - 5 PM"
+    prefix="Hours"
+    href="/contact"
+  />
   <BottomBarItem
     src="/icons/shopping-cart.svg"
     content="Menu"
@@ -147,11 +153,12 @@
   @use '../../lib/scss/1-plugins/mquery' as mq;
 
   .card-wrap {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3.5%;
 
-    @include mq.media("<606px") {
-      flex-direction: column;
+    @include mq.media("<800px") {
+      grid-template-columns: 1fr;
       padding-left: $pd-md;
       padding-right: $pd-md;
     }
@@ -173,5 +180,10 @@
 
   .open__hours {
     position: relative;
+  }
+
+  .intro-wrap {
+    max-width: 90ch;
+    margin: 0 auto;
   }
 </style>

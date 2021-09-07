@@ -18,7 +18,7 @@
 
 <HeroHeader
   header="Contact Us"
-  quote="OverRice team is always available to answer your questions"
+  quote="We take pride on treating each customer like family"
   --url="url('/images/contact.jpg')"
   --bg-pos="0 38%"
 />
@@ -28,24 +28,24 @@
     <IntroHeading
       title="Contact form"
       body="Get in Touch"
-      footer="Contact us for a quote and we are always available for answering your questions"
+      footer="Don't hestitate to contact us if you have any questions, we're always happy to help."
     />
   </section>
 
   <section class="contact__info">
-    <a href="phone:4079246902">
+    <a href="tel:4079246902">
       <ContactInfo src="/icons/large_location.svg" alt="location"
         >(386) 416-9030</ContactInfo
       >
     </a>
 
-    <a href="phone:4079246902">
+    <a href="mailto:overrice@gmail.com">
       <ContactInfo src="/icons/large_clock.svg" alt="opening and closing times"
         >OverRice@gmail.com</ContactInfo
       >
     </a>
 
-    <a href="phone:4079246902">
+    <a href="/location">
       <ContactInfo src="/icons/large_mail.svg" alt="email"
         >Find Where Are We Now</ContactInfo
       >
