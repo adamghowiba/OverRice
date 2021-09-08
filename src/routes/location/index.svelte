@@ -42,6 +42,8 @@
     return days[now.getDay()];
   };
 
+  // Just for the commit.
+
   let days: Locations[] = [
     {
       day: "monday",
