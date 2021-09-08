@@ -210,6 +210,7 @@
       object-fit: cover;
     }
   }
+
   #moving-images-1 {
     margin-right: 1.5em;
     transform: translateY(-20%);
