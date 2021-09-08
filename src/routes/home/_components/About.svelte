@@ -63,7 +63,7 @@
               />
               <img
                 class="moving-images__img"
-                src="/images/best_food_truck_orlando.jpg"
+                src="/images/best_food_orlando.jpg"
                 alt=""
               />
               <img
@@ -101,7 +101,7 @@
               />
               <img
                 class="moving-images__img"
-                src="/images/best_filipino_food.jpg"
+                src="/images/best_filipino_food_over_rice.jpg"
                 alt=""
               />
               <img
@@ -130,8 +130,9 @@
         <h2>Bringing people together with great food</h2>
         <p>
           We're bringing you the best of both worlds—Hawaiian and Filipino
-          street food mixed together in one food truck! Our menu is filled with tasty classics
-          like huli huli chicken, pancit, and ono mac salad. Whether it's for an event, corporate catering, or if you're just
+          street food mixed together in one food truck! Our menu is filled with
+          tasty classics like huli huli chicken, pancit, and ono mac salad.
+          Whether it's for an event, corporate catering, or if you're just
           looking for a great place to eat on the go -- we hope you'll stop by!
         </p>
         <Button href="/about" outline>Discover More</Button>
