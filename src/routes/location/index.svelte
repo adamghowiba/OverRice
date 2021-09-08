@@ -8,6 +8,22 @@
   import { scroll } from "$lib/stores";
   import { getPublic, constructExportUrl } from "$lib/google";
 
+  const getDayOfWeek = (date) => {
+    var days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    const now: Date = new Date(date);
+
+    return days[now.getDay()];
+  };
+
   let days: Locations[] = [
     {
       day: "monday",
@@ -54,6 +70,7 @@
 
   const BREAKPOINT = 1200;
   let showMap = false;
+  let showPage = true;
 
   onMount(async () => {
     height = (list.clientHeight / list.scrollHeight) * list.clientHeight;
@@ -106,7 +123,7 @@
       footer="Using the current calender, You can go through our weekly schedule"
     />
   </section>
-
+{#if showPage}
   <section class="location__body">
     <div class="location__list">
       <div bind:this={list} class="location__list--container">
@@ -133,11 +150,25 @@
       </div>
     {/if}
   </section>
+{:else}
+<section class="section">
+  <div class="container">
+    <h1>Uh, oh. <br /> Theirs no location data to show right now.</h1>
+    <h2 class="subheading">Check back later as we update our schedule regularly.</h2>
+  </div>
+</section>
+  {/if}
 </main>
 
 <style lang="scss">
   @use '../../lib/scss/1-plugins/mquery' as mq;
 
+  .container {
+    text-align: center;
+  }
+  .subheading {
+    font-size: 2rem;
+  }
   .location {
     position: relative;
     height: 1125px;
