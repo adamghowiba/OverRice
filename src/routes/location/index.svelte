@@ -26,6 +26,22 @@
 
   // Just for the commit.
 
+  const getDayOfWeek = (date) => {
+    var days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    const now: Date = new Date(date);
+
+    return days[now.getDay()];
+  };
+
   let days: Locations[] = [
     {
       day: "monday",
