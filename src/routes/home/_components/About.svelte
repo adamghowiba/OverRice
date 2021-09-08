@@ -7,8 +7,8 @@
     ease: "none",
     scrollTrigger: {
       trigger: "#moving-images-section",
-      start: "top center",
-      end: "center top",
+      start: "top bottom-=20%",
+      end: "bottom-=20% top+=20%",
       scrub: 1,
     },
     duration: 1,
@@ -38,42 +38,42 @@
               id="moving-images-1"
               class="moving-images"
               use:to={width > 768
-                ? { ...gsapConfig, yPercent: "-=100" }
+                ? { ...gsapConfig, yPercent: "-=50" }
                 : { ...gsapConfig, xPercent: "-=200" }}
             >
               <img
                 class="moving-images__img"
-                src="/images/over_rice_chicken_platter.jpg"
+                src="/images/noodles_orlando.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_lunch_combo.jpg"
+                src="/images/catering_food.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_lunch_combo.jpg"
+                src="/images/food_being_plated.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_chicken_platter.jpg"
+                src="/images/chicken_on_grill.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_lunch_combo.jpg"
+                src="/images/best_food_truck_orlando.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_chicken_platter.jpg"
+                src="/images/beautfy_shot_egg_rolls.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_lunch_combo.jpg"
+                src="/images/chicken_grill2.jpg"
                 alt=""
               />
             </div>
@@ -81,22 +81,17 @@
               id="moving-images-2"
               class="moving-images"
               use:to={width > 768
-                ? { ...gsapConfig, yPercent: "+=100" }
+                ? { ...gsapConfig, yPercent: "+=50" }
                 : { ...gsapConfig, xPercent: "+=200" }}
             >
               <img
                 class="moving-images__img"
-                src="/images/over_rice_chicken_kabab.jpg"
+                src="/images/orlando_food.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_pork_bowl.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/over_rice_chicken_kabab.jpg"
+                src="/images/IMG_2688.jpg"
                 alt=""
               />
               <img
@@ -106,17 +101,22 @@
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_pork_bowl.jpg"
+                src="/images/best_filipino_food.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_chicken_kabab.jpg"
+                src="/images/orlando_food.jpg"
                 alt=""
               />
               <img
                 class="moving-images__img"
-                src="/images/over_rice_pork_bowl.jpg"
+                src="/images/food_truck_photo.jpg"
+                alt=""
+              />
+              <img
+                class="moving-images__img"
+                src="/images/catering_orlando.jpg"
                 alt=""
               />
             </div>
@@ -225,7 +225,7 @@
       position: relative;
     }
     #moving-images-2 {
-      transform: translateX(-100px);
+      transform: translateX(-200px);
     }
   }
 </style>

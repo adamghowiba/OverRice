@@ -8,6 +8,7 @@
         <div class="review">
             <div class="review__content-wrap">
                 <img class="review__icon" src="/icons/quote.svg" alt="Gree  quote icon">
+                <!-- TODO Add Slider -->
                 <p>
                     Shannon's new suggestion for the Hawaii Five O bowl is my new favorite after seemingly hundreds
                     of All American bowls!!

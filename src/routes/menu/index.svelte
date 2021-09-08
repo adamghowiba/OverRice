@@ -2,7 +2,6 @@
     import BottomBarItem from '$lib/components/Bottom/Item.svelte'
     import HeroHeader from '$lib/components/HeroHeader.svelte';
     import IntroHeading from '$lib/components/IntroHeading.svelte';
-    import FaqCard from './_components/FAQCard.svelte';
     import Highlighed from './_components/Highlighed.svelte';
     import Member from './_components/Member.svelte';
     import Food from '$lib/foods'
@@ -28,8 +27,8 @@
 
 <HeroHeader 
     header = 'Menu'
-    quote = "With the passion and the inspiration of his years living in Hawaii."
-    --url = "url('/images/menu.jpg')"
+    quote = "Filipino favorites like the staple adobo pork, pancit, and tchara, along with Hawaiian classics like Kalua pork, katsu chicken and sweet savory flavors."
+    --url = "url('/images/contact.jpg')"
 />
 
 <main>
@@ -96,38 +95,6 @@
             price = {highlight.price}
             --url = "url('{highlight.src}')"
         />
-    </section>
-
-    <section class="steps">
-        <div class="steps__heading">
-            <h1>How It Works</h1>
-            <p>
-                With the passion and the inspiration of his years living in Hawaii, later on the idea of OverRice was born.
-            </p>
-        </div>
-
-        <div class="steps__cards">
-            <FaqCard
-                --icon = "url('/icons/work_cursor.svg')"
-                title = "Pick Meals"
-                description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-            />
-            <FaqCard
-                --icon = "url('/icons/work_coin.svg')"
-                title = "Choose Payments"
-                description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-            />
-            <FaqCard
-                --icon = "url('/icons/work_location.svg')"
-                title = "Select Address"
-                description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-            />
-            <FaqCard
-                --icon = "url('/icons/work_delivery.svg')"
-                title = "Fast Delivery"
-                description = "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-            />
-        </div>
     </section>
 
     <section class="team">
@@ -197,15 +164,14 @@
         padding: 85px 0 0 13.5vw;
         
         transition: padding 0.2s ease-in-out, margin 0.2s ease-in-out;
+        width: 100%;
+        background: url('/images/background.jpg');
 
         @include mq.media("<1440px") {
             padding: 60px 3em 0 3em;
             gap: 30px;
         }
 
-        width: 100%;
-        min-height: 1105px;
-        background: url('/images/background.jpg');
 
         &__container {
             min-width: 500px;

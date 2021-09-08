@@ -18,7 +18,7 @@
         flex-direction: column;
     
         width: var(--width, 246px);
-        height: var(--height, 307px);
+        height: var(--height, 357px);
 
         padding: 37px 26px;
         background: #DFE9D4;

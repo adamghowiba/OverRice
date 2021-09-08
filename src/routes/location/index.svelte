@@ -71,7 +71,6 @@
       days[i].location = event.location;
       if (event.attachments) days[i].src = constructExportUrl(event.attachments[0].fileId)
     }
-
   });
 
   let opacity = 1;
@@ -94,8 +93,8 @@
 
 <HeroHeader
   header="Our Location"
-  quote="OverRice is a Food Truck. Using the given calender you can find us"
-  --url="url('/images/location.jpg')"
+  quote="See where we're at and come stop by for a bite. We'd be happy to see you."
+  --url="url('/images/chicken_grill2.jpg')"
   --bg-pos="0 51%"
 />
 

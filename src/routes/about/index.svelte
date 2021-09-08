@@ -38,7 +38,7 @@
             alt="Green dots in the background"
           />
           <img
-            src="/images/breaded_chicken.jpg"
+            src="/images/about.jpg"
             class="about__image"
             alt="Chicken comobo meal"
           />
@@ -48,7 +48,7 @@
   </div>
 </section>
 
-<CallToAction title="Always fresh always, from the heart" --color="red" img="/over_rice_chicken_platter"/>
+<CallToAction title="Always fresh always, from the heart" img="/images/IMG_2688.jpg"/>
 
 <section class="section section--white">
   <IntroHeading
@@ -59,13 +59,13 @@
   <section class="section--small">
     <div class="container">
       <div class="image-card-wrap">
-        <ImageCard --rotate="15deg" --url="url(/images/breaded_chicken.jpg)" />
+        <ImageCard --rotate="15deg" --url="url(/images/over_rice_chicken_platter.jpg)" />
         <ImageCard
           --rotate="-15deg"
-          --url="url(/images/over_rice_chicken_kabab.jpg)"
+          --url="url(/images/mac_salad.jpg)" 
         />
-        <ImageCard --rotate="15deg" --url="url(/images/about.jpg)" />
-        <ImageCard --rotate="-15deg" --url="url(/images/food_platter.jpg)" />
+        <ImageCard --rotate="15deg" --url="url(/images/huli_chicken.jpg)" />
+        <ImageCard --rotate="-15deg" --url="url(/images/chicken_grill2.jpg)" />
       </div>
     </div>
 

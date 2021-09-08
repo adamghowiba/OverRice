@@ -19,7 +19,7 @@
 <HeroHeader
   header="Contact Us"
   quote="We take pride on treating each customer like family"
-  --url="url('/images/contact.jpg')"
+  --url="url('/images/pork_adobo.jpg')"
   --bg-pos="0 38%"
 />
 

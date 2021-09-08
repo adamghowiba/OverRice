@@ -69,7 +69,7 @@
 
   <section class="open__hours section--white">
     <!-- Review Slider Section -->
-    <Review --review="url(/images/food_platter.jpg)" />
+    <Review --review="url(/images/chicken_on_grill.jpg)" />
 
     <!-- Open Hours Section -->
     <section class="section section--small">
@@ -77,11 +77,11 @@
       <header class="intro-wrap">
         <IntroHeading
           title="Our Schedule"
-          body="See if we're going to be in your area"
+          body="We might be close by"
           footer="Since we're a resturant on wheels, we move around alot. We've made it easy to see our schedule."
         >
           <div class="center">
-            <Button href="">Our Location</Button>
+            <Button href="/location">Our Location</Button>
           </div>
         </IntroHeading>
       </header>

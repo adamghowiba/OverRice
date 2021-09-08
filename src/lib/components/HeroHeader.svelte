@@ -6,7 +6,7 @@
     export let quote: string
 </script>
 
-<Header>
+<Header --bg-pos="center">
     <div class="hero">
         <h1 class="hero__header">{header}</h1>
         <div class="hero__breadcrumbs">
