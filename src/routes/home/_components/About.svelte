@@ -1,6 +1,6 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
-  import { onDestroy, onMount, tick } from "svelte";
+  import { onMount, tick } from "svelte";
 
   let gsapConfig = {
     ease: "none",
@@ -21,19 +21,17 @@
   let moves: Moves = {
     left: null,
     right: null,
-  };
+  }
 
-  let update;
-
-  let refresh = false;
+  let refresh = false
   onMount(async () => {
-    const { gsap, ScrollTrigger } = await import("gsap/all");
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.config({ force3D: true });
+    const { gsap, ScrollTrigger } = await import('gsap/all')
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.config({ force3D: true })
 
-    update = async () => {
-      refresh = !refresh;
-      await tick();
+    const update = async (window: Window) => {
+      refresh = !refresh
+      await tick()
       if (window.innerWidth <= 768) {
         gsap.to(moves.left, { ...gsapConfig, xPercent: -200 });
         gsap.to(moves.right, { ...gsapConfig, xPercent: 200 });
@@ -41,10 +39,12 @@
         gsap.to(moves.left, { ...gsapConfig, yPercent: -50 });
         gsap.to(moves.right, { ...gsapConfig, yPercent: 50 });
       }
-    };
-
-
-    update();
+    }
+    
+    update(window)
+    window.addEventListener("resize", () => {
+      update(window)
+    });
   });
 
 
@@ -59,7 +59,7 @@
     <div class="flex">
       <!-- First Columns (Images) -->
       <div class="flex__col flex__col--images">
-        {#key refresh}
+        {#key refresh}          
           <div class="moving-images-wrap">
             <div
               id="moving-images-1"
