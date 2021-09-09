@@ -1,7 +1,6 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
-  import { onMount } from "svelte";
-  import { to } from "$lib/actions/gsap";
+  import { afterUpdate, onMount } from "svelte";
 
   let gsapConfig = {
     ease: "none",
@@ -14,13 +13,36 @@
     duration: 1,
   };
 
-  let width: null | number;
-  onMount(async () => {
-    // const { gsap } = await import('gsap/all');
+  interface Moves {
+    left: HTMLDivElement;
+    right: HTMLDivElement;
+    update: (gsap: any, window: Window) => void;
+  }
 
-    width = window.innerWidth;
+  let moves: Moves = {
+    left: null,
+    right: null,
+    update: (gsap, window) => {
+      gsap.set(moves.left, { clearProps:"all" })
+      gsap.set(moves.right, { clearProps:"all" })
+      
+      if (window.innerWidth <= 768) {
+        gsap.to(moves.left,  { ...gsapConfig, xPercent: -200 })
+        gsap.to(moves.right, { ...gsapConfig, xPercent: 200 })
+      } else {
+        gsap.to(moves.left,  { ...gsapConfig, yPercent: -50 })
+        gsap.to(moves.right, { ...gsapConfig, yPercent: 50 })
+      }
+    },
+  }
+
+  onMount(async () => {
+    const { gsap, ScrollTrigger } = await import('gsap/all')
+    gsap.registerPlugin(ScrollTrigger)
+    
+    moves.update(gsap, window)
     window.addEventListener("resize", () => {
-      width = window.innerWidth;
+      moves.update(gsap, window)
     });
   });
 </script>
@@ -32,96 +54,90 @@
     <div class="flex">
       <!-- First Columns (Images) -->
       <div class="flex__col flex__col--images">
-        {#key width > 768}
-          <div class="moving-images-wrap">
-            <div
-              id="moving-images-1"
-              class="moving-images"
-              use:to={width > 768
-                ? { ...gsapConfig, yPercent: "-=50" }
-                : { ...gsapConfig, xPercent: "-=200" }}
-            >
-              <img
-                class="moving-images__img"
-                src="/images/noodles_orlando.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/catering_food.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/food_being_plated.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/chicken_on_grill.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/best_food_orlando.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/beautfy_shot_egg_rolls.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/chicken_grill2.jpg"
-                alt=""
-              />
-            </div>
-            <div
-              id="moving-images-2"
-              class="moving-images"
-              use:to={width > 768
-                ? { ...gsapConfig, yPercent: "+=50" }
-                : { ...gsapConfig, xPercent: "+=200" }}
-            >
-              <img
-                class="moving-images__img"
-                src="/images/orlando_food.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/IMG_2688.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/over_rice_chicken_kabab.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/best_filipino_food_over_rice.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/orlando_food.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/food_truck_photo.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/catering_orlando.jpg"
-                alt=""
-              />
-            </div>
+        <div class="moving-images-wrap">
+          <div
+            id="moving-images-1"
+            class="moving-images"
+            bind:this={moves.left}
+          >
+            <img
+              class="moving-images__img"
+              src="/images/noodles_orlando.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/catering_food.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/food_being_plated.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/chicken_on_grill.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/best_food_orlando.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/beautfy_shot_egg_rolls.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/chicken_grill2.jpg"
+              alt=""
+            />
           </div>
-        {/key}
+          <div
+            id="moving-images-2"
+            class="moving-images"
+            bind:this={moves.right}
+          >
+            <img
+              class="moving-images__img"
+              src="/images/orlando_food.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/IMG_2688.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/over_rice_chicken_kabab.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/best_filipino_food_over_rice.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/orlando_food.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/food_truck_photo.jpg"
+              alt=""
+            />
+            <img
+              class="moving-images__img"
+              src="/images/catering_orlando.jpg"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
 
       <!-- Second Column (Text) -->
