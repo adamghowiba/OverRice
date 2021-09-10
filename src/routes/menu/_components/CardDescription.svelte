@@ -72,7 +72,7 @@
                 transform: translateX( $list-dot-dimentions + $list-gap );
 
                 color: $color-text;
-                font-family: 'Le Havre';
+                font-family: 'le-havre';
                 font-weight: normal;
                 font-size: 1rem;
                 line-height: 20px;
@@ -95,7 +95,7 @@
         &__included {
             margin-bottom: 18px;
             h1 { 
-                font-family: 'Le Havre';
+                font-family: 'le-havre';
                 font-size: 1.3rem;
                 font-weight: 400;
                 line-height: 125.5%;
@@ -104,7 +104,7 @@
 
         &__meats {
             h1 { 
-                font-family: 'Le Havre';
+                font-family: 'le-havre';
                 font-size: 1rem;
                 font-weight: 400;
                 line-height: 125.5%;

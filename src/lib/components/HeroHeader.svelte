@@ -44,7 +44,7 @@
         }
         
         &__header {
-            font-family: 'Le Havre';
+            font-family: 'le-havre';
             font-weight: normal; 
             font-size: 5.6rem;
             height: min-content;

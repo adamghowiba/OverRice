@@ -37,7 +37,7 @@
             flex-direction: column;
             
             h1 {
-                font-family: 'Le Havre Bold';
+                font-family: 'le-havre';
                 font-size: 1.3rem;
                 line-height: 125%;
                 letter-spacing: 0.02em;
