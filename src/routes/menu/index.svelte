@@ -215,55 +215,6 @@
         }
     }
 
-    .steps {
-        position: relative;
-        width: 100%;
-        min-height: 579px;
-        padding: 60px 0;
-        background: linear-gradient(rgba(black, 0.7), rgba(black, 0.7)), url('/images/WorksBackground.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        display: grid;
-
-        &__heading {
-            text-align: center;
-            width: 100%;
-            max-width: 430px;
-            
-            justify-self: center;
-            
-            h1 { color: white; }
-            p {
-                font-size: 1rem;
-                font-weight: 400; 
-                line-height: 18px;
-                letter-spacing: 0.02em;
-                color: $color-green;
-                margin: 0 20px;
-            }
-        }
-
-        &__cards {
-            place-self: center;
-            display: flex;
-            gap: 50px;
-
-            @include mq.media("<1200px") {
-                margin-top: 60px;
-                display: grid;
-                grid-template-rows: 1fr 1fr;
-                grid-template-columns: 1fr 1fr;
-            }
-
-            @include mq.media("<600px") {
-                display: flex;
-                flex-direction: column;
-            
-            }
-        }
-    }
-
     .team {
         position: relative;
         width: 100%;

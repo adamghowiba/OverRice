@@ -9,7 +9,7 @@
   import { getPublic, constructExportUrl } from "$lib/google";
 
   const getDayOfWeek = (date) => {
-    var days = [
+    let days = [
       "Sunday",
       "Monday",
       "Tuesday",
@@ -85,8 +85,7 @@
     window.onresize = () => (showMap = window.innerWidth > BREAKPOINT);
 
     const events = await getPublic(days.length.toString());
-    for (const [i, event] of events.items.entries()) {
-      console.log(event.attachments)      
+    for (const [i, event] of events.items.entries()) {  
       days[i].location = event.location;
       if (event.attachments) days[i].src = constructExportUrl(event.attachments[0].fileId)
     }
@@ -107,8 +106,6 @@
     });
   }
 </script>
-
-<img src="https://drive.google.com/uc?export=view&id=1wQQNxJYpwNiLcgu_-gnKHKfVUFUtQMbU" alt="">
 
 <HeroHeader
   header="Our Location"

@@ -81,7 +81,6 @@
 </div>
 
 <style lang="scss">
-
     @use '../../../lib/scss/0-helpers/vars' as *;
 
     .map {

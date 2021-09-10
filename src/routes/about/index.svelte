@@ -80,39 +80,12 @@
   @use '../../lib/scss/0-helpers/vars' as *;
   @use '../../lib/scss/1-plugins/mquery' as mq;
 
-  .cta {
-    $padding: clamp(1.5em, 5%, 4em);
-    // $padding: 2em;
-
-    padding-top: $padding;
-    padding-bottom: $padding;
-    color: white;
-    text-align: center;
-
-    h2 {
-      margin-bottom: $pd-sm;
-    }
-  }
-
   .about {
     display: flex;
     gap: 5%;
 
     &__col {
       width: 50%;
-    }
-
-    &__flex {
-      display: flex;
-      gap: 1rem;
-      margin: 1rem 0;
-
-      img {
-        object-fit: cover;
-        width: 100%;
-        max-height: 153px;
-        border-radius: 5px;
-      }
     }
 
     &__col--img {
