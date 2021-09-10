@@ -8,13 +8,13 @@
 body {
 	color: $color-text;
 	font-size: 1rem;
-	font-family: 'Le Havre';
+	font-family: 'le-havre';
 }
 
 h1 {
 	// font-size: f.calcRem($fs-heading-1);
 	// @include res.fluid-type(320px, 1040px, 37px, $fs-heading-1 - 10px);
-	font-family: 'Le Havre Black';
+	font-family: 'le-havre';
 	font-size: $heading-2;
 	font-weight: bold;
 }

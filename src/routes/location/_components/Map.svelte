@@ -108,7 +108,7 @@
                 color: $color-text;
                 align-self: center;
                 font-weight: 400;
-                font-family: 'Le Havre';
+                font-family: 'le-havre';
                 transform: translateY(1px);
             }
 

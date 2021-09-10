@@ -47,7 +47,7 @@
             z-index: 5;
 
 
-            font-family: 'Le Havre';
+            font-family: 'le-havre';
             font-weight: 400;
             font-size: 1.2rem;
             line-height: 1.2rem;

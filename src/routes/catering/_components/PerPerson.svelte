@@ -36,14 +36,14 @@
         }
 
         h1 {
-            font-family: 'Le Havre', sans-serif;
+            font-family: 'le-havre', sans-serif;
             font-size: 37.9px;
             color: $color-heading;
             line-height: 37.9px;
         }
 
         p { 
-            font-family: 'Le Havre', sans-serif;
+            font-family: 'le-havre', sans-serif;
             line-height: 24px;
             font-weight: 400;
             

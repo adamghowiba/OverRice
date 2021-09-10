@@ -11,7 +11,7 @@
 
     label {
         position: relative;
-        font-family: 'Le Havre';
+        font-family: 'le-havre';
         font-size: 1.3rem;
         font-weight: 400;
 
