@@ -18,5 +18,6 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: var(--bg-pos, center);
+        // background-attachment: fixed;
     }
 </style>

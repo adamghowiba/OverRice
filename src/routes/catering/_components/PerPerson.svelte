@@ -1,4 +1,3 @@
-
 <script lang="ts">
     export let price: number
     export let content: string
@@ -54,7 +53,5 @@
                 color: #A1A1A1;
             }
         }
-
-
     }
 </style>

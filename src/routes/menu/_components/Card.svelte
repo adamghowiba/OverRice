@@ -77,6 +77,7 @@
                 width: 117px;
                 height: $default-height;
                 transition: width 0.2s ease-in-out;
+                object-fit: cover;
 
                 @include mq.media("<400px") { width: 93px; }
             }

@@ -1,11 +1,14 @@
 <script>
   export let quote = null;
+  export let menuItems;
+  export let title = "Meat by the pound";
+  export let img = "/images/over_rice_lunch_combo.jpg"
 </script>
 
 <section class="section section--white">
   <div class="container">
     <header>
-      <img src="/images/over_rice_lunch_combo.jpg" alt="Chicken on grill" />
+      <img src="{img}" alt="Chicken on grill" />
 
       {#if quote}
         <p>{quote}</p>
@@ -14,17 +17,16 @@
 
     <div class="card">
       <div class="card__items">
-        <h2>Meat By the pound</h2>
-        {#each Array(4) as item}
+        <h2>{title}</h2>
+        {#each menuItems as menuItem}
         <div class="item">
           <div class="item__head">
-            <h4>Huli Huli Chicken</h4>
-            <span>$10.99</span>
+            <h4>{menuItem.title}</h4>
+            <span>${menuItem.price}</span>
           </div>
 
           <p>
-            An amaxing beld of hawian and fliopan flavors . Comes standard with
-            one meat option but can be exhacnged for more delcious food.
+            {menuItem.desc}
           </p>
         </div>
         {/each}
@@ -39,6 +41,10 @@
   header {
     display: block;
     height: max(100px, 250px);
+  }
+
+  .section {
+    padding: 4rem 0;
   }
 
   img {

@@ -47,6 +47,8 @@
             rgba(0, 0, 0, 0.48) 47.92%,
             rgba(0, 0, 0, 0) 100%
         ), var(--url);
+        background-size: cover;
+        background-position: 50% 50%;
         
 
         @include mq.media ("<1230px") { 

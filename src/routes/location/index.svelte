@@ -6,7 +6,25 @@
   import Map from "./_components/Map.svelte";
   import { onDestroy, onMount } from "svelte";
   import { scroll } from "$lib/stores";
-  import { getPublicFuck } from "$lib/google";
+  import { getPublic, constructExportUrl } from "$lib/google";
+
+  const getDayOfWeek = (date) => {
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    const now: Date = new Date(date);
+
+    return days[now.getDay()];
+  };
+
+  // Just for the commit.
 
   let days: Locations[] = [
     {
@@ -54,6 +72,7 @@
 
   const BREAKPOINT = 1200;
   let showMap = false;
+  let showPage = true;
 
   onMount(async () => {
     height = (list.clientHeight / list.scrollHeight) * list.clientHeight;
@@ -65,21 +84,12 @@
     showMap = window.innerWidth > BREAKPOINT;
     window.onresize = () => (showMap = window.innerWidth > BREAKPOINT);
 
-    // getAccessToken().then(acess_token => getCalendarEvents(acess_token.access_token));
-  });
-
-  /* Loop Through Events Returned And Change Hard Coded "days" Object */
-  (async function () {
-    const events = await getPublicFuck(days.length.toString());
-    console.log(events);
-    console.log(days.length.toString())
-
-    for (const [i, event] of events.items.entries()) {
-        days[i].location = event.location;
-
-        // days[i].times = `${event.start.time ? event.start.Datetime : ""}`;
+    const events = await getPublic(days.length.toString());
+    for (const [i, event] of events.items.entries()) {  
+      days[i].location = event.location;
+      if (event.attachments) days[i].src = constructExportUrl(event.attachments[0].fileId)
     }
-  })();
+  });
 
   let opacity = 1;
   let display = "initial";
@@ -99,8 +109,8 @@
 
 <HeroHeader
   header="Our Location"
-  quote="OverRice is a Food Truck. Using the given calender you can find us"
-  --url="url('/images/location.jpg')"
+  quote="See where we're at and come stop by for a bite. We'd be happy to see you."
+  --url="url('/images/chicken_grill2.jpg')"
   --bg-pos="0 51%"
 />
 
@@ -112,13 +122,12 @@
       footer="Using the current calender, You can go through our weekly schedule"
     />
   </section>
-
+{#if showPage}
   <section class="location__body">
     <div class="location__list">
       <div bind:this={list} class="location__list--container">
         {#each days as day}
           <Card
-            src="/images/Stock-flordia.png"
             alt="flordia"
             active={selected.day === day.day}
             {...day}
@@ -140,11 +149,25 @@
       </div>
     {/if}
   </section>
+{:else}
+<section class="section">
+  <div class="container">
+    <h1>Uh, oh. <br /> Theirs no location data to show right now.</h1>
+    <h2 class="subheading">Check back later as we update our schedule regularly.</h2>
+  </div>
+</section>
+  {/if}
 </main>
 
 <style lang="scss">
   @use '../../lib/scss/1-plugins/mquery' as mq;
 
+  .container {
+    text-align: center;
+  }
+  .subheading {
+    font-size: 2rem;
+  }
   .location {
     position: relative;
     height: 1125px;
@@ -185,7 +208,7 @@
 
       width: 40vw;
       min-width: 350px;
-      max-width: 437px;
+      max-width: 500px;
       height: 700px;
       border-radius: 11px;
       overflow: hidden;

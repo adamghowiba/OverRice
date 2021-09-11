@@ -4,17 +4,16 @@
   export let footer: string = null;
 
   import { onMount } from "svelte";
-  import {fadeIn} from '$lib/actions/gsap';
 
 </script>
 
-<span use:fadeIn>
+<div>
   <h2>{title}</h2>
   <h1>{body}</h1>
   {#if footer}
   <p>{footer}</p>
   {/if}
-</span>
+</div>
 <slot />
 
 <style lang="scss">

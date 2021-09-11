@@ -1,7 +1,6 @@
 
 <script context="module">
-    const map_access_token = 'pk.eyJ1IjoieW9mb3UiLCJhIjoiY2tzczJqb280MGxhbTJwcG45cWc0NHlwZCJ9.2hKVc9lmM44IEYkntKo1zQ'
-    const location_access_token = 'pk.7fef55da73caed030a10d6ef78275084'
+    const map_access_token = 'pk.eyJ1Ijoid2VicmV2aXZlZCIsImEiOiJja3Q5djB4N3ExZm5lMndwbG9mYmw5b28zIn0.tMGZEaDUKymaWr0D28gnVA'
 </script>
 
 <script lang="ts">
@@ -25,11 +24,11 @@
             })
         }
         
-        let longlat = await fetch(`https://us1.locationiq.com/v1/search.php?key=${location_access_token}&q=${address}&format=json`)
+        let longlat = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${map_access_token}&limit=1`)
             .then( res => res.json() )
             .then( coords => {
-                const coord = coords[0]
-                return [coord.lat, coord.lon]
+                const coord = coords.features[0]
+                return [coord.center[1], coord.center[0]]
             })
 
         if (!map) map = leaflet.map("map") 
@@ -82,7 +81,6 @@
 </div>
 
 <style lang="scss">
-
     @use '../../../lib/scss/0-helpers/vars' as *;
 
     .map {

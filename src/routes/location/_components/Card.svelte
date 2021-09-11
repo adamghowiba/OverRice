@@ -1,12 +1,16 @@
 
 <script lang="ts">
-    export let src: string;
+    export let src = "/images/Stock-flordia.png";
     export let alt: string;
     export let active = false
 
     export let day: string
     export let location: string
     export let times: string
+
+    const onError = () => {
+        src = "/images/Stock-flordia.png"
+    }
 </script>
 
 <button 
@@ -15,7 +19,7 @@
     class:card--active={active}
 >
 
-    <img class="card__thumbnail" {src} {alt}>
+    <img on:error={onError} class="card__thumbnail" {src} {alt}>
 
     <div class="card__content">
         <h1>{day}</h1>

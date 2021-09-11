@@ -1,42 +1,5 @@
 import { gsap } from "gsap";
 
-// function textScrollUp() {
-// gsap.
-//     from('h1, h3, p',
-//         {
-//             opacity: 0, yPercent: 100, duration: 0.5, ease: 'power1', stagger: 0.7,
-//             scrollTrigger: {
-//                 trigger: '.container',
-//                 markers: true,
-//                 // Takes 4 different key words
-//                 // Default: play none none none
-//                 // Params: onEnter onLeave onEnterBack onLeaveBack
-//                 toggleActions: "restart none none none"
-//             }
-//         })
-// }
-
-// ScrollTrigger.create({
-//    trigger: el,
-//    animation: timeline,
-//    markers: true,
-//    start: 'top bottom-=30%',
-//    end: "bottom top+=100px",
-//    toggleActions: 'play reverse play reverse',
-// })
-
-// gsap.utils.toArray(['.container']).forEach(elem => {
-//    const element = elem as Element;
-
-//    ScrollTrigger.create({
-//       trigger: element,
-//       start: 'top-=40px center', 
-//       end: 'bottom center',
-//       markers: true,
-//       animation: gsap.from('h2', {opacity: 0})
-//    })
-// })
-
 export const setupHeaderAnimation = () => {
    let timeline = gsap.timeline();
    
