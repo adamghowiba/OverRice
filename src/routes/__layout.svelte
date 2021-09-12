@@ -12,7 +12,7 @@
 <svelte:head>
 	<title>Over Rice Food Truck</title>
     <link rel="stylesheet" href="https://use.typekit.net/ofn2ttu.css">
-    <link href="http://fonts.cdnfonts.com/css/pristina" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/pristina" rel="stylesheet">
 </svelte:head>
 
 <slot />
