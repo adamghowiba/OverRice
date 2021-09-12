@@ -13,7 +13,7 @@
     }
 </script>
 
-<button 
+<div 
     on:click 
     class="card" 
     class:card--active={active}
@@ -36,7 +36,7 @@
 
     <button class="heart" />
 
-</button>
+</div>
 
 <style lang="scss">
     
