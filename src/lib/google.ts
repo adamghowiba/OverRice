@@ -38,18 +38,7 @@ function getPublic(maxResults="7") {
 
     return fetch(calendarUrl).then(response => {
         return (response.json());
-    }).then(events => {
-        /* Data I need
-
-        - start.dateTime
-        - start.date
-        - .location
-        - .attachments
-
-        */
-        console.log(events);
-        return events
-    });
+    })
 }
 
 /* Construct a google drive url to be exported into an
