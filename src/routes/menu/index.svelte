@@ -141,7 +141,7 @@
     @use '../../lib/scss/1-plugins/responsive' as res;
 
     .plates__nav {
-        position: relative;
+        position: sticky;
         width: 100%;
         height: 72px;
         background: black;
