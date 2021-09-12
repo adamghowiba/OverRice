@@ -19,7 +19,7 @@
     class:card--active={active}
 >
 
-    <img on:error={onError} class="card__thumbnail" {src} {alt}>
+    <img on:error={onError}\ class="card__thumbnail" {src} {alt}>
 
     <div class="card__content">
         <h1>{day}</h1>
@@ -101,7 +101,7 @@
             li {
                 position: relative;
                 color: $color-text; 
-                font-size: 0.75rem;
+                font-size: 1rem;
                 font-weight: 400;
 
                 transform: translateX(15px);

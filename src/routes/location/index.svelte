@@ -119,8 +119,8 @@
   <section class="location__header">
     <IntroHeading
       title="Our Location"
-      body="Find Where are we now"
-      footer="Using the current calender, You can go through our weekly schedule"
+      body="We might be close by!"
+      footer="Take a break from your routine with an invitation to explore new tastes."
     />
   </section>
 {#if showPage}

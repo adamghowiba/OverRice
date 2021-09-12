@@ -1,46 +1,48 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
+
+  export let title;
+  export let desc;
+  export let sides;
+  export let meats;
 </script>
 
 <!-- Header -->
 <section class="section section--white">
-    
-    <header>
-      <h2>
-        Hawiian Style Plate Lunch <span class="bold-green">(feeds up to 25)</span>
-      </h2>
-    
-      <p class="catering-item-desc">
-        An amaxing beld of hawian and fliopan flavors . Comes standard with one meat
-        option but can be exhacnged for more delcious food.
-      </p>
-    
-      <hr />
-    
-      <!-- List Double Coulmns -->
-      <div class="columns">
-        <div class="col">
-          <h4>Includes</h4>
-          <ol>
-            <li class="col__li">Jasmin rice</li>
-            <li class="col__li">Jasmin Pancit</li>
-            <li class="col__li">Lumpia Shanghai</li>
-          </ol>
-        </div>
-    
-        <div class="col">
-          <h4>Chose Your Meat</h4>
-          <ol>
-            <li>Jasmin rice</li>
-            <li>Jasmin Pancit</li>
-            <li>Lumpia Shanghai</li>
-          </ol>
-        </div>
-      </div>
-    
-      <Button>Order Online</Button>
-    </header>
+  <header>
+    <h2>
+      {title} <span class="bold-green">(feeds up to 25)</span>
+    </h2>
 
+    <p class="catering-item-desc">
+      {desc}
+    </p>
+
+    <hr />
+
+    <!-- List Double Coulmns -->
+    <div class="columns">
+      <div class="col">
+        <h4>Includes</h4>
+        <ol>
+          {#each sides as side}
+          <li class="col__li">{side}</li>
+          {/each}
+        </ol>
+      </div>
+
+      <div class="col">
+        <h4>Chose Your Meat</h4>
+        <ol>
+          {#each meats as meat}
+          <li>{meat}</li>
+          {/each}
+        </ol>
+      </div>
+    </div>
+
+    <Button>Order Online</Button>
+  </header>
 </section>
 
 <style lang="scss">
@@ -55,16 +57,16 @@
   li {
     list-style-type: disc;
     font-size: 20px;
-    color: #6D6762;
+    color: #6d6762;
 
     margin-bottom: 5px;
   }
 
   h4 {
-      font-size: 30px; 
-      font-weight: normal;
-      margin-bottom: $pd-xs;
-      color: #413934;
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: $pd-xs;
+    color: #413934;
   }
 
   .col {
@@ -92,13 +94,10 @@
     margin-bottom: $pd-md;
   }
 
-  @include mq.media('<tablet') {
-
+  @include mq.media("<tablet") {
     li {
-        text-align: center;
-        list-style-type: none;
+      text-align: center;
+      list-style-type: none;
     }
-
   }
-
 </style>

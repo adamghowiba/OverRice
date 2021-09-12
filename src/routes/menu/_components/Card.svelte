@@ -62,6 +62,8 @@
         border: none;
         border-radius: 11px;
         overflow: hidden;
+        -webkit-appearance: none;
+        appearance: none;
 
         transition: height 0.2s ease-in-out;
 

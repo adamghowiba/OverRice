@@ -56,7 +56,12 @@
 />
 
 <main>
-  <CateringList />
+  <CateringList
+    title="Hawiian Style Catering"
+    desc="An amazing blend of sweet, savory hawian flavors. Includes hawiian classics like our famous Mac salad, and Kula pig. Comes standard with one meat option but can be exhacnged for more delcious food."
+    sides={["Half Jasmine Rice", "Half Max Salad", "Your Choice Of Protien"]}
+    meats={["Huli Huli Chicken", "Kalua Pig", "Papa's Pork Adobo"]}
+  />
   <section class="steps">
     <div class="steps__heading">
       <h1>Catering Options</h1>
@@ -85,7 +90,12 @@
     </div>
   </section>
 
-  <CateringList />
+  <CateringList
+    title="Filipino Style Catering"
+    desc="A classic take on a tradtional Filipino style food. With bold, flavors and a hint of spice. Includes are abundtful portion of filipino's favorite Lumpia Shangahi, rice and your choice of meat."
+    sides={["Jasmine Rice", "25 Lumpia Shanghai", "Your Choice Of Protien"]}
+    meats={["Huli Huli Chicken", "Kalua Pig", "Papa's Pork Adobo"]}
+  />
 
   <CTA
     button={false}
