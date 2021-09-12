@@ -167,7 +167,7 @@
         background: $color-green;
         padding: 12px 56px;
         color: white;
-        font-family: "Le Havre";
+        font-family: "le-havre";
         font-size: 1.75rem;
         border-radius: 11px;
         border: none;

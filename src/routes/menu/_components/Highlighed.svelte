@@ -66,7 +66,7 @@
         }
 
         &__sides {
-            font-family: 'Le Havre';
+            font-family: 'le-havre';
             font-size: 1rem;
             font-weight: 400;
             line-height: 20px;
@@ -76,7 +76,7 @@
         }
 
         &__description {
-            font-family: 'Le Havre';
+            font-family: 'le-havre';
             font-size: 1.3rem;
             font-weight: 400;
             line-height: 27px;
@@ -100,7 +100,7 @@
             bottom: 41px;
             right: 65px;
             color: $color-red;
-            font-family: 'Le Havre Bold';
+            font-family: 'le-havre';
             font-weight: 700;
             font-size: 1.3rem;
             line-height: 27px;
