@@ -1,4 +1,15 @@
+import convertTime from 'convert-time';
 const currentDate = new Date();
+
+export function parseTime(start: Date, end: Date) {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+
+    const startTime = convertTime(startDate.getHours() + ":" + startDate.getMinutes());
+    const endTime = convertTime(endDate.getHours() + ":" + endDate.getMinutes());
+
+    return startTime + " - " + endTime;
+}
 
 const getFutureDate = (amount=7) => {
     const futureDate = new Date();
@@ -25,11 +36,7 @@ function getPublic(maxResults="7") {
     const calendarUrl = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?${searchParams.toString()}`;
 
 
-    let requestHead = {
-        method: "GET",
-    }
-
-    return fetch(calendarUrl, requestHead).then(response => {
+    return fetch(calendarUrl).then(response => {
         return (response.json());
     }).then(events => {
         /* Data I need
@@ -40,7 +47,7 @@ function getPublic(maxResults="7") {
         - .attachments
 
         */
-
+        console.log(events);
         return events
     });
 }

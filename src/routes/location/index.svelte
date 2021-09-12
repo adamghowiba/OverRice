@@ -6,7 +6,7 @@
   import Map from "./_components/Map.svelte";
   import { onDestroy, onMount } from "svelte";
   import { scroll } from "$lib/stores";
-  import { getPublic, constructExportUrl } from "$lib/google";
+  import { getPublic, constructExportUrl, parseTime } from "$lib/google";
 
   const getDayOfWeek = (date) => {
     let days = [
@@ -73,7 +73,7 @@
   let height = 500;
 
   const BREAKPOINT = 1200;
-  let showMap = false;
+  let showMap = true;
   let showPage = true;
 
   onMount(async () => {
@@ -83,12 +83,15 @@
       $scroll = (list.scrollTop / list.scrollHeight) * list.clientHeight;
     });
 
-    showMap = window.innerWidth > BREAKPOINT;
-    window.onresize = () => (showMap = window.innerWidth > BREAKPOINT);
+    // showMap = window.innerWidth > BREAKPOINT;
+    // window.onresize = () => (showMap = window.innerWidth > BREAKPOINT);
 
     const events = await getPublic(days.length.toString());
     for (const [i, event] of events.items.entries()) {  
       days[i].location = event.location;
+      if (event.start.dateTime && event.end.dateTime) {
+        days[i].times = parseTime(event.start?.dateTime, event.end?.dateTime);
+      }
       if (event.attachments) days[i].src = constructExportUrl(event.attachments[0].fileId)
     }
   });
@@ -121,24 +124,20 @@
       footer="Using the current calender, You can go through our weekly schedule"
     />
   </section>
-  
-  {#if showPage}
-    <section class="location__body">
-      <div class="location__list">
-        <div bind:this={list} class="location__list--container">
-          {#each days as day}
+{#if showPage}
+  <section class="location__body">
+    <div class="location__list">
+      <div bind:this={list} class="location__list--container">
+        {#each days as day}
+          {#if day.location}
             <Card
               alt="flordia"
               active={selected.day === day.day}
               {...day}
               on:click={select(day)}
             />
-          {/each}
-        </div>
-        <div
-          class="location__list--overlay-fade"
-          style="--opacity: {opacity};"
-        />
+          {/if}
+        {/each}
       </div>
 
       <ScrollBar --height="{height}px" />
