@@ -1,4 +1,3 @@
-
 <script context="module">
     const map_access_token = 'pk.eyJ1Ijoid2VicmV2aXZlZCIsImEiOiJja3Q5djB4N3ExZm5lMndwbG9mYmw5b28zIn0.tMGZEaDUKymaWr0D28gnVA'
 </script>
@@ -82,17 +81,31 @@
 
 <style lang="scss">
     @use '../../../lib/scss/0-helpers/vars' as *;
+    @use '../../../lib/scss/1-plugins/mquery' as mq;
 
     .map {
         position: relative;
+        width: 100vw;
+        min-width: var(--width, 320px);
+        max-width: 586px;
+        height: var(--height, 516px);
+        grid-area: map;
 
+        
         .map__header {
             position: absolute;
             top: 25px;
             left: 80px;
-
+            
             // map has a rediculous z-indexing number
             z-index: 500;
+            
+            @include mq.media("<tablet") {
+                top: unset;
+                left: unset;
+                right: 10px;
+                bottom: 50px;
+            }
 
             background: rgba(white, 0.3);
             border-radius: 11px;
@@ -119,7 +132,9 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: var(--width, 586px);
+        width: 100vw;
+        min-width: var(--width, 320px);
+        max-width: 586px;
         height: var(--height, 516px);
         border-radius: 20px;
     }

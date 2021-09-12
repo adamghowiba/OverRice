@@ -63,7 +63,11 @@
   ];
 
   let selected: Locations = days[0];
-  const select = (day) => () => (selected = day);
+  const select = (day) => () => {
+    selected = day
+    const map: HTMLDivElement = document.querySelector('#map')
+    map.scrollIntoView()
+  };
 
   let list: HTMLElement;
   let height = 500;
@@ -90,14 +94,11 @@
   });
 
   let opacity = 1;
-  let display = "initial";
 
   // if the list is not mounted (ie list will be null if not mounted)
   $: if (list) {
     $scroll;
-
     opacity = 1 - $scroll / (list.clientHeight - $scroll);
-    display = opacity <= 0.24 ? "none" : "initial";
 
     list.scrollTo({
       top: ($scroll / list.clientHeight) * list.scrollHeight,
@@ -120,40 +121,37 @@
       footer="Using the current calender, You can go through our weekly schedule"
     />
   </section>
-{#if showPage}
-  <section class="location__body">
-    <div class="location__list">
-      <div bind:this={list} class="location__list--container">
-        {#each days as day}
-          <Card
-            alt="flordia"
-            active={selected.day === day.day}
-            {...day}
-            on:click={select(day)}
-          />
-        {/each}
+  
+  {#if showPage}
+    <section class="location__body">
+      <div class="location__list">
+        <div bind:this={list} class="location__list--container">
+          {#each days as day}
+            <Card
+              alt="flordia"
+              active={selected.day === day.day}
+              {...day}
+              on:click={select(day)}
+            />
+          {/each}
+        </div>
+        <div
+          class="location__list--overlay-fade"
+          style="--opacity: {opacity};"
+        />
       </div>
-      <div
-        class="location__list--overlay-fade"
-        style="--opacity: {opacity}; --display: {display}"
-      />
-    </div>
 
-    <ScrollBar --height="{height}px" />
+      <ScrollBar --height="{height}px" />
 
-    {#if showMap}
-      <div class="location__map--container">
-        <Map address={selected.location} />
+      <Map address={selected.location} />
+    </section>
+  {:else}
+    <section class="section">
+      <div class="container">
+        <h1>Uh, oh. <br /> Theirs no location data to show right now.</h1>
+        <h2 class="subheading">Check back later as we update our schedule regularly.</h2>
       </div>
-    {/if}
-  </section>
-{:else}
-<section class="section">
-  <div class="container">
-    <h1>Uh, oh. <br /> Theirs no location data to show right now.</h1>
-    <h2 class="subheading">Check back later as we update our schedule regularly.</h2>
-  </div>
-</section>
+    </section>
   {/if}
 </main>
 
@@ -163,14 +161,17 @@
   .container {
     text-align: center;
   }
+  
   .subheading {
     font-size: 2rem;
   }
+
   .location {
     position: relative;
-    height: 1125px;
+    min-height: 1125px;
     background: url("/images/background.jpg");
     z-index: 2;
+    margin-bottom: 4rem;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -182,20 +183,34 @@
       @include mq.media("<tablet") {
         margin: 60px 0;
       }
+      
     }
 
     &__body {
       display: grid;
       grid-template-columns: min-content min-content 1fr;
       grid-template-rows: 1fr;
+      grid-template-areas: "list scroll map";
       gap: 45px;
       justify-self: center;
-      transform: translateX(-55%);
 
       @include mq.media("<1200px") {
-        gap: 10px;
-        grid-template-columns: min-content min-content;
-        transform: translateX(0);
+        grid-template-columns: min-content 1fr min-content;
+        grid-template-rows: min-content 1fr;
+        grid-template-areas: 
+                            "map map"
+                            "box box"
+                            "list scroll";
+      }
+
+      @include mq.media("<tablet") {
+        grid-template-columns: min-content;
+        grid-template-rows: min-content 1fr;
+        grid-template-areas: 
+                            "map"
+                            "box"
+                            "list";
+        justify-items: center;
       }
     }
 
@@ -205,11 +220,12 @@
       background: white;
 
       width: 40vw;
-      min-width: 350px;
+      min-width: 320px;
       max-width: 500px;
       height: 700px;
       border-radius: 11px;
       overflow: hidden;
+      grid-area: list;
 
       &--container::-webkit-scrollbar {
         display: none;
@@ -231,12 +247,11 @@
 
       &--overlay-fade {
         opacity: var(--opacity);
+        pointer-events: none;
 
         position: absolute;
         left: 0;
         bottom: 0;
-
-        display: var(--display);
 
         background: linear-gradient(
           rgba(255, 255, 255, 0) 0%,

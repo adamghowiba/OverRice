@@ -43,6 +43,7 @@
         border-radius: 11px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
         background: #F1F1F1;
+        grid-area: scroll;
 
         &__bar {
             content: '';

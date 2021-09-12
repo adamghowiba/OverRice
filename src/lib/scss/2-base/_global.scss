@@ -1,4 +1,10 @@
 @use '../0-helpers/vars' as *;
+
+@font-face {
+    font-family: "Pristina";
+    src: url("/fonts/Pristina.TTF") format("truetype");
+}
+
 /* Body */
 html, body {
     width: 100%;
