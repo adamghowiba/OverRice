@@ -19,7 +19,7 @@
     class:card--active={active}
 >
 
-    <img on:error={onError}\ class="card__thumbnail" {src} {alt}>
+    <img on:error={onError} class="card__thumbnail" {src} {alt}>
 
     <div class="card__content">
         <h1>{day}</h1>
