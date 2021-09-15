@@ -48,38 +48,45 @@
   </div>
 </section>
 
-<CallToAction title="Always fresh always, from the heart" img="/images/IMG_2688.jpg"/>
+<CallToAction
+  title="Always fresh always, from the heart"
+  img="/images/IMG_2688.jpg"
+/>
 
 <section class="section section--white">
   <IntroHeading
-    title="Our Gallery"
-    footer="We have a variety of food specialized in Filipino and Hawaiian Food"
-    body="Wanna have a look through our Yummy Food?"
+    title="See us grow"
+    footer="Follow us on instagram to be along the tasty jounry. We're always cooking up something new."
+    body="Check Out Our Instagram"
   />
   <section class="section--small">
     <div class="container">
       <div class="image-card-wrap">
-        <ImageCard --rotate="15deg" --url="url(/images/over_rice_chicken_platter.jpg)" />
         <ImageCard
-          --rotate="-15deg"
-          --url="url(/images/mac_salad.jpg)" 
+          --rotate="15deg"
+          --url="url(/images/over_rice_chicken_platter.jpg)"
         />
+        <ImageCard --rotate="-15deg" --url="url(/images/mac_salad.jpg)" />
         <ImageCard --rotate="15deg" --url="url(/images/huli_chicken.jpg)" />
         <ImageCard --rotate="-15deg" --url="url(/images/chicken_grill2.jpg)" />
       </div>
     </div>
 
     <div class="section__footer">
-      <h3>Our Gallery Of Cool Food</h3>
-      <p>The great colection of Filipino and Hawaiian food</p>
+      <h3>Support your local business by dropping us a like</h3>
+      <p class="bottom-margin">I mean who doesn't enjoy seeing good food? Right</p>
+      <Button href="https://www.instagram.com/overricecfl/">Follow Us</Button>
     </div>
+
   </section>
 </section>
 
 <style lang="scss">
   @use '../../lib/scss/0-helpers/vars' as *;
   @use '../../lib/scss/1-plugins/mquery' as mq;
-
+  .bottom-margin {
+    margin-bottom: 1rem;
+  }
   .about {
     display: flex;
     gap: 5%;

@@ -3,6 +3,7 @@
     export let caption: string
     export let content: string
     export let src: string
+    export let href: string = "https://over-rice-food-truck.square.site/"
 </script>
 
 <div class="card">
@@ -12,7 +13,7 @@
         <h4 class="card__heading">{title}</h4>
         <span class="card__caption">{caption}</span>
         <p class="card__p">{content}</p>
-        <a href="/" class="card__button">Get One Now</a>
+        <a {href} target="_blank" class="card__button">Get One Now</a>
     </div>
 </div>
 

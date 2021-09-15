@@ -127,21 +127,6 @@
                 src="/images/best_filipino_food_over_rice.jpg"
                 alt=""
               />
-              <img
-                class="moving-images__img"
-                src="/images/orlando_food.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/food_truck_photo.jpg"
-                alt=""
-              />
-              <img
-                class="moving-images__img"
-                src="/images/catering_orlando.jpg"
-                alt=""
-              />
             </div>
           </div>
         {/key}
@@ -179,6 +164,10 @@
     text-transform: capitalize;
   }
 
+  #moving-images-section {
+    overflow: hidden;
+  }
+
   .flex {
     display: flex;
     gap: 1rem;
@@ -194,7 +183,7 @@
   .moving-images {
     &-wrap {
       display: flex;
-      width: 50%;
+      width: auto;
       position: absolute;
     }
 
@@ -213,13 +202,14 @@
 
   #moving-images-1 {
     margin-right: 1.5em;
-    transform: translateY(-20%);
+    transform: translateY(-200px);
     left: 0;
   }
 
   #moving-images-2 {
-    transform: translateY(-80%);
+    transform: translateY(-200px);
     right: 0;
+    top: 0;
   }
 
   @include mq.media("<tablet") {
@@ -246,10 +236,11 @@
     .moving-images-wrap {
       flex-direction: column;
       margin-bottom: $pd-md;
+      width: 100%;
       position: relative;
     }
-    #moving-images-2 {
-      transform: translateX(-200px);
+    #moving-images-2, #moving-images-1 {
+      transform: none;
     }
   }
 </style>

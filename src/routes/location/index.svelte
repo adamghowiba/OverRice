@@ -92,12 +92,13 @@
 
 <HeroHeader
   header="Our Location"
-  quote="See where we're at and come stop by for a bite. We'd be happy to see you."
+  quote="Come stop by for a bite. We'd be happy to see you."
   --url="url('/images/chicken_grill2.jpg')"
   --bg-pos="0 51%"
 />
 
 <main class="location">
+  {#if $showPage}
   <section class="location__header">
     <IntroHeading
       title="Our Location"
@@ -105,7 +106,6 @@
       footer="Take a break from your routine with an invitation to explore new tastes."
     />
   </section>
-{#if $showPage}
   <section class="location__body">
     <div class="location__list">
       <div bind:this={list} class="location__list--container">

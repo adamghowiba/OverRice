@@ -22,7 +22,7 @@
       </p>
     </div>
     <div class="hero__headings__button-wrap">
-      <Button>Order Online</Button>
+      <Button href="https://over-rice-food-truck.square.site/">Order Online</Button>
       <Button outline href="/menu">View Menu</Button>
     </div>
   </div>

@@ -45,7 +45,7 @@
 
         @include mq.media("<tablet") {
             display: flex;
-            z-index: 4;
+            z-index: 2000;
         }
     }
 </style>

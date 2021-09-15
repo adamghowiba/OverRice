@@ -19,7 +19,6 @@
 
         <div class="highlight__buttons">
             <Button {href}>Order Now</Button>
-            <a class="highlight__learn" href="/">Learn More</a>
         </div>
     </div>
 
@@ -37,9 +36,11 @@
         padding: 41px 65px;
         color: white;
       
-        min-width: 500px;
+        min-width: 100%;
         max-width: 655px;
-        height: 790px;
+        // height: 790px;
+        max-height: 100%;
+        height: 700px;
         border-radius: 11px;
         background: linear-gradient(
             0deg,
@@ -55,7 +56,7 @@
             padding: 41px 35px;
         }
 
-        @include mq.media("<1100px") {
+        @include mq.media("<phone") {
             display: none;
         }
 

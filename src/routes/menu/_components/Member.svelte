@@ -30,6 +30,8 @@
         img {
             height: 331px;
             border-radius: 5px;
+            object-fit: cover;
+            object-position: left;
         }
 
         &__content {
