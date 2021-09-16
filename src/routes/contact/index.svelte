@@ -100,7 +100,6 @@
       margin-bottom: 100px;
 
       display: flex;
-      gap: 60px;
 
       @include mq.media("<tablet") {
         display: grid;
@@ -116,6 +115,7 @@
 
       a {
         color: inherit;
+        margin: 0 2rem;
       }
       place-self: center;
     }

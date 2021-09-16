@@ -28,22 +28,22 @@
     {
       title: "Pancit Tray",
       price: "60",
-      desc: "test",
+      desc: "Pancit is a trdaional filipino type of Lo Mein or tossed noodles. This dish is often served during birthdays and special occasions to symbolize long life",
     },
     {
       title: "Garlic Rice Tray",
       price: "30",
-      desc: "test",
+      desc: "Delcious buttery tray of our stapel garlic rice, the perfect pairing for any dish.",
     },
     {
-      title: "Mac Salad tray",
+      title: "Mac Salad Tray",
       price: "40",
-      desc: "test",
+      desc: "Creamy, flavor packed classic Hawiian mac salad. A garunteed crowd favorite. ",
     },
     {
       title: "Frozen Lumpia Shanghia (Dozen)",
       price: "15",
-      desc: "test",
+      desc: "Filipino deep-fried appetizer consisting of a mixture of giniling wrapped in a thin egg crêpe",
     },
   ];
 </script>
@@ -125,7 +125,7 @@
         "
       />
       <div class="center">
-        <Button>Start Order</Button>
+        <Button href="https://over-rice-food-truck.square.site/">Start Order</Button>
       </div>
     </container>
   </section>

@@ -73,12 +73,12 @@
             </p>
           </div>
           {#each menu as food}
-          <Acord
-            src={food.src}
-            desc={food.description}
-            price={food.price}
-            title={food.title}
-          />
+            <Acord
+              src={food.src}
+              desc={food.description}
+              price={food.price}
+              title={food.title}
+            />
           {/each}
         </div>
         <div class="col col--image">
@@ -94,60 +94,12 @@
     </div>
   </section>
 
-  <section class="plates">
-    <div class="plates__container">
-      <div class="plates__heading">
-        <h1>
-          {selectedMenu}
-        </h1>
-        <p>
-          Please let us know if you have any allergies or dietary restrictions
-          prior to ordering!
-        </p>
-      </div>
-
-      <div class="plates__list">
-        {#each menu as food}
-          <Card
-            {...food}
-            active={food.title === selected?.title}
-            on:click={select(food)}
-          >
-            <img
-              slot="head_action"
-              src={selectedMenu != "Mains"
-                ? "/icons/cart.svg"
-                : selected?.title === food.title
-                ? "/icons/plates_open.svg"
-                : "/icons/plates_close.svg"}
-              alt=""
-            />
-
-            <div slot="body">
-              {#if selectedMenu === "Mains"}
-                <CardDescription includes={food?.includes} />
-              {/if}
-            </div>
-          </Card>
-        {/each}
-      </div>
-    </div>
-
-    <!-- <Highlighed
-      title={highlight.title}
-      sides={highlight.sides}
-      description="We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
-      price={highlight.price}
-      --url="url('{highlight.src}')"
-    /> -->
-  </section>
-
   <section class="team">
     <div class="heading">
       <IntroHeading
         title="Our Team"
-        body="Most Expert Chefs"
-        footer="OverRice have a great team of good chefs. Who provides quality food for about 7 years."
+        body="The Overice Family"
+        footer="Meet the owners, Myra, and Joel. A husban and wife team deadciated to serving up some of the most delcious Fillipno and Hiwiian food they grew up with."
       />
     </div>
 
@@ -337,7 +289,7 @@
   .team {
     position: relative;
     width: 100%;
-    padding: 110px 0;
+    padding: 110px;
     background: url("/images/background.jpg");
 
     display: grid;
@@ -362,7 +314,7 @@
     }
 
     @include mq.media("<1200px") {
-      padding: 60px 0;
+      padding: 60px 1rem;
     }
   }
 </style>
