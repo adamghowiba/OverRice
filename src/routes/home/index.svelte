@@ -153,7 +153,8 @@
   .card-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 3.5%;
+    justify-items: center;
+    gap: 2rem;
 
     @include mq.media("<800px") {
       grid-template-columns: 1fr;

@@ -37,6 +37,7 @@
     .card {
         border-radius: $br-tile;
         height: auto;
+        max-width: 400px;
         background-color: $color-snow;
         transition: transform 0.55s cubic-bezier(0.23, 1, 0.320, 1), box-shadow 0.2s ease-out;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;

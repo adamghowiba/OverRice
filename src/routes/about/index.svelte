@@ -2,6 +2,7 @@
   import HeroHeader from "$lib/components/HeroHeader.svelte";
   import Header from "$lib/components/HeroHeader.svelte";
   import Button from "$lib/components/Button.svelte";
+  import Member from "./Member.svelte";
   import CallToAction from "$lib/components/CallToAction.svelte";
   import IntroHeading from "$lib/components/IntroHeading.svelte";
   import ImageCard from "$lib/components/ImageCard.svelte";
@@ -53,14 +54,44 @@
   img="/images/IMG_2688.jpg"
 />
 
-<section class="section section--white">
-  <IntroHeading
-    title="See us grow"
-    footer="Follow us on instagram to be along the tasty jounry. We're always cooking up something new."
-    body="Check Out Our Instagram"
-  />
+
+<section class="section section--small section--white">
+  
+  <div class="team">
+    <div class="heading">
+      <IntroHeading
+        title="Our Team"
+        body="The Overice Family"
+        footer="Meet the owners, Myra, and Joel. A husban and wife team deadciated to serving up some of the most delcious Fillipno and Hiwiian food they grew up with."
+      />
+    </div>
+  
+    <div class="team__members">
+      <Member
+        src="/images/owner_headshot.jpg"
+        name="Myra J. Ogren"
+        title="Chicken Expert"
+        description="The special person behind the recipe of Huli Huli Chicken. She loves chicken thats why try her best to make the best of a chicken."
+      />
+      <Member
+        src="/images/owner_headshot_2.jpg"
+        name="Joel T. Seay"
+        title="Grill Expert"
+        description="The special person behind the recipe of Adobo Bowl Platter. He loves grilled chicken thats why try her best to make the best of a chicken."
+      />
+    </div>
+  </div>
+
+
   <section class="section--small">
     <div class="container">
+      <div class="heading-wrap">
+        <IntroHeading
+          title="See us grow"
+          footer="Follow us on instagram to be along the tasty jounry. We're always cooking up something new."
+          body="Check Out Our Instagram"
+        />
+      </div>
       <div class="image-card-wrap">
         <ImageCard
           --rotate="15deg"
@@ -70,8 +101,8 @@
         <ImageCard --rotate="15deg" --url="url(/images/huli_chicken.jpg)" />
         <ImageCard --rotate="-15deg" --url="url(/images/chicken_grill2.jpg)" />
       </div>
+      
     </div>
-
     <div class="section__footer">
       <h3>Support your local business by dropping us a like</h3>
       <p class="bottom-margin">I mean who doesn't enjoy seeing good food? Right</p>
@@ -86,6 +117,15 @@
   @use '../../lib/scss/1-plugins/mquery' as mq;
   .bottom-margin {
     margin-bottom: 1rem;
+  }
+
+  .heading {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+
+  .heading-wrap {
+    margin-bottom: 3rem;
   }
   .about {
     display: flex;
@@ -130,7 +170,7 @@
   @include mq.media("<tablet") {
     .about {
       flex-direction: column-reverse;
-      gap: 3rem;
+      gap: 0;
 
       &__col {
         width: 100%;
@@ -138,6 +178,7 @@
 
       &__image {
         max-height: 300px;
+        margin-bottom: 2rem;
 
         &-wrap {
           height: 100%;
@@ -146,6 +187,36 @@
         height: 100%;
         object-fit: cover;
       }
+    }
+  }
+
+  .team {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+
+    &__members {
+      justify-self: center;
+      display: flex;
+      gap: 40px;
+
+      @include mq.media("<1200px") {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+      }
+
+      @include mq.media("<600px") {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    @include mq.media("<1200px") {
+      margin: 0 auto;
+      justify-content: center;
     }
   }
 </style>

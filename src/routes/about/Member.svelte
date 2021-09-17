@@ -19,7 +19,7 @@
 </div>
 
 <style lang="scss">
-    @use '../../../lib/scss/0-helpers/vars' as *;
+    @use '../../lib/scss/0-helpers/vars' as *;
 
     .member {
         width: 260px;

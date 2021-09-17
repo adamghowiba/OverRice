@@ -3,17 +3,22 @@
   import HeroHeader from "$lib/components/HeroHeader.svelte";
   import IntroHeading from "$lib/components/IntroHeading.svelte";
   import Highlighed from "./_components/Highlighed.svelte";
-  import Member from "./_components/Member.svelte";
   import Food from "$lib/foods";
   import Card from "./_components/Card.svelte";
   import CardDescription from "./_components/CardDescription.svelte";
   import CardFix from "./_components/CardFix.svelte";
   import Acord from "./_components/Acord.svelte";
   import { fade } from "svelte/transition";
+  import { onMount } from "svelte";
 
   let selectedMenu: "Mains" | "Sides" | "Pupus" = "Mains";
   let menu: Mains[] | BaseFood[] = Food[selectedMenu];
   $: menu = Food[selectedMenu];
+
+  onMount(() => {
+    if (window.innerWidth < 600) {
+    }
+  });
 
   let selected = menu[0];
   let _selected = selected; // this is purpley so we can remain the previous selected for highlights
@@ -75,6 +80,7 @@
           {#each menu as food}
             <Acord
               src={food.src}
+              active={food.includes ? true : false}
               desc={food.description}
               price={food.price}
               title={food.title}
@@ -91,31 +97,6 @@
           />
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="team">
-    <div class="heading">
-      <IntroHeading
-        title="Our Team"
-        body="The Overice Family"
-        footer="Meet the owners, Myra, and Joel. A husban and wife team deadciated to serving up some of the most delcious Fillipno and Hiwiian food they grew up with."
-      />
-    </div>
-
-    <div class="team__members">
-      <Member
-        src="/images/owner_headshot.jpg"
-        name="Myra J. Ogren"
-        title="Chicken Expert"
-        description="The special person behind the recipe of Huli Huli Chicken. She loves chicken thats why try her best to make the best of a chicken."
-      />
-      <Member
-        src="/images/owner_headshot_2.jpg"
-        name="Joel T. Seay"
-        title="Grill Expert"
-        description="The special person behind the recipe of Adobo Bowl Platter. He loves grilled chicken thats why try her best to make the best of a chicken."
-      />
     </div>
   </section>
 </main>
@@ -183,7 +164,6 @@
     justify-content: center;
     // align-items: flex-end;
     flex-wrap: wrap-reverse;
-    height: 100;
     width: 100%;
   }
 
@@ -249,6 +229,7 @@
 
     &__heading {
       max-width: 490px;
+      margin-bottom: 2rem;
       h1 {
         color: $color-heading;
       }
@@ -283,38 +264,6 @@
         }
         place-self: center;
       }
-    }
-  }
-
-  .team {
-    position: relative;
-    width: 100%;
-    padding: 110px;
-    background: url("/images/background.jpg");
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content 1fr;
-
-    &__members {
-      justify-self: center;
-      display: flex;
-      gap: 40px;
-
-      @include mq.media("<1200px") {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
-      }
-
-      @include mq.media("<600px") {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-
-    @include mq.media("<1200px") {
-      padding: 60px 1rem;
     }
   }
 </style>

@@ -1,4 +1,4 @@
-let foods: Foods = {
+let foods: Foods | Mains = {
     "Mains": [
         {
             src: "/images/pork_adobo.jpg",

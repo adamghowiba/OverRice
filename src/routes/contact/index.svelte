@@ -9,11 +9,36 @@
   let input: string | null = null;
   let email: string | null = null;
   let message: string | null = null;
+  let status: string = "Send Message";
+  const onSubmit = (event: SubmitEvent) => {
+    const data = { input, email, message };
+    status = "Sending....";
 
-  const onSubmit = () => {
-    console.table([input, email, message]);
+    fetch(
+      "https://s0prbjfu27.execute-api.us-east-1.amazonaws.com/Prod/submitForm",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          status = "failed";
+        }
+        
+        console.log(response);
+        status = "Sent";
+      })
+      .catch((err) => {
+        status = "Sending Failed";
+      });
+
+      const formElement = event.target as HTMLFormElement;
+      formElement.reset();
   };
-
 </script>
 
 <HeroHeader
@@ -70,7 +95,7 @@
         <TextArea id="message" bind:value={message} placeholder="Message" />
       </div>
 
-      <button class="contact__form__submit">Send Message</button>
+      <button type="submit" class="contact__form__submit">{status}</button>
     </form>
   </section>
 </main>

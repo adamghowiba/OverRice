@@ -3,11 +3,16 @@
   export let src;
   export let title = "Filipino Style Plate Lunch";
   export let price: number;
+  export let active;
   let s = 100;
   $: s += 100;
   let open;
 
+  const mainIcon = "plus_button.svg", sideIcon = "cart.svg";
+
   const openAcord = (event: MouseEvent) => {
+    if (!active) return;
+
     const acord = event.currentTarget as HTMLElement;
     const acordDropdown = acord.querySelector(".dropdown") as HTMLElement;
     const acordScrollWrap = document.querySelector(
@@ -50,9 +55,10 @@
         <span class="acord__price">${price}</span>
       </div>
 
-      <div class="acord__button" />
+      <div class="acord__button" style="content: url(/icons/{active ? mainIcon : sideIcon})"/>
     </div>
 
+    {#if active}
     <!-- Dropdown  -->
     <div class="dropdown">
       <div class="wrap">
@@ -70,6 +76,7 @@
         </ul>
       </div>
     </div>
+    {/if}
   </div>
 </div>
 
@@ -149,7 +156,7 @@
     }
 
     &__button::after {
-      content: url("/icons/plus_button.svg");
+      // content: url("/icons/plus_button.svg");
       display: block;
       width: 100%;
       height: 100%;
