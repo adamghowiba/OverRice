@@ -183,16 +183,14 @@
         grid-template-rows: min-content 1fr;
         grid-template-areas: 
                             "map map"
-                            "box box"
                             "list scroll";
       }
 
       @include mq.media("<tablet") {
         grid-template-columns: min-content;
-        grid-template-rows: min-content 1fr;
+        grid-template-rows: min-content auto;
         grid-template-areas: 
                             "map"
-                            "box"
                             "list";
         justify-items: center;
       }
@@ -211,6 +209,10 @@
       overflow: hidden;
       grid-area: list;
 
+      @include mq.media("<tablet") {
+        height: 1250px;
+      }
+
       &--container::-webkit-scrollbar {
         display: none;
       }
@@ -227,6 +229,10 @@
         left: 0;
         overflow-y: scroll;
         scrollbar-width: none;
+
+        @include mq.media("<tablet") {
+          overflow-y: visible;
+        }
       }
 
       &--overlay-fade {
@@ -246,6 +252,10 @@
         width: 100%;
         height: 100%;
         max-height: 161px;
+        
+        @include mq.media("<tablet") {
+          display: none;
+        }
       }
     }
   }
