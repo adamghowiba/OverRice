@@ -51,8 +51,6 @@
         <p class="acord__span">
           {desc}
         </p>
-
-        <span class="acord__price">${price}</span>
       </div>
 
       <div class="acord__button" style="content: url(/icons/{active ? mainIcon : sideIcon})"/>

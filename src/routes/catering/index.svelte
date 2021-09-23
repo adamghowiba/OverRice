@@ -59,7 +59,7 @@
   <CateringList
     title="Hawiian Style Catering"
     desc="An amazing blend of sweet, savory hawian flavors. Includes hawiian classics like our famous Mac salad, and Kula pig. Comes standard with one meat option but can be exhacnged for more delcious food."
-    sides={["Half Jasmine Rice", "Half Max Salad", "Your Choice Of Protien"]}
+    sides={["Half Jasmine Rice", "Half Mac Salad", "Your Choice Of Protien"]}
     meats={["Huli Huli Chicken", "Kalua Pig", "Papa's Pork Adobo"]}
   />
   <section class="steps">
