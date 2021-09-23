@@ -2,7 +2,7 @@
     import HeroHeader from '$lib/components/HeroHeader.svelte'
     import IntroHeading from '$lib/components/IntroHeading.svelte';
     import Card from './_components/Card.svelte'
-    import Map from './_components/Map.svelte';
+    import Map from './_components/Map.svelte'
     import { getPublic, constructExportUrl, parseTime } from "$lib/google";
     import { writable } from 'svelte/store'
     import { onMount } from 'svelte';
@@ -62,11 +62,16 @@
         scrollTop = locationDIV.scrollTop
         locationDIV.onscroll = () => {
             scrollTop = locationDIV.scrollTop
-            
             scrollPercentage = locationDIV.scrollTop / (locationDIV.scrollHeight - locationDIV.clientHeight)
         }
 
         const events = await getPublic(days.length.toString());
+
+        if ( events.items.length === 0 ) {
+            $showPage = false
+            return // stop the mount function here
+        }
+
         for (const [i, event] of events.items.entries()) {  
             days[i].location = event.location;
             if (event.start.dateTime && event.end.dateTime) {
@@ -84,7 +89,7 @@
   --bg-pos="0 51%"
 />
 
-{#if showPage}
+{#if $showPage}
     <main class="location">
         <section>
             <IntroHeading
