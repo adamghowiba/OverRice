@@ -84,6 +84,7 @@
               desc={food.description}
               price={food.price}
               title={food.title}
+              on:acord-toggle={ select(food)  }
             />
           {/each}
         </div>

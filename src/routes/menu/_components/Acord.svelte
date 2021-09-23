@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte'
   export let desc;
   export let src;
   export let title = "Filipino Style Plate Lunch";
@@ -8,9 +9,11 @@
   $: s += 100;
   let open;
 
+  const dispatcher = createEventDispatcher() 
   const mainIcon = "plus_button.svg", sideIcon = "cart.svg";
 
   const openAcord = (event: MouseEvent) => {
+    dispatcher('acord-toggle')
     if (!active) return;
 
     const acord = event.currentTarget as HTMLElement;
@@ -57,23 +60,23 @@
     </div>
 
     {#if active}
-    <!-- Dropdown  -->
-    <div class="dropdown">
-      <div class="wrap">
-        <ul>
-          <h1>Included</h1>
-          <li>Jasmine Rice</li>
-          <li>Pancit</li>
-          <li>Lumpia Shangi</li>
-        </ul>
-        <ul>
-          <h1>Choice Of Meat <span class="red">$2 for double meat</span></h1>
-          <li>Kalua Pig</li>
-          <li>Huli Huli Chicken</li>
-          <li>Papa's Filipino Pork</li>
-        </ul>
+      <!-- Dropdown  -->
+      <div class="dropdown">
+        <div class="wrap">
+          <ul>
+            <h1>Included</h1>
+            <li>Jasmine Rice</li>
+            <li>Pancit</li>
+            <li>Lumpia Shangi</li>
+          </ul>
+          <ul>
+            <h1>Choice Of Meat <span class="red">$2 for double meat</span></h1>
+            <li>Kalua Pig</li>
+            <li>Huli Huli Chicken</li>
+            <li>Papa's Filipino Pork</li>
+          </ul>
+        </div>
       </div>
-    </div>
     {/if}
   </div>
 </div>

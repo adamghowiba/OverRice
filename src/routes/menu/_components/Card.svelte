@@ -1,4 +1,3 @@
-
 <script lang="ts">
     import { afterUpdate } from "svelte";
     
@@ -60,8 +59,8 @@
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
 
         width: 100%;
         $default-height: 142px;
