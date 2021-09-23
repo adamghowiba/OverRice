@@ -110,11 +110,7 @@
   main {
     position: relative;
   }
-  .item {
-    background-color: red;
-    width: 100%;
-    height: 30px;
-  }
+
   .col--acord::-webkit-scrollbar {
     appearance: none;
     border-radius: 10px;
@@ -175,9 +171,6 @@
     .col {
       padding: 0;
     }
-    .image {
-      height: 300px;
-    }
   }
 
   .plates__nav {
@@ -200,71 +193,4 @@
     @include res.interpolate(font-size, 320px, 1440px, $fs-nav - 6, $fs-nav);
   }
 
-  .heading {
-    margin-bottom: 2rem;
-  }
-
-  .plates {
-    position: relative;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: min-content 1fr;
-    gap: 98px;
-    padding: 85px 0 0 13.5vw;
-
-    transition: padding 0.2s ease-in-out, margin 0.2s ease-in-out;
-    width: 100%;
-    background: url("/images/background.jpg");
-
-    @include mq.media("<1440px") {
-      padding: 60px 3em 0 3em;
-      gap: 30px;
-    }
-
-    &__container {
-      min-width: 500px;
-      display: flex;
-      flex-direction: column;
-      gap: 50px;
-    }
-
-    &__heading {
-      max-width: 490px;
-      margin-bottom: 2rem;
-      h1 {
-        color: $color-heading;
-      }
-      p {
-        color: $color-green;
-        font-weight: 400;
-        font-size: 1.2rem;
-        letter-spacing: 0.02em;
-        line-height: 21px;
-      }
-    }
-
-    &__list {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    @include mq.media("<1100px") {
-      padding: 30px 1em;
-      grid-template: 1fr / 1fr;
-      justify-items: center;
-
-      &__container {
-        min-width: 0;
-      }
-
-      &__heading {
-        h1,
-        p {
-          text-align: center;
-        }
-        place-self: center;
-      }
-    }
-  }
 </style>
