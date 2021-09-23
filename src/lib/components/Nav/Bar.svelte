@@ -29,7 +29,7 @@
       <img
         class="logo"
         src="/images/logo_trans.png"
-        alt="OverRice logo of hawaiian woman"
+        alt="OverRice logo of Hawaiian woman"
       />
     </a>
 

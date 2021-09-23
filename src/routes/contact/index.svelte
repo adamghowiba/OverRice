@@ -53,7 +53,7 @@
     <IntroHeading
       title="Contact form"
       body="Get in Touch"
-      footer="Don't hestitate to contact us if you have any questions, we're always happy to help."
+      footer="Don't hesitate to contact us if you have any questions, we're always happy to help."
     />
   </section>
 

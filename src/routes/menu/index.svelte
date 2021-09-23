@@ -35,7 +35,7 @@
 
 <HeroHeader
   header="Menu"
-  quote="Filipino favorites like the staple adobo pork, pancit, and tchara, along with Hawaiian classics like Kalua pork, katsu chicken and sweet savory flavors."
+  quote="Filipino favorites like the staple adobo pork, pancit, and Atchara, along with Hawaiian classics like Kalua pork, katsu chicken and sweet savory flavors."
   --url="url('/images/contact.jpg')"
 />
 
@@ -91,7 +91,7 @@
           <Highlighed
             title={highlight.title}
             sides={highlight.sides}
-            description="We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes wegrew with."
+            description="We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes we grew with."
             price={highlight.price}
             --url="url('{highlight.src}')"
           />

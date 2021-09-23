@@ -62,7 +62,7 @@
       <div class="wrap">
         <ul>
           <h1>Included</h1>
-          <li>Jasmin Rice</li>
+          <li>Jasmine Rice</li>
           <li>Pancit</li>
           <li>Lumpia Shangi</li>
         </ul>
@@ -70,7 +70,7 @@
           <h1>Choice Of Meat <span class="red">$2 for double meat</span></h1>
           <li>Kalua Pig</li>
           <li>Huli Huli Chicken</li>
-          <li>Papa's Filipono Pork</li>
+          <li>Papa's Filipino Pork</li>
         </ul>
       </div>
     </div>

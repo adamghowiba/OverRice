@@ -11,7 +11,7 @@
     {
       title: "Kualua Pig",
       price: "1.22",
-      desc: "Pork shoulder seasoned w/ hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs",
+      desc: "Pork shoulder seasoned w/ Hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs",
     },
     {
       title: "Huli Huli Chicken",
@@ -28,17 +28,17 @@
     {
       title: "Pancit Tray",
       price: "60",
-      desc: "Pancit is a trdaional filipino type of Lo Mein or tossed noodles. This dish is often served during birthdays and special occasions to symbolize long life",
+      desc: "Pancit is a traditional filipino type of Lo Mien or tossed noodles. This dish is often served during birthdays and special occasions to symbolize long life",
     },
     {
       title: "Garlic Rice Tray",
       price: "30",
-      desc: "Delcious buttery tray of our stapel garlic rice, the perfect pairing for any dish.",
+      desc: "Delicious buttery tray of our staple garlic rice, the perfect pairing for any dish.",
     },
     {
       title: "Mac Salad Tray",
       price: "40",
-      desc: "Creamy, flavor packed classic Hawiian mac salad. A garunteed crowd favorite. ",
+      desc: "Creamy, flavor packed classic Hawiian mac salad. A guaranteed crowd favorite. ",
     },
     {
       title: "Frozen Lumpia Shanghia (Dozen)",
@@ -58,7 +58,7 @@
 <main>
   <CateringList
     title="Hawiian Style Catering"
-    desc="An amazing blend of sweet, savory hawian flavors. Includes hawiian classics like our famous Mac salad, and Kula pig. Comes standard with one meat option but can be exhacnged for more delcious food."
+    desc="An amazing blend of sweet, savory Hawaiian flavors. Includes hawiian classics like our famous Mac salad, and Kula pig. Comes standard with one meat option but can be exchanged for more delicious food."
     sides={["Half Jasmine Rice", "Half Mac Salad", "Your Choice Of Protien"]}
     meats={["Huli Huli Chicken", "Kalua Pig", "Papa's Pork Adobo"]}
   />
@@ -92,7 +92,7 @@
 
   <CateringList
     title="Filipino Style Catering"
-    desc="A classic take on a tradtional Filipino style food. With bold, flavors and a hint of spice. Includes are abundtful portion of filipino's favorite Lumpia Shangahi, rice and your choice of meat."
+    desc="A classic take on a traditional Filipino style food. With bold, flavors and a hint of spice. Includes are abundtful portion of filipino's favorite Lumpia Shangahi, rice and your choice of meat."
     sides={["Jasmine Rice", "25 Lumpia Shanghai", "Your Choice Of Protien"]}
     meats={["Huli Huli Chicken", "Kalua Pig", "Papa's Pork Adobo"]}
   />

@@ -29,7 +29,7 @@
   <section class="section section--white">
     <div class="container">
       <header class="con-head">
-        <IntroHeading title="Falvorful & Authentic" body="Our Favorites" />
+        <IntroHeading title="Flavorful & Authentic" body="Our Favorites" />
       </header>
 
       <!-- Cards Wrapper -->
@@ -52,7 +52,7 @@
         <Card
           title="Kalua Pig Platter"
           caption="Served with rice & one side"
-          content="Pork shoulder seasoned w/ hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs. Served over a bed of white rice paired with our Mac Salad"
+          content="Pork shoulder seasoned w/ Hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs. Served over a bed of white rice paired with our Mac Salad"
           src="/images/pork_over_rice.jpg"
         />
       </div>
@@ -76,7 +76,7 @@
         <IntroHeading
           title="Our Schedule"
           body="We might be close by"
-          footer="Since we're a resturant on wheels, we move around alot. We've made it easy to see our schedule."
+          footer="Since we're a resturant on wheels, we move around allot. We've made it easy to see our schedule."
         >
           <div class="center">
             <Button href="/location">Our Location</Button>

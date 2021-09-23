@@ -9,7 +9,7 @@
         },
         {
             title: "Huli Huli Chicken",
-            description: "Boneless skinless chicken thigh marinated overnight in our house huli huli sauce, and grilled to perfection."
+            description: "Boneless skinless chicken thigh marinated overnight in our house Huli Huli sauce, and grilled to perfection."
         },
         {
             title: "Papa's Filipino Pork Adobo",

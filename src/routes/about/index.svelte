@@ -41,7 +41,7 @@
           <img
             src="/images/about.jpg"
             class="about__image"
-            alt="Chicken comobo meal"
+            alt="Chicken combo meal"
           />
         </div>
       </div>
@@ -62,7 +62,7 @@
       <IntroHeading
         title="Our Team"
         body="The Overice Family"
-        footer="Meet the owners, Myra, and Joel. A husban and wife team deadciated to serving up some of the most delcious Fillipno and Hiwiian food they grew up with."
+        footer="Meet the owners, Myra, and Joel. A husband and wife team dedicated to serving up some of the most delicious Fillipno and Hiwiian food they grew up with."
       />
     </div>
   
@@ -88,7 +88,7 @@
       <div class="heading-wrap">
         <IntroHeading
           title="See us grow"
-          footer="Follow us on instagram to be along the tasty jounry. We're always cooking up something new."
+          footer="Follow us on instagram to be along the tasty journey. We're always cooking up something new."
           body="Check Out Our Instagram"
         />
       </div>
