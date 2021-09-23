@@ -103,8 +103,8 @@
                 color: $color-text; 
                 font-size: 1rem;
                 font-weight: 400;
-
-                transform: translateX(15px);
+                
+                margin-left: 15px;
                 &::before {
                     content: '';
                     position: absolute;

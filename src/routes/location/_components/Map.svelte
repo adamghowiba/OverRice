@@ -92,7 +92,7 @@
 
     .map {
         position: relative;
-        width: 100vw;
+        width: 100%;
         min-width: var(--width, 320px);
         max-width: 586px;
         height: var(--height, 516px);
@@ -139,7 +139,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100vw;
+        width: 100%;
         min-width: var(--width, 320px);
         max-width: 586px;
         height: var(--height, 516px);
