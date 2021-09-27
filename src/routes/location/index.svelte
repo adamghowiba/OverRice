@@ -1,12 +1,11 @@
 <script lang="ts">
   import HeroHeader from "$lib/components/HeroHeader.svelte";
   import IntroHeading from "$lib/components/IntroHeading.svelte";
-  import Card from "./_components/Card.svelte";
   import Map from "./_components/Map.svelte";
   import { getPublic, constructExportUrl, parseTime } from "$lib/google";
   import { writable } from "svelte/store";
   import { onMount } from "svelte";
-import CardFix from './_components/CardFix.svelte';
+  import Card from './_components/Card.svelte';
 
   const daysOfWeek = [
     "Monday",
@@ -87,16 +86,14 @@ import CardFix from './_components/CardFix.svelte';
 
     <section class="location__body">
       <div class="location__list" bind:this={locationDIV}>
-        {#each Array(10) as day}
-          <!-- {#if day?.location} -->
-            <!-- <Card
-              alt="flordia"
-              active={selected?.day === day.day}
-              {...day}
-              on:click={select(day)}
-            /> -->
-            <CardFix />
-          <!-- {/if} -->
+        {#each days as day}
+          {#if day?.location}
+            <Card
+                {...day}
+                active={selected?.day === day.day}
+                on:click = {select(day)}
+            />
+          {/if}
         {/each}
 
         <div
@@ -185,6 +182,7 @@ import CardFix from './_components/CardFix.svelte';
 
       @include mq.media("<tablet") {
         height: auto;
+        overflow: hidden;
 
         &--overlay {
           display: none !important;

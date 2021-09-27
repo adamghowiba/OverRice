@@ -1,170 +1,97 @@
-
-<script lang="ts">
-    export let src = "/images/Stock-flordia.png";
-    export let alt: string;
+<script>
+    export let day = "Monday";
+    export let address = "1020 Waverly Dr. Longwood FL"
+    export let times = "Call me"
+    export let src = "/images/location.jpg";
     export let active = false
 
-    export let day: string
-    export let location: string
-    export let times: string = "Call for time"
-
-    const onError = () => {
-        src = "/images/Stock-flordia.png"
-    }
+    // breaded_chicken.jpg
+    // location.jpg
 </script>
 
-<div 
-    on:click 
-    class="card" 
-    class:card--active={active}
->
-
-    <!-- <img on:error={onError} class="card__thumbnail" {src} {alt}> -->
-
-    <div class="card__content">
-        <h1>{day}</h1>
-        
-        <ul>
-            <li style="--url: url('/icons/small_location.svg');">{location}</li>
-            <li style="--url: url('/icons/small_clock.svg');">{times}</li>
-        </ul>
-
-        <a href="https://maps.google.com/?q={location}" style="--url: url('/icons/small_compass.svg');">
-            Get Direction
-        </a>
+<div class="card" class:active on:click>
+    <div class="card__img-wrap">
+        <img {src} alt="" class="card__img" />
     </div>
+  
+  <div class="card__content">
 
-    <button class="heart" />
+      <h3 class="card__date">{day}</h3>
+    
+      <ol>
+          <li class="card__address">{address}</li>
+          <li class="card__time">{times}</li>
+      </ol>
+    
+      <a class="card__directions" href="google.com">Get Directions</a>
+  </div>
 
 </div>
 
 <style lang="scss">
-    
     @use '../../../lib/scss/0-helpers/vars' as *;
-    @use '../../../lib/scss/1-plugins/mquery' as mq;
 
     .card {
         position: relative;
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        grid-template-rows: 1fr;
-        padding: 16px 0 16px 17px;
-        gap: 30px;
-
-        @include mq.media ( "<tablet" ) {
-            gap: 15px;
-        }
-        
-        width: 100%;
-        // height: min-content;
-        
-        border: 2px solid white;
+        width:100%;
+        padding: 10px;
+        display: flex;
         border-radius: 20px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-        
-        
-        background: white;
-        transition: border-color 0.1s ease-in-out;
-
-        &__thumbnail {
-            width: 112px;
-            height: 108px;
-            border-radius: 10px;
-            place-self: center;
-        }
-
-        &:hover { border-color: rgba($color-green, 0.6); }
-
-        &--active, &--active:hover { border-color: $color-green; }
-
-        &__content {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: min-content 1fr min-content;
-            height: 100%;
-
-            h1, li, a { text-align: left; }
-
-            h1 {
-                color: $color-green;
-                font-size: 1.3rem;
-                text-transform: capitalize;
-            }
-
-            ul {
-                align-self: center;
-                display: flex;
-                flex-direction: column;
-                gap: 13px;
-            }
-
-            li {
-                position: relative;
-                color: $color-text; 
-                font-size: 1rem;
-                font-weight: 400;
-                
-                margin-left: 15px;
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 45%;
-                    left: -15px;
-                    transform: translateY(-50%);
-                    background: var(--url);
-                    background-repeat: no-repeat;
-                    background-position: center;
-
-                    width: 12px;
-                    height: 12px;
-                }
-            }
-
-            a {
-                position: relative;
-                color: $color-green;
-                font-size: 0.9rem;
-                background: none;
-                border: none;
-                cursor: pointer;
-                font-weight: 400;
-                text-decoration: none;
-                width: max-content;
-
-                $space: 20px;
-                transform: translateX($space);
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 40%;
-                    left: -1 * $space;
-                    transform: translateY(-50%);
-                    background: var(--url);
-                    background-repeat: no-repeat;
-                    background-position: center;
-
-                    width: 12px;
-                    height: 12px;
-                }
-            }
-        }
-
-        .heart {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        border: 1px solid rgba(0, 0, 0, 0);
+        &__img {
             position: absolute;
-            right: 18px;
-            top: 10px;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        &__img-wrap {
+            margin-right: 5%;
+            position: relative;
+            width: 30%;
+            min-width: 80px;
+        }
+        
+        &__date {
+            font-size: 22px;
+            font-weight: 700;
+            color: $color-green;
+            margin-bottom: 10px;
+        }
 
-            width: 23px;
-            height: 23px;
-            border: none;
-            border-radius: 50%;
+        li {
+             margin: 10px 0;
+             color: #5f5f5f;
+        }
 
-            background: $color-green url('/icons/small_heart.svg');
-            background-repeat: no-repeat;
-            background-position: center;
+        a {
+            color: $color-green;
+        }
 
+        &:hover, &.active {
+            border: 1px solid $color-green;
             cursor: pointer;
         }
-    }
 
+        /* PSUEDO ICONS */
+        &__address::before {
+            content: url('/icons/small_location.svg');
+            display: inline;
+            margin-right: 9px;
+        }
+
+        &__time::before {
+            content: url('/icons/small_clock.svg');
+            display: inline;
+            margin-right: 9px;
+        }
+
+        &__directions::before {
+            content: url('/icons/small_compass.svg');
+            display: inline;
+            margin-right: 9px;
+        }
+    }
 </style>
