@@ -2,6 +2,8 @@ import convertTime from 'convert-time';
 const currentDate = new Date();
 
 export function parseTime(start: Date, end: Date) {
+    if (!start || !end) return "Call for time"
+
     const startDate = new Date(start);
     const endDate = new Date(end);
 
@@ -13,7 +15,7 @@ export function parseTime(start: Date, end: Date) {
 
 const getFutureDate = (amount=7) => {
     const futureDate = new Date();
-    futureDate.setDate(currentDate.getDate()  + amount);
+    futureDate.setDate(currentDate.getDate() + amount);
 
     return futureDate;
 }

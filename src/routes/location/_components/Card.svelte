@@ -6,7 +6,7 @@
 
     export let day: string
     export let location: string
-    export let times: string
+    export let times: string = "Call for time"
 
     const onError = () => {
         src = "/images/Stock-flordia.png"
