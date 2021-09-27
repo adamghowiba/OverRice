@@ -64,6 +64,8 @@
 
     days = days;
   });
+
+  $showPage = false;
 </script>
 
 <HeroHeader
