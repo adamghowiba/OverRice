@@ -5,7 +5,7 @@
   export let img = "/images/over_rice_lunch_combo.jpg"
 </script>
 
-<section class="section section--white">
+<!-- <section class="section section--white"> -->
   <div class="container">
     <header>
       <img src="{img}" alt="Chicken on grill" />
@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-</section>
+<!-- </section> -->
 
 <style lang="scss">
   @use '../../../lib/scss/0-helpers/vars' as *;
@@ -61,7 +61,7 @@
   .card {
     background-color: #FAF3ED;
     border-radius: 10px;
-    padding: 3rem 1rem;
+    padding: 3rem 5rem;
 
     &__items {
       max-width: 600px;
@@ -70,6 +70,10 @@
       display: flex;
       flex-direction: column;
       gap: 3rem;
+    }
+
+    @include mq.media('<tablet') {
+      padding: 3rem 1.5rem;
     }
     
   }

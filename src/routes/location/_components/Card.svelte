@@ -11,7 +11,7 @@
 
 <div class="card" class:active on:click>
     <div class="card__img-wrap">
-        <img {src} alt="" class="card__img" />
+        <img {src} alt={location} class="card__img" />
     </div>
   
   <div class="card__content">

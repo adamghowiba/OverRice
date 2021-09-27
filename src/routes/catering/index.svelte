@@ -103,12 +103,14 @@
     img="/images/over_rice_chicken_platter.jpg"
   />
 
-  <MenuSnack img="/images/chicken_grill.jpg" menuItems={meatItems} />
-  <MenuSnack
-    img="/images/noodles_orlando.jpg"
-    menuItems={sideItems}
-    title="Side items"
-  />
+  <div class="section section--white menu-snack">
+    <MenuSnack img="/images/chicken_grill.jpg" menuItems={meatItems} />
+    <MenuSnack
+      img="/images/noodles_orlando.jpg"
+      menuItems={sideItems}
+      title="Side items"
+    />
+  </div>
 
   <CTA
     button={false}
@@ -125,7 +127,9 @@
         "
       />
       <div class="center">
-        <Button href="https://over-rice-food-truck.square.site/">Start Order</Button>
+        <Button href="https://over-rice-food-truck.square.site/"
+          >Start Order</Button
+        >
       </div>
     </container>
   </section>
@@ -138,6 +142,11 @@
 
   .center {
     margin-top: 2rem;
+  }
+  .menu-snack {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
   .steps {
     position: relative;

@@ -177,6 +177,7 @@
     }
     &__col--images {
       width: 65%;
+      position: relative;
     }
   }
 
@@ -207,7 +208,7 @@
   }
 
   #moving-images-2 {
-    transform: translateY(-200px);
+    transform: translateY(-600px);
     right: 0;
     top: 0;
   }
@@ -241,6 +242,10 @@
     }
     #moving-images-2, #moving-images-1 {
       transform: none;
+    }
+    #moving-images-2 {
+      transform: translateX(-700px);
+      margin-top: 2rem;
     }
   }
 </style>

@@ -58,15 +58,15 @@
   </section>
 
   <section class="contact__info">
-    <a href="tel:4079246902">
+    <a href="tel:3864169030">
       <ContactInfo src="/icons/large_location.svg" alt="location"
         >(386) 416-9030</ContactInfo
       >
     </a>
 
-    <a href="mailto:overrice@gmail.com">
+    <a href="mailto:overricefoodtruck@gmail.com ">
       <ContactInfo src="/icons/large_clock.svg" alt="opening and closing times"
-        >OverRice@gmail.com</ContactInfo
+        >OverRiceFoodtruck@gmail.com </ContactInfo
       >
     </a>
 
