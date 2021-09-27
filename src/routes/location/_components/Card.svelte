@@ -1,6 +1,6 @@
 <script>
     export let day = "Monday";
-    export let address = "1020 Waverly Dr. Longwood FL"
+    export let location = "1020 Waverly Dr. Longwood FL"
     export let times = "Call me"
     export let src = "/images/location.jpg";
     export let active = false
@@ -19,7 +19,7 @@
       <h3 class="card__date">{day}</h3>
     
       <ol>
-          <li class="card__address">{address}</li>
+          <li class="card__address">{location}</li>
           <li class="card__time">{times}</li>
       </ol>
     
