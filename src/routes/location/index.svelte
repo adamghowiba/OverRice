@@ -65,7 +65,6 @@
     days = days;
   });
 
-  $showPage = false;
 </script>
 
 <HeroHeader
@@ -75,7 +74,7 @@
   --bg-pos="0 51%"
 />
 
-{#if $showPage}
+{#if false}
   <main class="location">
     <section>
       <IntroHeading
