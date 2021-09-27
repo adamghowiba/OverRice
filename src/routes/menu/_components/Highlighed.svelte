@@ -1,7 +1,7 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
 
-    export let href = "/"
+    export let href = "https://over-rice-food-truck.square.site/"
 
     export let title: string;
     export let sides: string;
@@ -10,7 +10,7 @@
 
     $: _price = price.toFixed(2) 
 </script>
-
+// 
 <div class="highlight">
     <div class="highlight__container">
         <h1 class="highlight__title">{title}</h1>
