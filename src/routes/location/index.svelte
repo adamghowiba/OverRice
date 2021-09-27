@@ -6,6 +6,7 @@
   import { getPublic, constructExportUrl, parseTime } from "$lib/google";
   import { writable } from "svelte/store";
   import { onMount } from "svelte";
+import CardFix from './_components/CardFix.svelte';
 
   const daysOfWeek = [
     "Monday",
@@ -74,7 +75,7 @@
   --bg-pos="0 51%"
 />
 
-{#if false}
+{#if showPage}
   <main class="location">
     <section>
       <IntroHeading
@@ -86,15 +87,16 @@
 
     <section class="location__body">
       <div class="location__list" bind:this={locationDIV}>
-        {#each days as day}
-          {#if day?.location}
-            <Card
+        {#each Array(10) as day}
+          <!-- {#if day?.location} -->
+            <!-- <Card
               alt="flordia"
               active={selected?.day === day.day}
               {...day}
               on:click={select(day)}
-            />
-          {/if}
+            /> -->
+            <CardFix />
+          <!-- {/if} -->
         {/each}
 
         <div
