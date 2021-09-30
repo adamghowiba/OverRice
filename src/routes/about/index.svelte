@@ -71,13 +71,13 @@
         src="/images/owner_headshot.jpg"
         name="Mayra Paoner"
         title="Chicken Expert"
-        description="Person behind the scene, who takes care of all the little details. (add more here)"
+        description="Person behind the scene, Mayra takes care of all the little details. Making sure Joel is able to continue serving his delicious food to our customers."
       />
       <Member
         src="/images/owner_headshot_2.jpg"
         name="Joel Paoner"
         title="Grill Expert"
-        description="Person behind who created the concept. By sharing the food he grew up with and brought many good memories on his life. Now he share all this recipes and live with his customers. "
+        description="Founder of OverRice, Joel started out by sharing the food he grew up with. Bringing many of the great memories, and flavors in his life into his food. Now he shares all his recpies with he's customers. Everyone has a seat at our table. "
       />
     </div>
   </div>

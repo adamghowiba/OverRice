@@ -31,7 +31,7 @@
 
 <HeroHeader
   header="Menu"
-  quote="Filipino favorites like the staple adobo pork, pancit, and Atchara, along with Hawaiian classics like Kalua pork, katsu chicken and sweet savory flavors."
+  quote="Filipino favorites like the staple Pork Adobo, Lumpia Shanghai and Pancit, along with Hawaiian classics like Kalua Pork, Katsu Chicken and other sweet savory flavors."
   --url="url('/images/contact.jpg')"
 />
 

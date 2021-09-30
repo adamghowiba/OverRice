@@ -94,7 +94,7 @@
     <MenuSnack
       img="/images/noodles_orlando.jpg"
       menuItems={sideItems}
-      title="Side items"
+      title="Pupu Items"
     />
   </div>
 
@@ -139,7 +139,7 @@
     width: 100%;
     padding: 60px 0;
     background: linear-gradient(rgba(black, 0.7), rgba(black, 0.7)),
-      url("/images/WorksBackground.png");
+      url("/images/papa_pork.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 

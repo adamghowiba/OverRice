@@ -9,8 +9,7 @@ let foods: Foods | Mains = {
             includes: [
                 "Jasmine Rice",
                 "Pancit",
-                "Lumpia Shanghai Adobo",
-                "Chicke Katsu"
+                "Lumpia Shanghai",
             ],
         },
         {

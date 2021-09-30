@@ -75,6 +75,7 @@
             <li>Kalua Pig</li>
             <li>Huli Huli Chicken</li>
             <li>Papa's Filipino Pork Adobo</li>
+            <li>Chicken Katsu</li>
           </ul>
         </div>
       </div>
