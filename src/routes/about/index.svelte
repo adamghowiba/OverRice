@@ -69,15 +69,15 @@
     <div class="team__members">
       <Member
         src="/images/owner_headshot.jpg"
-        name="Myra J. Ogren"
+        name="Mayra Paoner"
         title="Chicken Expert"
-        description="The special person behind the recipe of Huli Huli Chicken. She loves chicken thats why try her best to make the best of a chicken."
+        description="Person behind the scene, who takes care of all the little details. (add more here)"
       />
       <Member
         src="/images/owner_headshot_2.jpg"
-        name="Joel T. Seay"
+        name="Joel Paoner"
         title="Grill Expert"
-        description="The special person behind the recipe of Adobo Bowl Platter. He loves grilled chicken thats why try her best to make the best of a chicken."
+        description="Person behind who created the concept. By sharing the food he grew up with and brought many good memories on his life. Now he share all this recipes and live with his customers. "
       />
     </div>
   </div>

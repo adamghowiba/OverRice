@@ -9,7 +9,8 @@ let foods: Foods | Mains = {
             includes: [
                 "Jasmine Rice",
                 "Pancit",
-                "Lumpia Shanghai"
+                "Lumpia Shanghai Adobo",
+                "Chicke Katsu"
             ],
         },
         {
@@ -19,39 +20,10 @@ let foods: Foods | Mains = {
             description: "Traditional Hawaiian style plate served with 2 scoops of rice & mac salad",
             price: 12.99,
             includes: [
-                "2 Scoops Of Rice",
-                "1 Scoop of Mac Salad",
+                "Jasmine Rice",
+                "Pancit",
+                "Chicke Katsu"
             ]
-        },
-    ],
-    "Sides": [
-        {
-            src: "/images/pancit_tray.jpeg",
-            title: "Pancit Tray",
-            sides: "Meat by the Pound",
-            description: "Pancit is a traditional filipino type of Lo Mien or tossed noodles. This dish is often served during birthdays and special occasions to symbolize long life",
-            price: 60,
-        },
-        {
-            src: "/images/garlic_rice.jpg",
-            title: "Garlic Rice Tray",
-            sides: "Meat by the Pound",
-            description: "Delicious buttery tray of our staple garlic rice, the perfect pairing for any dish.",
-            price: 30,
-        },
-        {
-            src: "/images/mac_salad.jpg",
-            title: "Mac salad Tray",
-            sides: "Meat by the Pound",
-            description: "Creamy, classic macrino Hawiian style.",
-            price: 40,
-        },
-        {
-            src: "/images/beautfy_shot_egg_rolls.jpg",
-            title: "Frozen Lupia Shanghia (Dozen)",
-            sides: "Meat by the Pound",
-            description: "Filipino deep-fried appetizer consisting of a mixture of giniling wrapped in a thin egg crêpe",
-            price: 15,
         },
     ],
     "Pupus": [
@@ -81,6 +53,34 @@ let foods: Foods | Mains = {
             title: "Atchara",
             sides: "Pickled Jicama, Green Papaya, Red Bells and a hint of spice.",
             description: "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken.",
+            price: 15,
+        },
+        {
+            src: "/images/pancit_tray.jpeg",
+            title: "Pancit Tray",
+            sides: "Meat by the Pound",
+            description: "Pancit is a traditional filipino type of Lo Mien or tossed noodles. This dish is often served during birthdays and special occasions to symbolize long life",
+            price: 60,
+        },
+        {
+            src: "/images/garlic_rice.jpg",
+            title: "Garlic Rice Tray",
+            sides: "Meat by the Pound",
+            description: "Delicious buttery tray of our staple garlic rice, the perfect pairing for any dish.",
+            price: 30,
+        },
+        {
+            src: "/images/mac_salad.jpg",
+            title: "Mac salad Tray",
+            sides: "Meat by the Pound",
+            description: "Creamy, classic macrino Hawiian style.",
+            price: 40,
+        },
+        {
+            src: "/images/beautfy_shot_egg_rolls.jpg",
+            title: "Frozen Lupia Shanghia (Dozen)",
+            sides: "Meat by the Pound",
+            description: "Filipino deep-fried appetizer consisting of a mixture of giniling wrapped in a thin egg crêpe",
             price: 15,
         },
     ],

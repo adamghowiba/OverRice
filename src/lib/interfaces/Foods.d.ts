@@ -20,5 +20,4 @@ interface Mains extends BaseFood {
 interface Foods {
     Mains: Mains[];
     Pupus: BaseFood[];
-    Sides: BaseFood[];
 }

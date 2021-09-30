@@ -5,9 +5,10 @@
   export let title = "Filipino Style Plate Lunch";
   export let price: number;
   export let active;
+  export let includes: string[] = null
   let s = 100;
   $: s += 100;
-  let open;
+  let open; 
 
   const dispatcher = createEventDispatcher() 
   const mainIcon = "plus_button.svg", sideIcon = "cart.svg";
@@ -59,21 +60,21 @@
       <div class="acord__button" style="content: url(/icons/{active ? mainIcon : sideIcon})"/>
     </div>
 
-    {#if active}
+    {#if active && includes}
       <!-- Dropdown  -->
       <div class="dropdown">
         <div class="wrap">
           <ul>
             <h1>Included</h1>
-            <li>Jasmine Rice</li>
-            <li>Pancit</li>
-            <li>Lumpia Shangi</li>
+            {#each includes as item}
+              <li>{item}</li>
+            {/each}
           </ul>
           <ul>
             <h1>Choice Of Meat <span class="red">$2 for double meat</span></h1>
             <li>Kalua Pig</li>
             <li>Huli Huli Chicken</li>
-            <li>Papa's Filipino Pork</li>
+            <li>Papa's Filipino Pork Adobo</li>
           </ul>
         </div>
       </div>
