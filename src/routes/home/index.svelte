@@ -60,7 +60,7 @@
   </section>
 
   <!-- Call To Action Section -->
-  <CallToAction img="/images/owner_serving_customer.jpg"/>
+  <CallToAction img="/images/customer_ordering.jpg"/>
 
   <!-- About Section -->
   <About />
