@@ -22,7 +22,7 @@
         <div class="item">
           <div class="item__head">
             <h4>{menuItem.title}</h4>
-            <span>${menuItem.price}</span>
+            <span>{menuItem.price}</span>
           </div>
 
           <p>

@@ -35,7 +35,7 @@
       <!-- Cards Wrapper -->
       <div class="card-wrap">
         <Card
-          title="Huli Huli Chicken Platter"
+          title="Filipino Huli Huli Chicken"
           caption="Served with rice & one side"
           content="Boneless skinless chicken thighs marinated overnight in our house huli huli sauce,
           grilled to perfection. Served over a bed of white rice paired with our Mac Salad"
@@ -43,14 +43,14 @@
         />
 
         <Card
-          title="Chicken Katsu Platter"
+          title="Hawaiian Chicken Katsu"
           caption="Served with rice & one side"
           content="Deep fried to golden brown perfection. A combination of a sweet and salty sauce with a crispy fried chicken cutlet. Served over a bed of white rice paired with our Mac Salad"
           src="/images/breaded_chicken_over_rice.jpg"
         />
 
         <Card
-          title="Kalua Pig Platter"
+          title="Filipino Mixed Plates"
           caption="Served with rice & one side"
           content="Pork shoulder seasoned w/ Hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs. Served over a bed of white rice paired with our Mac Salad"
           src="/images/pork_over_rice.jpg"

@@ -1,17 +1,13 @@
 <script lang="ts">
   import BottomBarItem from "$lib/components/Bottom/Item.svelte";
   import HeroHeader from "$lib/components/HeroHeader.svelte";
-  import IntroHeading from "$lib/components/IntroHeading.svelte";
   import Highlighed from "./_components/Highlighed.svelte";
   import Food from "$lib/foods";
-  import Card from "./_components/Card.svelte";
-  import CardDescription from "./_components/CardDescription.svelte";
-  import CardFix from "./_components/CardFix.svelte";
   import Acord from "./_components/Acord.svelte";
   import { fade } from "svelte/transition";
   import { onMount } from "svelte";
 
-  let selectedMenu: "Mains" | "Sides" | "Pupus" = "Mains";
+  let selectedMenu: "Mains" | "Pupus" = "Mains";
   let menu: Mains[] | BaseFood[] = Food[selectedMenu];
   $: menu = Food[selectedMenu];
 
@@ -55,13 +51,6 @@
       prefix="Pupus"
       on:click={() => (selectedMenu = "Pupus")}
     />
-    <BottomBarItem
-      --cursor="pointer"
-      src="/icons/Sides.svg"
-      content="Sides"
-      prefix="Sides"
-      on:click={() => (selectedMenu = "Sides")}
-    />
   </div>
 
   <section class="section section--small section--white">
@@ -84,7 +73,8 @@
               desc={food.description}
               price={food.price}
               title={food.title}
-              on:acord-toggle={ select(food)  }
+              includes = { food.includes }
+              on:acord-toggle={select(food)}
             />
           {/each}
         </div>
@@ -187,10 +177,9 @@
     }
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     color: white;
 
     @include res.interpolate(font-size, 320px, 1440px, $fs-nav - 6, $fs-nav);
   }
-
 </style>

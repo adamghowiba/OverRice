@@ -10,39 +10,39 @@
   let meatItems = [
     {
       title: "Kualua Pig",
-      price: "1.22",
+      price: "Contact us for price",
       desc: "Pork shoulder seasoned w/ Hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs",
     },
     {
       title: "Huli Huli Chicken",
-      price: "1.22",
+      price: "Contact us for price",
       desc: "Boneless skinless chicken thigh marinated overnight in our house huli huli sauce, ",
     },
     {
       title: "Papas Filipino Pork Adobo",
-      price: "1.22",
+      price: "Contact us for price",
       desc: "Bone-in pork spare rib braised in soy, garlic, anise, bay and black pepper braised until pork tender",
     },
   ];
   let sideItems = [
     {
       title: "Pancit Tray",
-      price: "60",
+      price: "$60",
       desc: "Pancit is a traditional filipino type of Lo Mien or tossed noodles. This dish is often served during birthdays and special occasions to symbolize long life",
     },
     {
       title: "Garlic Rice Tray",
-      price: "30",
+      price: "$30",
       desc: "Delicious buttery tray of our staple garlic rice, the perfect pairing for any dish.",
     },
     {
       title: "Mac Salad Tray",
-      price: "40",
+      price: "$40",
       desc: "Creamy, flavor packed classic Hawiian mac salad. A guaranteed crowd favorite. ",
     },
     {
       title: "Frozen Lumpia Shanghia (Dozen)",
-      price: "15",
+      price: "$15",
       desc: "Filipino deep-fried appetizer consisting of a mixture of giniling wrapped in a thin egg crêpe",
     },
   ];
@@ -72,21 +72,7 @@
     </div>
 
     <div class="steps__cards">
-      <FaqCard
-        --icon="url('/icons/work_cursor.svg')"
-        title="Easy Pick Up"
-        description="This pick up is our location. NO fees for pick up. Your food will be fresh and warm in quality containers able to manage the way to your destiny."
-      />
-      <FaqCard
-        --icon="url('/icons/work_location.svg') "
-        title="Drop Off Style"
-        description="Bringing the catering straight to the place you need it. Will drop the food and set up. The food will be delivered fresh and warm ready to be served. Minimum delivery charge of $25."
-      />
-      <FaqCard
-        --icon="url('/icons/work_delivery.svg')"
-        title="OverRice in the house"
-        description="Bring the whole Food Truck experience to your special event. A fee of $200  will be charge for this service plus the Plate Lunch of preference per person. Get your food yummy and fresh straight from the window."
-      />
+      <p>A paragraph will go here</p>
     </div>
   </section>
 
@@ -104,7 +90,7 @@
   />
 
   <div class="section section--white menu-snack">
-    <MenuSnack img="/images/chicken_grill.jpg" menuItems={meatItems} />
+    <MenuSnack title = "" img="/images/chicken_grill.jpg" menuItems={meatItems} />
     <MenuSnack
       img="/images/noodles_orlando.jpg"
       menuItems={sideItems}
@@ -181,15 +167,10 @@
     }
 
     &__cards {
+      color: $color-white;
       place-self: center;
       display: flex;
       gap: 50px;
-
-      @include mq.media("<1200px") {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-      }
 
       @include mq.media("<600px") {
         display: flex;
