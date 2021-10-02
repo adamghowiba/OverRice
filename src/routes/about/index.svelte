@@ -62,7 +62,7 @@
       <IntroHeading
         title="Our Team"
         body="The Overice Family"
-        footer="Meet the owners, Myra, and Joel. A husband and wife team dedicated to serving up some of the most delicious Fillipno and Hiwiian food they grew up with."
+        footer="Meet the owners, Mayra, and Joel. A husband and wife team dedicated to serving up some of the most delicious Fillipno and Hiwiian food they grew up with."
       />
     </div>
   

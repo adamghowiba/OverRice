@@ -34,7 +34,6 @@
 
     if (window.innerWidth < 760) {
       acordDropdown.scrollIntoView({ block: "center", behavior: "smooth" });
-      console.log(acordScrollWrap.scrollTop, acord.offsetTop);
     } 
   };
 </script>
@@ -71,7 +70,7 @@
             {/each}
           </ul>
           <ul>
-            <h1>Choice Of Meat <span class="red">$2 for double meat</span></h1>
+            <h1>Choice Of Meat <span class="red">Single Meat & Mixed Plates Available</span></h1>
             <li>Kalua Pig</li>
             <li>Huli Huli Chicken</li>
             <li>Papa's Filipino Pork Adobo</li>

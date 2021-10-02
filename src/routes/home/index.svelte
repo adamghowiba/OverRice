@@ -36,24 +36,24 @@
       <div class="card-wrap">
         <Card
           title="Filipino Huli Huli Chicken"
-          caption="Served with rice & one side"
+          caption="Served with Jasmine rice, Pancit, Lumpia Shanghai"
           content="Boneless skinless chicken thighs marinated overnight in our house huli huli sauce,
-          grilled to perfection. Served over a bed of white rice paired with our Mac Salad"
-          src="/images/chicke_over_rice.jpg"
+          grilled to perfection. Served over a bed of jasmine rice, pancit & lumpia shanghai."
+          src="/images/over_rice_lunch_special.jpg"
         />
 
         <Card
           title="Hawaiian Chicken Katsu"
           caption="Served with rice & one side"
-          content="Deep fried to golden brown perfection. A combination of a sweet and salty sauce with a crispy fried chicken cutlet. Served over a bed of white rice paired with our Mac Salad"
+          content="Deep fried to golden brown perfection. A combination of a sweet and salty sauce with a crispy fried chicken cutlet. Served over a bed of white rice paired with our Ono Mac Salad"
           src="/images/breaded_chicken_over_rice.jpg"
         />
 
         <Card
           title="Filipino Mixed Plates"
-          caption="Served with rice & one side"
-          content="Pork shoulder seasoned w/ Hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs. Served over a bed of white rice paired with our Mac Salad"
-          src="/images/pork_over_rice.jpg"
+          caption="Served with Jasmine rice, Pancit, Lumpia Shanghai"
+          content="Huli Huli chicken & Papa's Filipino pork Adobo. Served over jasmin rice, pancit & lumpia shanghai"
+          src="/images/catering_food.jpg"
         />
       </div>
     </div>

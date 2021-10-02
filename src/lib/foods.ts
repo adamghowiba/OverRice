@@ -20,8 +20,7 @@ let foods: Foods | Mains = {
             price: 12.99,
             includes: [
                 "Jasmine Rice",
-                "Pancit",
-                "Chicke Katsu"
+                "Ona Mac",
             ]
         },
     ],
@@ -53,27 +52,6 @@ let foods: Foods | Mains = {
             sides: "Pickled Jicama, Green Papaya, Red Bells and a hint of spice.",
             description: "We are a restaurant on wheels,  we offer Filipino and Hawaiian food. Huli Huli Chicken.",
             price: 15,
-        },
-        {
-            src: "/images/pancit_tray.jpeg",
-            title: "Pancit Tray",
-            sides: "Meat by the Pound",
-            description: "Pancit is a traditional filipino type of Lo Mien or tossed noodles. This dish is often served during birthdays and special occasions to symbolize long life",
-            price: 60,
-        },
-        {
-            src: "/images/garlic_rice.jpg",
-            title: "Garlic Rice Tray",
-            sides: "Meat by the Pound",
-            description: "Delicious buttery tray of our staple garlic rice, the perfect pairing for any dish.",
-            price: 30,
-        },
-        {
-            src: "/images/mac_salad.jpg",
-            title: "Mac salad Tray",
-            sides: "Meat by the Pound",
-            description: "Creamy, classic macrino Hawiian style.",
-            price: 40,
         },
         {
             src: "/images/beautfy_shot_egg_rolls.jpg",

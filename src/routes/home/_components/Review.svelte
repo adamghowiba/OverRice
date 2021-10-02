@@ -13,13 +13,16 @@
   let intervalID;
   let reviewIndex = 0;
 
+  function resizeHeight() {
+
+  }
+
   function changeReview(max = REVIEWS.length) {
     if (reviewIndex >= max) reviewIndex = 0;
 
     currentReview = REVIEWS[reviewIndex];
 
     reviewIndex += 1;
-    console.log(reviewIndex, max);
   }
 
   onMount(() => {
@@ -27,7 +30,6 @@
       changeReview();
     }, 2500);
 
-    console.log(REVIEWS.length);
   });
 
   onDestroy(() => {
@@ -61,6 +63,8 @@
   @use '../../../lib/scss/0-helpers/vars' as *;
 
   .review {
+    max-height: 300px;
+
     &__icon {
       max-width: 50px;
       margin: 0 auto;
@@ -99,5 +103,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: var(--bg-pos, center);
+
   }
 </style>

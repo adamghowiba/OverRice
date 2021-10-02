@@ -9,14 +9,14 @@
 
   let meatItems = [
     {
-      title: "Kualua Pig",
+      title: "Kalua Pig",
       price: "Contact us for price",
       desc: "Pork shoulder seasoned w/ Hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs",
     },
     {
       title: "Huli Huli Chicken",
       price: "Contact us for price",
-      desc: "Boneless skinless chicken thigh marinated overnight in our house huli huli sauce, ",
+      desc: "Boneless skinless chicken thigh marinated overnight in our house Huli Huli sauce",
     },
     {
       title: "Papas Filipino Pork Adobo",
@@ -28,7 +28,7 @@
     {
       title: "Pancit Tray",
       price: "$60",
-      desc: "Pancit is a traditional filipino type of Lo Mien or tossed noodles. This dish is often served during birthdays and special occasions to symbolize long life",
+      desc: "Rice & wheat noodles sauteed in garlic with carrots spinach and edamame.",
     },
     {
       title: "Garlic Rice Tray",
@@ -38,7 +38,7 @@
     {
       title: "Mac Salad Tray",
       price: "$40",
-      desc: "Creamy, flavor packed classic Hawiian mac salad. A guaranteed crowd favorite. ",
+      desc: "Elbow noodles smothered with mayonaisse, eggs, carrots, potato, seasoned to perfection",
     },
     {
       title: "Frozen Lumpia Shanghia (Dozen)",
@@ -90,7 +90,7 @@
   />
 
   <div class="section section--white menu-snack">
-    <MenuSnack title = "" img="/images/chicken_grill.jpg" menuItems={meatItems} />
+    <MenuSnack title = "Meat By The Pound" img="/images/chicken_grill.jpg" menuItems={meatItems} />
     <MenuSnack
       img="/images/noodles_orlando.jpg"
       menuItems={sideItems}

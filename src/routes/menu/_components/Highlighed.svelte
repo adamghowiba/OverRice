@@ -18,7 +18,7 @@
         <p class="highlight__description">{description}</p>
 
         <div class="highlight__buttons">
-            <Button {href}>Order Now</Button>
+            <Button newTab {href}>Order Now</Button>
         </div>
     </div>
 

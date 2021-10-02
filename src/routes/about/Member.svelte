@@ -40,7 +40,7 @@
             
             h1 {
                 font-family: 'le-havre';
-                font-size: 1.3rem;
+                font-size: 1.4rem;
                 line-height: 125%;
                 letter-spacing: 0.02em;
                 font-weight: 700;
@@ -50,7 +50,7 @@
             }
             
             h2 {
-                font-size: 0.75rem;
+                font-size: 1.2rem;
                 font-weight: 400;
                 color: $color-text;
                 margin-bottom: 15px;
@@ -58,7 +58,7 @@
 
             p {
                 color: $color-heading;
-                font-size: 1rem;
+                font-size: 1.2rem;
                 font-weight: 400;
                 letter-spacing: 0.02em;
                 line-height: 125%;

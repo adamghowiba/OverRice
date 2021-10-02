@@ -64,6 +64,10 @@
         li {
              margin: 10px 0;
              color: #5f5f5f;
+             list-style-type: none;
+        }
+        ol {
+            list-style-type: none;
         }
 
         a {
