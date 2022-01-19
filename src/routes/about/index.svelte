@@ -50,7 +50,7 @@
 </section>
 
 <CallToAction
-  title="Always fresh always, from the heart"
+  title="Always fresh always from the heart"
   img="/images/IMG_2688.jpg"
 />
 
@@ -61,8 +61,8 @@
     <div class="heading">
       <IntroHeading
         title="Our Team"
-        body="The Overice Family"
-        footer="Meet the owners, Mayra, and Joel. A husband and wife team dedicated to serving up some of the most delicious Fillipno and Hiwiian food they grew up with."
+        body="The OverRice Family"
+        footer="Meet the owners, Mayra and Joel. A husband and wife team dedicated to serving up some of the most delicious Fillipno and Hawaiian food they grew up with."
       />
     </div>
   
@@ -70,13 +70,13 @@
       <Member
         src="/images/owner_headshot.jpg"
         name="Mayra Paoner"
-        title="Chicken Expert"
+        title="Manager"
         description="Person behind the scene, Mayra takes care of all the little details. Making sure Joel is able to continue serving his delicious food to our customers."
       />
       <Member
         src="/images/owner_headshot_2.jpg"
         name="Joel Paoner"
-        title="Grill Expert"
+        title="Kitchen Expert"
         description="Founder of OverRice, Joel started out by sharing the food he grew up with. Bringing many of the great memories, and flavors in his life into his food. Now he shares all his recpies with he's customers. Everyone has a seat at our table. "
       />
     </div>

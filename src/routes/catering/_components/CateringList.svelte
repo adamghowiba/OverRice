@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from "$lib/components/Button.svelte";
+  import Button from '$lib/components/Button.svelte';
 
   export let title;
   export let desc;
@@ -40,10 +40,6 @@
         </ol>
       </div>
     </div>
-
-    <Button href="https://over-rice-food-truck.square.site/"
-      >Order Online</Button
-    >
   </header>
 </section>
 
@@ -65,6 +61,8 @@
   }
 
   h4 {
+    display: flex;
+    flex-direction: column;
     font-size: 30px;
     font-weight: normal;
     margin-bottom: $pd-xs;
@@ -96,7 +94,7 @@
     margin-bottom: $pd-md;
   }
 
-  @include mq.media("<tablet") {
+  @include mq.media('<tablet') {
     .columns {
       flex-direction: column;
       align-items: center;

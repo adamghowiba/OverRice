@@ -1,27 +1,26 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte'
+  import { createEventDispatcher } from 'svelte';
   export let desc;
   export let src;
-  export let title = "Filipino Style Plate Lunch";
-  export let price: number;
+  export let title = 'Filipino Style Plate Lunch';
+  export let price: number | string;
   export let active;
-  export let includes: string[] = null
+  export let includes: string[] = null;
   let s = 100;
   $: s += 100;
-  let open; 
+  let open;
 
-  const dispatcher = createEventDispatcher() 
-  const mainIcon = "plus_button.svg", sideIcon = "cart.svg";
+  const dispatcher = createEventDispatcher();
+  const mainIcon = 'plus_button.svg',
+    sideIcon = 'cart.svg';
 
   const openAcord = (event: MouseEvent) => {
-    dispatcher('acord-toggle')
+    dispatcher('acord-toggle');
     if (!active) return;
 
     const acord = event.currentTarget as HTMLElement;
-    const acordDropdown = acord.querySelector(".dropdown") as HTMLElement;
-    const acordScrollWrap = document.querySelector(
-      ".col--acord"
-    ) as HTMLElement;
+    const acordDropdown = acord.querySelector('.dropdown') as HTMLElement;
+    const acordScrollWrap = document.querySelector('.col--acord') as HTMLElement;
 
     if (open) {
       open = false;
@@ -33,8 +32,8 @@
     acordDropdown.style.height = `${acordDropdown.scrollHeight}px`;
 
     if (window.innerWidth < 760) {
-      acordDropdown.scrollIntoView({ block: "center", behavior: "smooth" });
-    } 
+      acordDropdown.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
   };
 </script>
 
@@ -56,7 +55,7 @@
         </p>
       </div>
 
-      <div class="acord__button" style="content: url(/icons/{active ? mainIcon : sideIcon})"/>
+      <div class="acord__button" style="content: url(/icons/{active ? mainIcon : sideIcon})" />
     </div>
 
     {#if active && includes}
@@ -103,7 +102,7 @@
       width: 100%;
       flex-basis: 50%;
       min-height: 150px;
-      @include mq.media("<phone") {
+      @include mq.media('<phone') {
         height: 100%;
         width: 100%;
       }
@@ -125,7 +124,7 @@
       // @include mq.media('>laptop') {
       //   max-height: 150px;
       // }
-      @include mq.media("<phone") {
+      @include mq.media('<phone') {
         border-radius: 10px 10px 0px 0px;
       }
     }
@@ -177,12 +176,12 @@
         gap: 0.4rem;
         flex-basis: 100%;
 
-        @include mq.media("<phone") {
+        @include mq.media('<phone') {
           margin: 1rem 2rem 1rem 0.5rem;
         }
       }
 
-      @include mq.media("<phone") {
+      @include mq.media('<phone') {
         flex-direction: column;
       }
     }
@@ -212,7 +211,7 @@
       margin-bottom: 0.4rem;
     }
 
-    @include mq.media("<phone") {
+    @include mq.media('<phone') {
       max-width: 100%;
     }
   }

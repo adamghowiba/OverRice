@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import HeroHeader from "./_components/HeroHeader.svelte";
   import Card from "./_components/Card.svelte";
   import Button from "$lib/components/Button.svelte";
@@ -36,23 +36,21 @@
       <div class="card-wrap">
         <Card
           title="Filipino Huli Huli Chicken"
-          caption="Served with Jasmine rice, Pancit, Lumpia Shanghai"
           content="Boneless skinless chicken thighs marinated overnight in our house huli huli sauce,
-          grilled to perfection. Served over a bed of jasmine rice, pancit & lumpia shanghai."
+          grilled to perfection. Served over jasmine rice, pancit & lumpia shanghai."
           src="/images/over_rice_lunch_special.jpg"
         />
 
         <Card
           title="Hawaiian Chicken Katsu"
           caption="Served with rice & one side"
-          content="Deep fried to golden brown perfection. A combination of a sweet and salty sauce with a crispy fried chicken cutlet. Served over a bed of white rice paired with our Ono Mac Salad"
+          content="Deep fried to golden brown perfection. A combination of a sweet and salty sauce with a crispy fried chicken cutlet. Served over white rice paired with our Ono Mac Salad"
           src="/images/breaded_chicken_over_rice.jpg"
         />
 
         <Card
           title="Filipino Mixed Plates"
-          caption="Served with Jasmine rice, Pancit, Lumpia Shanghai"
-          content="Huli Huli chicken & Papa's Filipino pork Adobo. Served over jasmin rice, pancit & lumpia shanghai"
+          content="Huli Huli chicken & Papa's Filipino pork Adobo. Served over jasmine rice, pancit & lumpia shanghai"
           src="/images/catering_food.jpg"
         />
       </div>

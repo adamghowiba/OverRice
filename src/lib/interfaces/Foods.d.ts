@@ -4,7 +4,7 @@ interface BaseFood {
     title: string;
     sides: string;
     description: string;
-    price: string | number;
+    price: number;
 }
 
 interface Meats {

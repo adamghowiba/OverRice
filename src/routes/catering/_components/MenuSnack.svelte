@@ -1,27 +1,32 @@
 <script>
   export let quote = null;
   export let menuItems;
-  export let title = "Meat by the pound";
-  export let img = "/images/over_rice_lunch_combo.jpg"
+  export let title = 'Meat by the pound';
+  export let img = '/images/over_rice_lunch_combo.jpg';
 </script>
 
 <!-- <section class="section section--white"> -->
-  <div class="container">
-    <header>
-      <img src="{img}" alt="Chicken on grill" />
+<div class="container">
+  <header>
+    <img src={img} alt="Chicken on grill" />
 
-      {#if quote}
-        <p>{quote}</p>
-      {/if}
-    </header>
+    {#if quote}
+      <p>{quote}</p>
+    {/if}
+  </header>
 
-    <div class="card">
-      <div class="card__items">
-        <h2>{title}</h2>
-        {#each menuItems as menuItem}
+  <div class="card">
+    <div class="card__items">
+      <h2>{title}</h2>
+      {#each menuItems as menuItem}
         <div class="item">
           <div class="item__head">
-            <h4>{menuItem.title}</h4>
+            <h4>
+              {menuItem.title}
+              {#if menuItem?.note}
+                <i>({menuItem?.note})</i>
+              {/if}
+            </h4>
             <span>{menuItem.price}</span>
           </div>
 
@@ -29,12 +34,12 @@
             {menuItem.desc}
           </p>
         </div>
-        {/each}
-      </div>
+      {/each}
     </div>
   </div>
-<!-- </section> -->
+</div>
 
+<!-- </section> -->
 <style lang="scss">
   @use '../../../lib/scss/0-helpers/vars' as *;
   @use '../../../lib/scss/1-plugins/mquery' as mq;
@@ -59,7 +64,7 @@
   }
 
   .card {
-    background-color: #FAF3ED;
+    background-color: #faf3ed;
     border-radius: 10px;
     padding: 3rem 5rem;
 
@@ -75,7 +80,6 @@
     @include mq.media('<tablet') {
       padding: 3rem 1.5rem;
     }
-    
   }
 
   .item {
@@ -83,8 +87,13 @@
     padding-bottom: 1.3rem;
 
     h4 {
-        font-size: 20px;
-        letter-spacing: 2.2px;
+      font-size: 20px;
+      letter-spacing: 2.2px;
+
+      i {
+        font-size: 16px;
+        color: $color-green;
+      }
     }
 
     &__head {
@@ -104,6 +113,4 @@
       height: 150px;
     }
   }
-
- 
 </style>

@@ -1,13 +1,13 @@
 <script lang="ts">
-  import BottomBarItem from "$lib/components/Bottom/Item.svelte";
-  import HeroHeader from "$lib/components/HeroHeader.svelte";
-  import Highlighed from "./_components/Highlighed.svelte";
-  import Food from "$lib/foods";
-  import Acord from "./_components/Acord.svelte";
-  import { fade } from "svelte/transition";
-  import { onMount } from "svelte";
+  import BottomBarItem from '$lib/components/Bottom/Item.svelte';
+  import HeroHeader from '$lib/components/HeroHeader.svelte';
+  import Highlighed from './_components/Highlighed.svelte';
+  import Food from '$lib/foods';
+  import Acord from './_components/Acord.svelte';
+  import { fade } from 'svelte/transition';
+  import { onMount } from 'svelte';
 
-  let selectedMenu: "Mains" | "Pupus" = "Mains";
+  let selectedMenu: 'Mains' | 'Pupus' = 'Mains';
   let menu: Mains[] | BaseFood[] = Food[selectedMenu];
   $: menu = Food[selectedMenu];
 
@@ -42,14 +42,14 @@
       src="/icons/Lunch.svg"
       content="Main Lunch Plates"
       prefix="Mains"
-      on:click={() => (selectedMenu = "Mains")}
+      on:click={() => (selectedMenu = 'Mains')}
     />
     <BottomBarItem
       --cursor="pointer"
       src="/icons/Pupus.svg"
       content="Pupus"
       prefix="Pupus"
-      on:click={() => (selectedMenu = "Pupus")}
+      on:click={() => (selectedMenu = 'Pupus')}
     />
   </div>
 
@@ -61,10 +61,7 @@
             <h1 transition:fade={{ duration: 1500 }}>
               {selectedMenu}
             </h1>
-            <p>
-              Please let us know if you have any allergies or dietary
-              restrictions prior to ordering!
-            </p>
+            <p>Please let us know if you have any allergies or dietary restrictions prior to ordering!</p>
           </div>
           {#each menu as food}
             <Acord
@@ -73,7 +70,7 @@
               desc={food.description}
               price={food.price}
               title={food.title}
-              includes = { food.includes }
+              includes={food.includes}
               on:acord-toggle={select(food)}
             />
           {/each}
@@ -81,8 +78,7 @@
         <div class="col col--image">
           <Highlighed
             title={highlight.title}
-            sides={highlight.sides}
-            description="We are a restaurant on wheels,  we offer Filipino and Hawaiian food. We start our business 10 years ago and most of the food we serve is the food and recipes we grew with."
+            description={highlight.description}
             price={highlight.price}
             --url="url('{highlight.src}')"
           />
@@ -127,14 +123,14 @@
       height: 100%;
       flex-direction: column;
 
-      @include mq.media(">1000px") {
+      @include mq.media('>1000px') {
         max-height: 700px;
         overflow-y: auto;
       }
     }
 
     &--image {
-      @include mq.media("<1000px") {
+      @include mq.media('<1000px') {
         max-height: 350px;
       }
     }
@@ -154,7 +150,7 @@
     width: 100%;
   }
 
-  @include mq.media("<1000px") {
+  @include mq.media('<1000px') {
     .flex {
       gap: 2.5rem;
     }
@@ -172,7 +168,7 @@
     height: 72px;
     background: rgba(0, 0, 0, 0.9);
     padding: 0 22vw;
-    @include mq.media("<phone") {
+    @include mq.media('<phone') {
       padding: 0 2em;
     }
 
