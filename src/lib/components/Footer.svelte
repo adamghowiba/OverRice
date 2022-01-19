@@ -5,7 +5,7 @@
       <p class="footer__p">
         Over rice is more than just food for us. It's about friendship, culture, and family.
         Food is a common equal for everyone no matter who you are. We hope you enjoy our
-        traditional family recipes and come share a delcious home cooked meal with us. See our location below.
+        traditional family recipes and come share a delicious home cooked meal with us. See our location below.
       </p>
       <div class="footer__nav">
         <div class="footer__nav-wrap">

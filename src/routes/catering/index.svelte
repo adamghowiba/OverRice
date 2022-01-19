@@ -9,41 +9,41 @@
 
   let meatItems = [
     {
-      title: "Kualua Pig",
-      price: "1.22",
-      desc: "Pork shoulder seasoned w/ hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs",
+      title: "Kalua Pig",
+      price: "Contact us for price",
+      desc: "Pork shoulder seasoned w/ Hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs",
     },
     {
       title: "Huli Huli Chicken",
-      price: "1.22",
-      desc: "Boneless skinless chicken thigh marinated overnight in our house huli huli sauce, ",
+      price: "Contact us for price",
+      desc: "Boneless skinless chicken thigh marinated overnight in our house Huli Huli sauce",
     },
     {
       title: "Papas Filipino Pork Adobo",
-      price: "1.22",
+      price: "Contact us for price",
       desc: "Bone-in pork spare rib braised in soy, garlic, anise, bay and black pepper braised until pork tender",
     },
   ];
   let sideItems = [
     {
       title: "Pancit Tray",
-      price: "60",
-      desc: "test",
+      price: "$60",
+      desc: "Rice & wheat noodles sauteed in garlic with carrots spinach and edamame.",
     },
     {
       title: "Garlic Rice Tray",
-      price: "30",
-      desc: "test",
+      price: "$30",
+      desc: "Delicious buttery tray of our staple garlic rice, the perfect pairing for any dish.",
     },
     {
-      title: "Mac Salad tray",
-      price: "40",
-      desc: "test",
+      title: "Mac Salad Tray",
+      price: "$40",
+      desc: "Elbow noodles smothered with mayonaisse, eggs, carrots, potato, seasoned to perfection",
     },
     {
       title: "Frozen Lumpia Shanghia (Dozen)",
-      price: "15",
-      desc: "test",
+      price: "$15",
+      desc: "Filipino deep-fried appetizer consisting of a mixture of giniling wrapped in a thin egg crêpe",
     },
   ];
 </script>
@@ -58,8 +58,8 @@
 <main>
   <CateringList
     title="Hawiian Style Catering"
-    desc="An amazing blend of sweet, savory hawian flavors. Includes hawiian classics like our famous Mac salad, and Kula pig. Comes standard with one meat option but can be exhacnged for more delcious food."
-    sides={["Half Jasmine Rice", "Half Max Salad", "Your Choice Of Protien"]}
+    desc="An amazing blend of sweet, savory Hawaiian flavors. Includes hawiian classics like our famous Mac salad, and Kula pig. Comes standard with one meat option but can be exchanged for more delicious food."
+    sides={["Half Jasmine Rice", "Half Mac Salad", "Your Choice Of Protien"]}
     meats={["Huli Huli Chicken", "Kalua Pig", "Papa's Pork Adobo"]}
   />
   <section class="steps">
@@ -72,27 +72,13 @@
     </div>
 
     <div class="steps__cards">
-      <FaqCard
-        --icon="url('/icons/work_cursor.svg')"
-        title="Easy Pick Up"
-        description="This pick up is our location. NO fees for pick up. Your food will be fresh and warm in quality containers able to manage the way to your destiny."
-      />
-      <FaqCard
-        --icon="url('/icons/work_location.svg') "
-        title="Drop Off Style"
-        description="Bringing the catering straight to the place you need it. Will drop the food and set up. The food will be delivered fresh and warm ready to be served. Minimum delivery charge of $25."
-      />
-      <FaqCard
-        --icon="url('/icons/work_delivery.svg')"
-        title="OverRice in the house"
-        description="Bring the whole Food Truck experience to your special event. A fee of $200  will be charge for this service plus the Plate Lunch of preference per person. Get your food yummy and fresh straight from the window."
-      />
+      <p>A paragraph will go here</p>
     </div>
   </section>
 
   <CateringList
     title="Filipino Style Catering"
-    desc="A classic take on a tradtional Filipino style food. With bold, flavors and a hint of spice. Includes are abundtful portion of filipino's favorite Lumpia Shangahi, rice and your choice of meat."
+    desc="A classic take on a traditional Filipino style food. With bold, flavors and a hint of spice. Includes are abundtful portion of filipino's favorite Lumpia Shangahi, rice and your choice of meat."
     sides={["Jasmine Rice", "25 Lumpia Shanghai", "Your Choice Of Protien"]}
     meats={["Huli Huli Chicken", "Kalua Pig", "Papa's Pork Adobo"]}
   />
@@ -103,12 +89,14 @@
     img="/images/over_rice_chicken_platter.jpg"
   />
 
-  <MenuSnack img="/images/chicken_grill.jpg" menuItems={meatItems} />
-  <MenuSnack
-    img="/images/noodles_orlando.jpg"
-    menuItems={sideItems}
-    title="Side items"
-  />
+  <div class="section section--white menu-snack">
+    <MenuSnack title = "Meat By The Pound" img="/images/chicken_grill.jpg" menuItems={meatItems} />
+    <MenuSnack
+      img="/images/noodles_orlando.jpg"
+      menuItems={sideItems}
+      title="Pupu Items"
+    />
+  </div>
 
   <CTA
     button={false}
@@ -125,7 +113,9 @@
         "
       />
       <div class="center">
-        <Button>Start Order</Button>
+        <Button href="https://over-rice-food-truck.square.site/"
+          >Start Order</Button
+        >
       </div>
     </container>
   </section>
@@ -139,12 +129,17 @@
   .center {
     margin-top: 2rem;
   }
+  .menu-snack {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
   .steps {
     position: relative;
     width: 100%;
     padding: 60px 0;
     background: linear-gradient(rgba(black, 0.7), rgba(black, 0.7)),
-      url("/images/WorksBackground.png");
+      url("/images/papa_pork.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -172,15 +167,10 @@
     }
 
     &__cards {
+      color: $color-white;
       place-self: center;
       display: flex;
       gap: 50px;
-
-      @include mq.media("<1200px") {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-      }
 
       @include mq.media("<600px") {
         display: flex;

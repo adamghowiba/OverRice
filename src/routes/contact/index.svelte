@@ -9,11 +9,36 @@
   let input: string | null = null;
   let email: string | null = null;
   let message: string | null = null;
+  let status: string = "Send Message";
+  const onSubmit = (event: SubmitEvent) => {
+    const data = { input, email, message };
+    status = "Sending....";
 
-  const onSubmit = () => {
-    console.table([input, email, message]);
+    fetch(
+      "https://s0prbjfu27.execute-api.us-east-1.amazonaws.com/Prod/submitForm",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          status = "failed";
+        }
+        
+        console.log(response);
+        status = "Sent";
+      })
+      .catch((err) => {
+        status = "Sending Failed";
+      });
+
+      const formElement = event.target as HTMLFormElement;
+      formElement.reset();
   };
-
 </script>
 
 <HeroHeader
@@ -28,20 +53,20 @@
     <IntroHeading
       title="Contact form"
       body="Get in Touch"
-      footer="Don't hestitate to contact us if you have any questions, we're always happy to help."
+      footer="Don't hesitate to contact us if you have any questions, we're always happy to help."
     />
   </section>
 
   <section class="contact__info">
-    <a href="tel:4079246902">
+    <a href="tel:3864169030">
       <ContactInfo src="/icons/large_location.svg" alt="location"
         >(386) 416-9030</ContactInfo
       >
     </a>
 
-    <a href="mailto:overrice@gmail.com">
+    <a href="mailto:overricefoodtruck@gmail.com ">
       <ContactInfo src="/icons/large_clock.svg" alt="opening and closing times"
-        >OverRice@gmail.com</ContactInfo
+        >OverRiceFoodtruck@gmail.com </ContactInfo
       >
     </a>
 
@@ -70,7 +95,7 @@
         <TextArea id="message" bind:value={message} placeholder="Message" />
       </div>
 
-      <button class="contact__form__submit">Send Message</button>
+      <button type="submit" class="contact__form__submit">{status}</button>
     </form>
   </section>
 </main>
@@ -100,7 +125,6 @@
       margin-bottom: 100px;
 
       display: flex;
-      gap: 60px;
 
       @include mq.media("<tablet") {
         display: grid;
@@ -116,6 +140,7 @@
 
       a {
         color: inherit;
+        margin: 0 2rem;
       }
       place-self: center;
     }

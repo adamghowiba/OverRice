@@ -3,6 +3,7 @@
     export let caption: string
     export let content: string
     export let src: string
+    export let href: string = "https://over-rice-food-truck.square.site/"
 </script>
 
 <div class="card">
@@ -12,7 +13,7 @@
         <h4 class="card__heading">{title}</h4>
         <span class="card__caption">{caption}</span>
         <p class="card__p">{content}</p>
-        <a href="/" class="card__button">Get One Now</a>
+        <a {href} target="_blank" class="card__button">Get One Now</a>
     </div>
 </div>
 
@@ -36,6 +37,7 @@
     .card {
         border-radius: $br-tile;
         height: auto;
+        max-width: 400px;
         background-color: $color-snow;
         transition: transform 0.55s cubic-bezier(0.23, 1, 0.320, 1), box-shadow 0.2s ease-out;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;

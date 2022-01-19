@@ -29,14 +29,14 @@
         position: fixed;
         top: 0;
         right: 0;
-        z-index: 3;
+        z-index: 1001;
 
         display: flex;
         flex-direction: column;
         gap: 14px;
 
         width: 177px;
-        height: 100vh;
+        height: 100%;
         padding: 85px 30px;
 
         background: rgba($color-green, .9);

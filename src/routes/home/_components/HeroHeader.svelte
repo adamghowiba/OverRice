@@ -17,12 +17,12 @@
       <p class="hero__headings__p">
         A big, bold truck with all the comforts of home. OverRice is a food
         truck that brings traditional Filipino and Hawaiian favorites together.
-        Sharing authentic family recpies, genuine smiles, and soulful
+        Sharing authentic family recipes, genuine smiles, and soulful
         conversation.
       </p>
     </div>
     <div class="hero__headings__button-wrap">
-      <Button>Order Online</Button>
+      <Button href="https://over-rice-food-truck.square.site/">Order Online</Button>
       <Button outline href="/menu">View Menu</Button>
     </div>
   </div>

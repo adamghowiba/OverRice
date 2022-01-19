@@ -4,7 +4,7 @@ interface BaseFood {
     title: string;
     sides: string;
     description: string;
-    price: number;
+    price: string | number;
 }
 
 interface Meats {
@@ -20,5 +20,4 @@ interface Mains extends BaseFood {
 interface Foods {
     Mains: Mains[];
     Pupus: BaseFood[];
-    Sides: BaseFood[];
 }

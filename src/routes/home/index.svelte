@@ -29,38 +29,38 @@
   <section class="section section--white">
     <div class="container">
       <header class="con-head">
-        <IntroHeading title="Falvorful & Authentic" body="Our Favorites" />
+        <IntroHeading title="Flavorful & Authentic" body="Our Favorites" />
       </header>
 
       <!-- Cards Wrapper -->
       <div class="card-wrap">
         <Card
-          title="Huli Huli Chicken Platter"
-          caption="Served with rice & one side"
+          title="Filipino Huli Huli Chicken"
+          caption="Served with Jasmine rice, Pancit, Lumpia Shanghai"
           content="Boneless skinless chicken thighs marinated overnight in our house huli huli sauce,
-          grilled to perfection. Served over a bed of white rice paired with our Mac Salad"
-          src="/images/chicke_over_rice.jpg"
+          grilled to perfection. Served over a bed of jasmine rice, pancit & lumpia shanghai."
+          src="/images/over_rice_lunch_special.jpg"
         />
 
         <Card
-          title="Chicken Katsu Platter"
+          title="Hawaiian Chicken Katsu"
           caption="Served with rice & one side"
-          content="Deep fried to golden brown perfection. A combination of a sweet and salty sauce with a crispy fried chicken cutlet. Served over a bed of white rice paired with our Mac Salad"
+          content="Deep fried to golden brown perfection. A combination of a sweet and salty sauce with a crispy fried chicken cutlet. Served over a bed of white rice paired with our Ono Mac Salad"
           src="/images/breaded_chicken_over_rice.jpg"
         />
 
         <Card
-          title="Kalua Pig Platter"
-          caption="Served with rice & one side"
-          content="Pork shoulder seasoned w/ hawaiian sea salt wrapped in banana leaves and roasted for 9 hrs. Served over a bed of white rice paired with our Mac Salad"
-          src="/images/pork_over_rice.jpg"
+          title="Filipino Mixed Plates"
+          caption="Served with Jasmine rice, Pancit, Lumpia Shanghai"
+          content="Huli Huli chicken & Papa's Filipino pork Adobo. Served over jasmin rice, pancit & lumpia shanghai"
+          src="/images/catering_food.jpg"
         />
       </div>
     </div>
   </section>
 
   <!-- Call To Action Section -->
-  <CallToAction img="/images/owner_serving_customer.jpg"/>
+  <CallToAction img="/images/customer_ordering.jpg"/>
 
   <!-- About Section -->
   <About />
@@ -76,7 +76,7 @@
         <IntroHeading
           title="Our Schedule"
           body="We might be close by"
-          footer="Since we're a resturant on wheels, we move around alot. We've made it easy to see our schedule."
+          footer="Since we're a resturant on wheels, we move around allot. We've made it easy to see our schedule."
         >
           <div class="center">
             <Button href="/location">Our Location</Button>
@@ -153,7 +153,8 @@
   .card-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 3.5%;
+    justify-items: center;
+    gap: 2rem;
 
     @include mq.media("<800px") {
       grid-template-columns: 1fr;

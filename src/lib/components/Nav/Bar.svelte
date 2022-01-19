@@ -25,11 +25,11 @@
       <a class="nav__link" href="/about">About Us</a>
     </div>
 
-    <a class="nav__logo" href="https://www.webrevived.com">
+    <a class="nav__logo" href="/">
       <img
         class="logo"
         src="/images/logo_trans.png"
-        alt="OverRice logo of hawaiian woman"
+        alt="OverRice logo of Hawaiian woman"
       />
     </a>
 
@@ -50,9 +50,10 @@
   @use '../../scss/1-plugins/mquery' as mq;
 
   .nav {
-    position: fixed;
+    // position: fixed;
     right: 0;
     left: 0;
+    z-index: 2000;
 
     &-wrap {
       max-width: 1100px;

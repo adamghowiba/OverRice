@@ -26,7 +26,7 @@
         <h4>Includes</h4>
         <ol>
           {#each sides as side}
-          <li class="col__li">{side}</li>
+            <li class="col__li">{side}</li>
           {/each}
         </ol>
       </div>
@@ -35,13 +35,15 @@
         <h4>Chose Your Meat</h4>
         <ol>
           {#each meats as meat}
-          <li>{meat}</li>
+            <li>{meat}</li>
           {/each}
         </ol>
       </div>
     </div>
 
-    <Button>Order Online</Button>
+    <Button href="https://over-rice-food-truck.square.site/"
+      >Order Online</Button
+    >
   </header>
 </section>
 
@@ -95,9 +97,12 @@
   }
 
   @include mq.media("<tablet") {
-    li {
-      text-align: center;
-      list-style-type: none;
+    .columns {
+      flex-direction: column;
+      align-items: center;
+    }
+    .col {
+      margin: 1rem 0;
     }
   }
 </style>

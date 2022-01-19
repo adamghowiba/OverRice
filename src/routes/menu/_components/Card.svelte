@@ -1,4 +1,3 @@
-
 <script lang="ts">
     import { afterUpdate } from "svelte";
     
@@ -47,14 +46,27 @@
     @use '../../../lib/scss/0-helpers/vars' as *;
     @use '../../../lib/scss/1-plugins/mquery' as mq;
 
-    .plate__item {
+    /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+.plate__item {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
 
         width: 100%;
         $default-height: 142px;
         height: var(--height, $default-height);
-        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 
         padding: 0;
         margin: 0;
@@ -63,14 +75,25 @@
         border-radius: 11px;
         overflow: hidden;
         -webkit-appearance: none;
-        appearance: none;
+        -moz-appearance: none;
+             appearance: none;
+
+        -webkit-transition: height 0.2s ease-in-out;
+
+        -o-transition: height 0.2s ease-in-out;
 
         transition: height 0.2s ease-in-out;
 
         &__head {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
             gap: 24px;
             height: $default-height;
+
+            -webkit-transition: gap 0.2s ease-in-out;
+
+            -o-transition: gap 0.2s ease-in-out;
 
             transition: gap 0.2s ease-in-out;
             @include mq.media("<400px") { gap: 10px; }
@@ -78,8 +101,11 @@
             &__thumbnail {
                 width: 117px;
                 height: $default-height;
+                -webkit-transition: width 0.2s ease-in-out;
+                -o-transition: width 0.2s ease-in-out;
                 transition: width 0.2s ease-in-out;
-                object-fit: cover;
+                -o-object-fit: cover;
+                   object-fit: cover;
 
                 @include mq.media("<400px") { width: 93px; }
             }
@@ -133,6 +159,7 @@
             }
 
             &__action {
+                display: -ms-grid;
                 display: grid;
                 place-content: center;
 

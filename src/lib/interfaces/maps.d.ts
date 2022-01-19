@@ -2,6 +2,6 @@
 interface Locations {
     day: string,
     location: string,
-    times: string,
+    times?: string,
     src?: string,
 }

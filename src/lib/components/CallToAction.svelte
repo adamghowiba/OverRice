@@ -31,6 +31,7 @@
     position: relative;
     margin: 0;
     padding: 0;
+    margin-bottom: 1.5rem;
   }
   .section--cta {
     background-size: cover;

@@ -2,15 +2,16 @@
     export let outline: boolean = false
     export let href = '/';
     export let form = false;
+    export let newTab = false;
 </script>
 
 {#if !form}
-<a {href} class="button" class:button--outlined={outline}>
+<a {href} target="{newTab ? "_blank" : ""}" class="button" class:button--outlined={outline}>
     <slot/>
 </a>
 {:else}
 
-<button class="button" class:button--outlined={outline}>
+<button class="button" target="{newTab ? "_blank" : ""}" class:button--outlined={outline}>
     <slot/>
 </button>
 

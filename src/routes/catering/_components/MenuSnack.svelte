@@ -5,7 +5,7 @@
   export let img = "/images/over_rice_lunch_combo.jpg"
 </script>
 
-<section class="section section--white">
+<!-- <section class="section section--white"> -->
   <div class="container">
     <header>
       <img src="{img}" alt="Chicken on grill" />
@@ -22,7 +22,7 @@
         <div class="item">
           <div class="item__head">
             <h4>{menuItem.title}</h4>
-            <span>${menuItem.price}</span>
+            <span>{menuItem.price}</span>
           </div>
 
           <p>
@@ -33,14 +33,16 @@
       </div>
     </div>
   </div>
-</section>
+<!-- </section> -->
 
 <style lang="scss">
   @use '../../../lib/scss/0-helpers/vars' as *;
+  @use '../../../lib/scss/1-plugins/mquery' as mq;
 
   header {
+    position: relative;
     display: block;
-    height: max(100px, 250px);
+    height: 200px;
   }
 
   .section {
@@ -59,15 +61,19 @@
   .card {
     background-color: #FAF3ED;
     border-radius: 10px;
-    padding: 3rem 0;
+    padding: 3rem 5rem;
 
     &__items {
-      max-width: 60%;
+      max-width: 600px;
       margin: 0 auto;
 
       display: flex;
       flex-direction: column;
       gap: 3rem;
+    }
+
+    @include mq.media('<tablet') {
+      padding: 3rem 1.5rem;
     }
     
   }
@@ -92,4 +98,12 @@
       color: $color-green;
     }
   }
+
+  @include mq.media('<phone') {
+    header {
+      height: 150px;
+    }
+  }
+
+ 
 </style>

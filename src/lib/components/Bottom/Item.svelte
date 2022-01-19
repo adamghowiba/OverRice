@@ -24,6 +24,28 @@
   @use '../../scss/0-helpers/vars' as *;
   @use '../../scss/1-plugins/mquery' as mq;
 
+  .text {
+    position: relative;
+    
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      background-color: $color-green;
+    
+    transition: transform 0.25s ease-out;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+
   .bottom__bar {
     &__item {
       cursor: var(--cursor, default);
