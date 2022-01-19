@@ -144,17 +144,5 @@
         margin: 0 20px;
       }
     }
-
-    &__cards {
-      color: $color-white;
-      place-self: center;
-      display: flex;
-      gap: 50px;
-
-      @include mq.media('<600px') {
-        display: flex;
-        flex-direction: column;
-      }
-    }
   }
 </style>

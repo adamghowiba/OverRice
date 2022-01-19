@@ -87,13 +87,6 @@
       place-items: center;
       gap: 37px;
 
-      a {
-        text-decoration: none;
-        color: white;
-        &:visited {
-          color: inherit;
-        }
-      }
     }
 
     &__price {

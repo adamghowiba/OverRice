@@ -3,7 +3,7 @@
   export let desc;
   export let src;
   export let title = 'Filipino Style Plate Lunch';
-  export let price: number | string;
+  // export let price: number | string;
   export let active;
   export let includes: string[] = null;
   let s = 100;
@@ -186,11 +186,11 @@
       }
     }
 
-    &__price {
-      display: block;
-      margin-top: auto;
-      color: $color-red;
-    }
+    // &__price {
+    //   display: block;
+    //   margin-top: auto;
+    //   color: $color-red;
+    // }
 
     &__span {
       margin-bottom: 0.3rem;

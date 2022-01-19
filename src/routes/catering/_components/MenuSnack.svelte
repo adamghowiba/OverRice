@@ -50,10 +50,6 @@
     height: 200px;
   }
 
-  .section {
-    padding: 4rem 0;
-  }
-
   img {
     display: block;
     height: 100%;
