@@ -1,70 +1,57 @@
 <script lang="ts">
-  import HeroHeader from "$lib/components/HeroHeader.svelte";
-  import IntroHeading from "$lib/components/IntroHeading.svelte";
-  import Map from "./_components/Map.svelte";
-  import { getPublic, constructExportUrl, parseTime } from "$lib/google";
-  import { writable } from "svelte/store";
-  import { onMount } from "svelte";
+  import HeroHeader from '$lib/components/HeroHeader.svelte';
+  import IntroHeading from '$lib/components/IntroHeading.svelte';
+  import Map from './_components/Map.svelte';
+  import { getPublic, constructExportUrl, parseTime } from '$lib/google';
+  import { writable } from 'svelte/store';
+  import { onMount } from 'svelte';
   import Card from './_components/Card.svelte';
 
-  const daysOfWeek = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
+  const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   let days: Locations[] = [];
 
   let selected: Locations = null;
-  const select = (day) => () => {
-    selected = day;
-    const map: HTMLDivElement = document.querySelector("#map");
-    map.scrollIntoView();
-  };
-
-  let showPage = writable(true);
-
+  let showPage: boolean = true;
   let locationDIV: HTMLDivElement;
   let scrollPercentage = 1;
   let scrollTop = 0;
+
+  const select = day => () => {
+    selected = day;
+    const map: HTMLDivElement = document.querySelector('#map');
+    map.scrollIntoView();
+  };
+
   onMount(async () => {
-    scrollPercentage =
-      locationDIV.scrollTop /
-      (locationDIV.scrollHeight - locationDIV.clientHeight);
+    scrollPercentage = locationDIV.scrollTop / (locationDIV.scrollHeight - locationDIV.clientHeight);
     scrollTop = locationDIV.scrollTop;
     locationDIV.onscroll = () => {
       scrollTop = locationDIV.scrollTop;
-      scrollPercentage =
-        locationDIV.scrollTop /
-        (locationDIV.scrollHeight - locationDIV.clientHeight);
+      scrollPercentage = locationDIV.scrollTop / (locationDIV.scrollHeight - locationDIV.clientHeight);
     };
 
     const events = await getPublic();
 
+    console.log(events);
     if (events.items.length === 0) {
-      $showPage = false;
+      showPage = false;
       return; // stop the mount function here
     }
 
     for (const [i, event] of events.items.entries()) {
       // if (event.start.dateTime && event.end.dateTime) {
-        days[i] = {
-          day: daysOfWeek[i],
-          location: event.location,
-          times: parseTime(event.start?.dateTime, event.end?.dateTime),
-        };
+      days[i] = {
+        day: daysOfWeek[i],
+        location: event.location,
+        times: parseTime(event.start?.dateTime, event.end?.dateTime),
+      };
 
-        if (event.attachments)
-          days[i].src = constructExportUrl(event.attachments[0].fileId);
+      if (event.attachments) days[i].src = constructExportUrl(event.attachments[0].fileId);
       // }
     }
 
     days = days;
   });
-
 </script>
 
 <HeroHeader
@@ -89,21 +76,20 @@
         {#each days as day}
           {#if day?.location}
             <Card
-                {...day}
-                active={selected?.day === day.day}
-                on:click = {select(day)}
+              times={day.times}
+              location={day.location}
+              day={day.day}
+              active={selected?.day === day.day}
+              on:click={select(day)}
             />
           {/if}
         {/each}
 
-        <div
-          class="location__list--overlay"
-          style="--opacity: {1 - scrollPercentage}; --t-y: {scrollTop}px;"
-        />
+        <div class="location__list--overlay" style="--opacity: {1 - scrollPercentage}; --t-y: {scrollTop}px;" />
       </div>
 
       <div class="location__map">
-        <Map address={selected?.location ?? "flordia"} {showPage} />
+        <Map address={selected?.location ?? 'flordia'} />
       </div>
     </section>
   </main>
@@ -111,9 +97,7 @@
   <section class="section">
     <div class="container">
       <h1>Uh, oh. <br /> Theirs no location data to show right now.</h1>
-      <h2 class="subheading">
-        Check back later as we update our schedule regularly.
-      </h2>
+      <h2 class="subheading">Check back later as we update our schedule regularly.</h2>
     </div>
   </section>
 {/if}
@@ -126,25 +110,25 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 84px;
-    padding: 110px 20px;
-    background: url("/images/background.jpg");
+    gap: 40px;
+    padding: 80px 20px;
+    background: url('/images/background.jpg');
 
     &__body {
-      width: 80%;
+      width: 90%;
       display: flex;
       margin: 0 auto;
-      gap: 90px;
+      gap: 40px;
 
       justify-content: center;
-      align-items: center;
-
-      @include mq.media("<1000px") {
+      
+      @include mq.media('<1000px') {
         flex-direction: column-reverse;
+        align-items: center;
         gap: 40px;
       }
-
-      @include mq.media(">desktop") {
+      
+      @include mq.media('>desktop') {
         width: 60%;
       }
     }
@@ -164,7 +148,7 @@
       background: white;
       border-radius: 11px;
 
-      height: 700px;
+      height: 570px;
       overflow: hidden scroll;
 
       scrollbar-width: thin;
@@ -180,7 +164,7 @@
         border-radius: 10px;
       }
 
-      @include mq.media("<tablet") {
+      @include mq.media('<tablet') {
         height: auto;
         overflow: hidden;
 
@@ -210,12 +194,12 @@
     }
 
     &__map {
-      --width: 280px;
+      --width: 480px;
       width: 100%;
       display: flex;
       justify-content: center;
 
-      @include mq.media("<tablet") {
+      @include mq.media('<tablet') {
         --height: 300px;
       }
     }
