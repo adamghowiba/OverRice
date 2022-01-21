@@ -3,7 +3,7 @@ let foods: Foods | Mains = {
         {
             src: "/images/pork_adobo.jpg",
             title: "Filipino Style Plate Lunch",
-            sides: "Serves with Jasmine Rice, Pancit, Lumpia Shangai with a Single or Mixed Plate Choice",
+            sides: "Served with Jasmine Rice, Pancit, Lumpia Shangai with a Single or Mixed Plate Choice",
             description: "Signature OverRice plate lunch. Served over jasmine rice, pancit, lumpia shanghai and your choice(s) of protein. ",
             price: 12.99,
             includes: [
@@ -29,13 +29,13 @@ let foods: Foods | Mains = {
             src: "/images/lumpia_shanghai.jpg",
             title: "Lumpia Shanghai",
             sides: "Crispy Filled Spring Rolls",
-            description: "Hand rolled Filipino crispy filled spring rolls. Options: Pork(served by default on Plate Lunches), Chicken and Veggie.s",
+            description: "Hand rolled Filipino crispy filled spring rolls. Options: Pork (served on our Filipino Plate Lunches), Chicken and Veggies",
             price: 10,
         },
         {
             src: "/images/noodles_orlando.jpg",
             title: "Pancit",
-            sides: "Rice & Wheet Noodles sauteed in Garlic with carrots, Spinach and Edamame.",
+            sides: "Rice and wheat noodles sautéed in garlic with mixed vegetables.",
             description: "Rice and wheat noodles seasoned and sauteed with mixed vegetables.",
             price: 30,
         },

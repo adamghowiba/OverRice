@@ -56,6 +56,8 @@
   quote="Planning a working lunch or an event? We offer full service catering and takeout options. Give us a call for a custom order"
   --url="url('/images/over_rice_chicken_platter.jpg')"
   --bg-pos="0 38%"
+  height="560px"
+  button={{ text: 'Place Your Order', url: '/catering/order', newTab: false }}
 />
 
 <main>
@@ -72,6 +74,7 @@
         We understand each customer has different needs, for that reason we customize our catering. Reach us and we'll
         be more than happy to assist you.
       </p>
+      <Button>Place Your Order</Button>
     </div>
   </section>
 
@@ -121,18 +124,21 @@
     background: linear-gradient(rgba(black, 0.7), rgba(black, 0.7)), url('/images/papa_pork.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-
     display: grid;
 
     &__heading {
       text-align: center;
       width: 100%;
       max-width: 430px;
-      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
 
       justify-self: center;
 
       h1 {
+        line-height: 25px;
         color: white;
       }
       p {

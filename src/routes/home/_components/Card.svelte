@@ -6,7 +6,7 @@
   export let href: string = 'https://over-rice-food-truck.square.site/';
 </script>
 
-<div class="card">
+<a {href} target="__blank" class="card">
   <img class="card__image" {src} alt={caption} />
 
   <div class="card__content">
@@ -17,9 +17,9 @@
       {/if}
     </header>
     <p class="card__p">{content}</p>
-    <a {href} target="_blank" class="card__button">Get One Now</a>
+    <!-- <a {href} target="_blank" class="card__button">Get One Now</a> -->
   </div>
-</div>
+</a>
 
 <style lang="scss">
   @use '../../../lib/scss/0-helpers/vars' as *;
@@ -46,6 +46,8 @@
     transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.2s ease-out;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
     // margin: 0 0.7em;
+    text-decoration: none;
+    
 
     &__image {
       width: 100%;
@@ -73,6 +75,8 @@
     &__caption {
       display: block;
       font-weight: 300;
+      color: $color-heading;
+      font-style: italic;
       // font-size: $fs-caption;
     }
 

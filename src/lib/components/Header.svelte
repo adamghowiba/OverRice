@@ -1,8 +1,9 @@
 <script>
     import NavBar from "./Nav/Bar.svelte";
+    export let height = '500px';
 </script>
 
-<header>
+<header style="--height: {height}">
     <NavBar />
     <slot/>
 </header>

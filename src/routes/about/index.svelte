@@ -1,11 +1,11 @@
 <script>
-  import HeroHeader from "$lib/components/HeroHeader.svelte";
-  import Header from "$lib/components/HeroHeader.svelte";
-  import Button from "$lib/components/Button.svelte";
-  import Member from "./Member.svelte";
-  import CallToAction from "$lib/components/CallToAction.svelte";
-  import IntroHeading from "$lib/components/IntroHeading.svelte";
-  import ImageCard from "$lib/components/ImageCard.svelte";
+  import HeroHeader from '$lib/components/HeroHeader.svelte';
+  import Header from '$lib/components/HeroHeader.svelte';
+  import Button from '$lib/components/Button.svelte';
+  import Member from './Member.svelte';
+  import CallToAction from '$lib/components/CallToAction.svelte';
+  import IntroHeading from '$lib/components/IntroHeading.svelte';
+  import ImageCard from '$lib/components/ImageCard.svelte';
 </script>
 
 <HeroHeader
@@ -21,42 +21,27 @@
         <h1 class="subtitle">Our Story</h1>
         <h2>Real Service. Real People. Real connections.</h2>
         <p>
-          OverRice was born in Orlando, Fl in 2011. Offering a combination of
-          traditional Filipino and Hawaiian food. Our mission is to bring
-          together classic family recipes with our passion for cooking, culture
-          and service to parks, street fairs, and special events. Fresh and
-          healthy scratch cooking blends classic flavors with ethnic roots to
-          deliver a piece home.
+          OverRice was born in Orlando, Fl in 2011. Offering a combination of traditional Filipino and Hawaiian food.
+          Our mission is to bring together classic family recipes with our passion for cooking, culture and service to
+          parks, street fairs, and special events. Fresh and healthy scratch cooking blends classic flavors with ethnic
+          roots to deliver a piece home.
         </p>
         <!-- TODO: Change end of sentance -->
       </div>
 
       <div class="about__col about__col--img">
         <div class="about__image-wrap">
-          <img
-            class="about__dots"
-            src="/icons/image_dots.svg"
-            alt="Green dots in the background"
-          />
-          <img
-            src="/images/about.jpg"
-            class="about__image"
-            alt="Chicken combo meal"
-          />
+          <img class="about__dots" src="/icons/image_dots.svg" alt="Green dots in the background" />
+          <img src="/images/about.jpg" class="about__image" alt="Chicken combo meal" />
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<CallToAction
-  title="Always fresh always from the heart"
-  img="/images/IMG_2688.jpg"
-/>
-
+<CallToAction title="Always fresh always from the heart" img="/images/IMG_2688.jpg" />
 
 <section class="section section--small section--white">
-  
   <div class="team">
     <div class="heading">
       <IntroHeading
@@ -65,7 +50,7 @@
         footer="Meet the owners, Mayra and Joel. A husband and wife team dedicated to serving up some of the most delicious Fillipno and Hawaiian food they grew up with."
       />
     </div>
-  
+
     <div class="team__members">
       <Member
         src="/images/owner_headshot.jpg"
@@ -82,7 +67,6 @@
     </div>
   </div>
 
-
   <section class="section--small">
     <div class="container">
       <div class="heading-wrap">
@@ -93,22 +77,17 @@
         />
       </div>
       <div class="image-card-wrap">
-        <ImageCard
-          --rotate="15deg"
-          --url="url(/images/over_rice_chicken_platter.jpg)"
-        />
+        <ImageCard --rotate="15deg" --url="url(/images/over_rice_chicken_platter.jpg)" />
         <ImageCard --rotate="-15deg" --url="url(/images/mac_salad.jpg)" />
         <ImageCard --rotate="15deg" --url="url(/images/huli_chicken.jpg)" />
         <ImageCard --rotate="-15deg" --url="url(/images/chicken_grill2.jpg)" />
       </div>
-      
     </div>
     <div class="section__footer">
       <h3>Support your local business by dropping us a like</h3>
       <p class="bottom-margin">I mean who doesn't enjoy seeing good food? Right</p>
-      <Button href="https://www.instagram.com/overricecfl/">Follow Us</Button>
+      <Button newTab={true} href="https://www.instagram.com/overricecfl/">Follow Us</Button>
     </div>
-
   </section>
 </section>
 
@@ -167,7 +146,7 @@
     }
   }
 
-  @include mq.media("<tablet") {
+  @include mq.media('<tablet') {
     .about {
       flex-direction: column-reverse;
       gap: 0;
@@ -202,19 +181,19 @@
       display: flex;
       gap: 40px;
 
-      @include mq.media("<1200px") {
+      @include mq.media('<1200px') {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
       }
 
-      @include mq.media("<600px") {
+      @include mq.media('<600px') {
         display: flex;
         flex-direction: column;
       }
     }
 
-    @include mq.media("<1200px") {
+    @include mq.media('<1200px') {
       margin: 0 auto;
       justify-content: center;
     }

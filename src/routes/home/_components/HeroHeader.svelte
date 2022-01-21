@@ -1,9 +1,11 @@
 <script lang="ts">
-  import Button from "$lib/components/Button.svelte";
-  import Header from "$lib/components/Header.svelte";
+  import Button from '$lib/components/Button.svelte';
+  import Header from '$lib/components/Header.svelte';
+
+  export let height = '500px';
 </script>
 
-<Header>
+<Header {height}>
   <div class="hero__headings">
     <div class="text-mask">
       <h2 class="subtitle subtitle--hero">Filipino and Hawaiian food.</h2>
@@ -15,10 +17,8 @@
     </div>
     <div class="text-mask">
       <p class="hero__headings__p">
-        A big, bold truck with all the comforts of home. OverRice is a food
-        truck that brings traditional Filipino and Hawaiian favorites together.
-        Sharing authentic family recipes, genuine smiles, and soulful
-        conversation.
+        A big, bold truck with all the comforts of home. OverRice is a food truck that brings traditional Filipino and
+        Hawaiian favorites together. Sharing authentic family recipes, genuine smiles, and soulful conversation.
       </p>
     </div>
     <div class="hero__headings__button-wrap">
@@ -67,11 +67,11 @@
       text-transform: uppercase;
     }
 
-    @include mq.media("<tablet") {
+    @include mq.media('<tablet') {
       padding: 0 1em;
     }
 
-    @include mq.media("<phone") {
+    @include mq.media('<phone') {
       text-align: center;
 
       &__button-wrap {

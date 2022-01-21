@@ -1,44 +1,36 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  export let desc;
-  export let src;
-  export let title = 'Filipino Style Plate Lunch';
-  // export let price: number | string;
-  export let active;
+  import { slide } from 'svelte/transition';
+
+  export let desc: string;
+  export let src: string;
+  export let title: string;
+  export let active: boolean;
   export let includes: string[] = null;
-  let s = 100;
-  $: s += 100;
-  let open;
+  export let link = "https://over-rice-food-truck.square.site/";
 
-  const dispatcher = createEventDispatcher();
-  const mainIcon = 'plus_button.svg',
-    sideIcon = 'cart.svg';
+  let acordOpen: boolean = true;
 
-  const openAcord = (event: MouseEvent) => {
-    dispatcher('acord-toggle');
-    if (!active) return;
+  const mainIcon = 'plus_button.svg';
+  const sideIcon = 'cart.svg';
 
-    const acord = event.currentTarget as HTMLElement;
-    const acordDropdown = acord.querySelector('.dropdown') as HTMLElement;
-    const acordScrollWrap = document.querySelector('.col--acord') as HTMLElement;
+  const dispatch = createEventDispatcher();
 
-    if (open) {
-      open = false;
-      acordDropdown.style.height = `0px`;
-      return;
-    }
-
-    open = true;
-    acordDropdown.style.height = `${acordDropdown.scrollHeight}px`;
-
-    if (window.innerWidth < 760) {
-      acordDropdown.scrollIntoView({ block: 'center', behavior: 'smooth' });
-    }
+  const toggleAcordDropdown = (event: MouseEvent) => {
+    dispatch('acord-toggle');
+    acordOpen = !acordOpen;
   };
+
+  const handleAcordButtonCLick = () => {
+    if (active) return;
+    window.open(link, '_blank');
+  };
+
+  // export let price: number | string;
 </script>
 
 <!-- Accordian -->
-<div class="acord" on:click={openAcord}>
+<div class="acord" on:click={toggleAcordDropdown}>
   <!-- Mask -->
   <div class="mask">
     <!-- Acord Head -->
@@ -55,12 +47,16 @@
         </p>
       </div>
 
-      <div class="acord__button" style="content: url(/icons/{active ? mainIcon : sideIcon})" />
+      <div
+        class="acord__button"
+        style="content: url(/icons/{active ? mainIcon : sideIcon})"
+        on:click={handleAcordButtonCLick}
+      />
     </div>
 
-    {#if active && includes}
+    {#if active && includes && acordOpen}
       <!-- Dropdown  -->
-      <div class="dropdown">
+      <div class="dropdown" transition:slide={{ duration: 250 }}>
         <div class="wrap">
           <ul>
             <h1>Included</h1>
@@ -74,6 +70,9 @@
             <li>Huli Huli Chicken</li>
             <li>Papa's Filipino Pork Adobo</li>
             <li>Chicken Katsu</li>
+            {#if title == 'Filipino Style Plate Lunch'}
+              <li>Contact us for more options</li>
+            {/if}
           </ul>
         </div>
       </div>
@@ -102,6 +101,7 @@
       width: 100%;
       flex-basis: 50%;
       min-height: 150px;
+
       @include mq.media('<phone') {
         height: 100%;
         width: 100%;
@@ -200,7 +200,6 @@
   .dropdown {
     flex-direction: column;
     transition: height 0.25s ease-out;
-    height: 0px;
     z-index: 0;
     margin-left: 5%;
     max-width: 50%;

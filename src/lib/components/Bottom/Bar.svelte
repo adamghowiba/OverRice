@@ -16,6 +16,7 @@
         color: white;
         width: 100%;
         position: fixed;
+        z-index: 100;
         padding: 1em 0;
         background-color: $color-black-opacity;
         

@@ -16,7 +16,7 @@
     .contact__info {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 10px;
 
         img {
             height: 50px;

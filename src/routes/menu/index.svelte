@@ -6,6 +6,7 @@
   import Acord from './_components/Acord.svelte';
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
+  import Button from '$lib/components/Button.svelte';
 
   let selectedMenu: 'Mains' | 'Pupus' = 'Mains';
   let menu: Mains[] | BaseFood[] = Food[selectedMenu];
@@ -19,6 +20,7 @@
   let selected = menu[0];
   let _selected = selected; // this is purpley so we can remain the previous selected for highlights
   $: highlight = selected != null ? selected : _selected;
+
   const select = (order: BaseFood) => () => {
     _selected = selected;
     if (selected?.title === order.title) {
@@ -33,6 +35,8 @@
   header="Menu"
   quote="Filipino favorites like the staple Pork Adobo, Lumpia Shanghai and Pancit, along with Hawaiian classics like Kalua Pork, Chicken Katsu and other sweet savory flavors."
   --url="url('/images/contact.jpg')"
+  height="550px"
+  button={{ text: 'Order online', url: 'https://over-rice-food-truck.square.site/', newTab: true }}
 />
 
 <main>
@@ -63,10 +67,11 @@
             </h1>
             <p>Please let us know if you have any allergies or dietary restrictions prior to ordering!</p>
           </div>
+
           {#each menu as food}
             <Acord
               src={food.src}
-              active={food.includes ? true : false}
+              active={food?.includes}
               desc={food.description}
               price={food.price}
               title={food.title}
@@ -75,6 +80,7 @@
             />
           {/each}
         </div>
+
         <div class="col col--image">
           <Highlighed
             title={highlight.title}
@@ -122,10 +128,10 @@
       align-self: flex-end;
       height: 100%;
       flex-direction: column;
+      overflow-y: auto;
 
       @include mq.media('>1000px') {
         max-height: 700px;
-        overflow-y: auto;
       }
     }
 
@@ -159,23 +165,29 @@
     }
   }
 
-  .plates__nav {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    height: 72px;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 0 22vw;
-    @include mq.media('<phone') {
-      padding: 0 2em;
+  .plates {
+    &__heading {
+      position: sticky;
+      top: 0;
     }
+    &__nav {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      height: 72px;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 0 22vw;
+      @include mq.media('<phone') {
+        padding: 0 2em;
+      }
 
-    display: flex;
-    justify-content: space-around;
-    color: white;
+      display: flex;
+      justify-content: space-around;
+      color: white;
 
-    @include res.interpolate(font-size, 320px, 1440px, $fs-nav - 6, $fs-nav);
+      @include res.interpolate(font-size, 320px, 1440px, $fs-nav - 6, $fs-nav);
+    }
   }
 </style>

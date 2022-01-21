@@ -1,43 +1,41 @@
 <script lang="ts">
-  import Input from "$lib/components/forms/Input.svelte";
-  import TextArea from "$lib/components/forms/TextArea.svelte";
-  import HeroHeader from "$lib/components/HeroHeader.svelte";
-  import IntroHeading from "$lib/components/IntroHeading.svelte";
-  import { onMount } from "svelte";
-  import ContactInfo from "./_components/ContactInfo.svelte";
+  import Button from '$lib/components/Button.svelte';
+  import Input from '$lib/components/forms/Input.svelte';
+  import TextArea from '$lib/components/forms/TextArea.svelte';
+  import HeroHeader from '$lib/components/HeroHeader.svelte';
+  import IntroHeading from '$lib/components/IntroHeading.svelte';
+  import { onMount } from 'svelte';
+  import ContactInfo from './_components/ContactInfo.svelte';
 
   let input: string | null = null;
   let email: string | null = null;
   let message: string | null = null;
-  let status: string = "Send Message";
+  let status: string = 'Send Message';
   const onSubmit = (event: SubmitEvent) => {
     const data = { input, email, message };
-    status = "Sending....";
+    status = 'Sending....';
 
-    fetch(
-      "https://s0prbjfu27.execute-api.us-east-1.amazonaws.com/Prod/submitForm",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((response) => {
+    fetch('https://s0prbjfu27.execute-api.us-east-1.amazonaws.com/Prod/submitForm', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => {
         if (!response.ok) {
-          status = "failed";
+          status = 'failed';
         }
-        
+
         console.log(response);
-        status = "Sent";
+        status = 'Sent';
       })
-      .catch((err) => {
-        status = "Sending Failed";
+      .catch(err => {
+        status = 'Sending Failed';
       });
 
-      const formElement = event.target as HTMLFormElement;
-      formElement.reset();
+    const formElement = event.target as HTMLFormElement;
+    formElement.reset();
   };
 </script>
 
@@ -59,43 +57,42 @@
 
   <section class="contact__info">
     <a href="tel:3864169030">
-      <ContactInfo src="/icons/large_location.svg" alt="location"
-        >(386) 416-9030</ContactInfo
-      >
+      <ContactInfo src="/icons/large_location.svg" alt="location">(386) 416-9030</ContactInfo>
     </a>
 
     <a href="mailto:overricefoodtruck@gmail.com ">
       <ContactInfo src="/icons/large_clock.svg" alt="opening and closing times"
-        >OverRiceFoodtruck@gmail.com </ContactInfo
-      >
+        >OverRiceFoodtruck@gmail.com
+      </ContactInfo>
     </a>
 
     <a href="/location">
-      <ContactInfo src="/icons/large_mail.svg" alt="email"
-        >Find Where Are We Now</ContactInfo
-      >
+      <ContactInfo src="/icons/large_mail.svg" alt="email">Find Where Are We Now</ContactInfo>
     </a>
 
-    <ContactInfo src="/icons/large_phone.svg" alt="phone number"
-      >09:00 AM-05:00 PM</ContactInfo
-    >
+    <ContactInfo src="/icons/large_phone.svg" alt="phone number">09:00 AM-05:00 PM</ContactInfo>
   </section>
 
   <section class="contact__form">
     <form on:submit|preventDefault={onSubmit}>
       <div class="contact__form__container">
-        <Input id="name" bind:value={input} placeholder="Full Name" />
+        <Input id="name" bind:value={input} required placeholder="Full Name" />
       </div>
 
       <div id="email" class="contact__form__container">
-        <Input id="email" bind:value={email} placeholder="Email Address" />
+        <Input id="email" bind:value={email} required placeholder="Email Address" />
       </div>
 
       <div id="message" class="contact__form__container">
         <TextArea id="message" bind:value={message} placeholder="Message" />
       </div>
 
-      <button type="submit" class="contact__form__submit">{status}</button>
+      <!-- <button type="submit" class="contact__form__submit">{status}</button> -->
+      <div class="button">
+        <Button form width="400px">
+          {status}
+        </Button>
+      </div>
     </form>
   </section>
 </main>
@@ -112,28 +109,27 @@
 
     width: 100%;
     min-height: 1060px;
-    background: url("/images/background.jpg");
+    background: url('/images/background.jpg');
 
     &__header {
       margin: 110px 0 80px 0;
-      @include mq.media("<tablet") {
+      @include mq.media('<tablet') {
         margin: 60px 0;
       }
     }
 
     &__info {
-      margin-bottom: 100px;
-
       display: flex;
+      gap: 3rem;
 
-      @include mq.media("<tablet") {
+      @include mq.media('<tablet') {
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
         margin-bottom: 60px;
       }
 
-      @include mq.media("<phone") {
+      @include mq.media('<phone') {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
       }
@@ -163,7 +159,7 @@
         grid-template-rows: min-content 1fr;
         gap: 19px;
 
-        @include mq.media("<phone") {
+        @include mq.media('<phone') {
           grid-template-columns: 1fr;
           grid-template-rows: min-content min-content 1fr;
 
@@ -182,28 +178,34 @@
         grid-column: 1 / 3;
         grid-row: 2 / 3;
 
-        @include mq.media("<phone") {
+        @include mq.media('<phone') {
           grid-column: 1 / 2;
           grid-row: 3 / 4;
         }
       }
 
-      &__submit {
-        background: $color-green;
-        padding: 12px 56px;
-        color: white;
-        font-family: "le-havre";
-        font-size: 1.75rem;
-        border-radius: 11px;
-        border: none;
-        cursor: pointer;
-        justify-self: center;
-        grid-column: 1 / 3;
+      // &__submit {
+      //   background: $color-green;
+      //   padding: 12px 56px;
+      //   color: white;
+      //   font-family: 'le-havre';
+      //   font-size: 1.75rem;
+      //   border-radius: 11px;
+      //   border: none;
+      //   cursor: pointer;
+      //   justify-self: center;
+      //   grid-column: 1 / 3;
 
-        @include mq.media("<phone") {
-          grid-column: 1 / 2;
-          padding: 8px 32px;
-        }
+      //   @include mq.media('<phone') {
+      //     grid-column: 1 / 2;
+      //     padding: 8px 32px;
+      //   }
+      // }
+      .button {
+        grid-column: 1/-1;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
       }
     }
   }

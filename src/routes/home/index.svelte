@@ -1,28 +1,24 @@
 <script lang="ts">
-  import HeroHeader from "./_components/HeroHeader.svelte";
-  import Card from "./_components/Card.svelte";
-  import Button from "$lib/components/Button.svelte";
-  import IntroHeading from "$lib/components/IntroHeading.svelte";
-  import About from "./_components/About.svelte";
-  import BottomBar from "$lib/components/Bottom/Bar.svelte";
-  import BottomBarItem from "$lib/components/Bottom/Item.svelte";
-  import Review from "./_components/Review.svelte";
-  import ImageCard from "$lib/components/ImageCard.svelte";
-  import ContactSection from "$lib/components/forms/ContactSection.svelte";
-  import CallToAction from "$lib/components/CallToAction.svelte";
-  import { onMount } from "svelte";
-  import * as an from "$lib/animation";
+  import HeroHeader from './_components/HeroHeader.svelte';
+  import Card from './_components/Card.svelte';
+  import Button from '$lib/components/Button.svelte';
+  import IntroHeading from '$lib/components/IntroHeading.svelte';
+  import About from './_components/About.svelte';
+  import BottomBar from '$lib/components/Bottom/Bar.svelte';
+  import BottomBarItem from '$lib/components/Bottom/Item.svelte';
+  import Review from './_components/Review.svelte';
+  import ImageCard from '$lib/components/ImageCard.svelte';
+  import ContactSection from '$lib/components/forms/ContactSection.svelte';
+  import CallToAction from '$lib/components/CallToAction.svelte';
+  import { onMount } from 'svelte';
+  import * as an from '$lib/animation';
 
   onMount(() => {
     an.setupHeaderAnimation();
   });
 </script>
 
-<HeroHeader
-  --height="100%"
-  --url="url('/images/over_rice_chicken_kabab.jpg')"
-  --bg-pos="top"
-/>
+<HeroHeader height="100%" --url="url('/images/over_rice_chicken_kabab.jpg')" --bg-pos="top" />
 
 <main>
   <!-- Our Favorites (Card Section) -->
@@ -54,11 +50,15 @@
           src="/images/catering_food.jpg"
         />
       </div>
+      <div class="button">
+        <Button width="400px" outline>Explore Menu</Button>
+        <Button width="400px">Order Online</Button>
+      </div>
     </div>
   </section>
 
   <!-- Call To Action Section -->
-  <CallToAction img="/images/customer_ordering.jpg"/>
+  <CallToAction img="/images/customer_ordering.jpg" />
 
   <!-- About Section -->
   <About />
@@ -69,7 +69,6 @@
 
     <!-- Open Hours Section -->
     <section class="section section--small">
-      
       <header class="intro-wrap">
         <IntroHeading
           title="Our Schedule"
@@ -81,21 +80,14 @@
           </div>
         </IntroHeading>
       </header>
-
     </section>
 
     <!-- Images Section -->
     <section class="section section--small">
       <div class="container">
         <div class="image-card-wrap">
-          <ImageCard
-            --rotate="15deg"
-            --url="url(/images/breaded_chicken.jpg)"
-          />
-          <ImageCard
-            --rotate="-15deg"
-            --url="url(/images/over_rice_chicken_kabab.jpg)"
-          />
+          <ImageCard --rotate="15deg" --url="url(/images/breaded_chicken.jpg)" />
+          <ImageCard --rotate="-15deg" --url="url(/images/over_rice_chicken_kabab.jpg)" />
           <ImageCard --rotate="15deg" --url="url(/images/about.jpg)" />
           <ImageCard --rotate="-15deg" --url="url(/images/food_platter.jpg)" />
         </div>
@@ -129,24 +121,20 @@
     prefix="Call"
     href="tel: 3864169030"
   />
-  <BottomBarItem
-    src="/icons/time.svg"
-    content="9 AM - 5 PM"
-    prefix="Hours"
-    href="/contact"
-  />
-  <BottomBarItem
-    src="/icons/shopping-cart.svg"
-    content="Menu"
-    --cursor="pointer"
-    prefix="Menu"
-    href="/menu"
-  />
+  <BottomBarItem src="/icons/time.svg" content="9 AM - 5 PM" prefix="Hours" href="/contact" />
+  <BottomBarItem src="/icons/shopping-cart.svg" content="Menu" --cursor="pointer" prefix="Menu" href="/menu" />
 </BottomBar>
 
 <style lang="scss">
   @use '../../lib/scss/0-helpers/vars' as *;
   @use '../../lib/scss/1-plugins/mquery' as mq;
+
+  .button {
+    display: flex;
+    gap: 2rem;
+    margin-top: 4em;
+    justify-content: center;
+  }
 
   .card-wrap {
     display: grid;
@@ -154,13 +142,13 @@
     justify-items: center;
     gap: 2rem;
 
-    @include mq.media("<800px") {
+    @include mq.media('<800px') {
       grid-template-columns: 1fr;
       padding-left: $pd-md;
       padding-right: $pd-md;
     }
 
-    @include mq.media("<phone") {
+    @include mq.media('<phone') {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }

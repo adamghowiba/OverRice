@@ -170,7 +170,7 @@
 
   .flex {
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
 
     &__col {
       width: 50%;
