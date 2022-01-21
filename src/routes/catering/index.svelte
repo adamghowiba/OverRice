@@ -74,7 +74,7 @@
         We understand each customer has different needs, for that reason we customize our catering. Reach us and we'll
         be more than happy to assist you.
       </p>
-      <Button>Place Your Order</Button>
+      <Button href="/catering/order">Place Your Order</Button>
     </div>
   </section>
 
