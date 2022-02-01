@@ -67,7 +67,6 @@
       font-size: 5.6rem;
       height: min-content;
       line-height: 0.8;
-      white-space: nowrap;
       transition: font-size 0.2s ease-in-out;
     }
 

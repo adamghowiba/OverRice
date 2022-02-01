@@ -96,7 +96,7 @@
 {:else}
   <section class="section">
     <div class="container">
-      <h1>Uh, oh. <br /> Theirs no location data to show right now.</h1>
+      <h1>There's no location data to show right now.</h1>
       <h2 class="subheading">Check back later as we update our schedule regularly.</h2>
     </div>
   </section>

@@ -52,12 +52,12 @@
 </script>
 
 <HeroHeader
-  header="Catering"
-  quote="Planning a working lunch or an event? We offer full service catering and takeout options. Give us a call for a custom order"
+  header="OverRice In The House"
+  quote="Interested to bring our kitchen on wheels to your event? We offer full service catering and takeout options. Give us a call for a custom order"
   --url="url('/images/over_rice_chicken_platter.jpg')"
   --bg-pos="0 38%"
-  height="560px"
-  button={{ text: 'Place Your Order', url: '/catering/order', newTab: false }}
+  height="590px"
+  button={{ text: 'Book Us', url: '/catering/order', newTab: false }}
 />
 
 <main>
@@ -74,7 +74,7 @@
         We understand each customer has different needs, for that reason we customize our catering. Reach us and we'll
         be more than happy to assist you.
       </p>
-      <Button href="/catering/order">Place Your Order</Button>
+      <Button href="/catering/order">Book Us</Button>
     </div>
   </section>
 
@@ -100,8 +100,7 @@
       <IntroHeading
         title="Catering"
         body="Flavors you gather"
-        footer="Take a break from your routine with an invitation to explore new tastes. Whether it's for an event, corporate catering, or if you're just looking for a great place to eat on the go -- we hope you'll stop by!
-        "
+        footer="Take a break from your routine with an invitation to explore new tastes. Whether it's for an event, corporate catering, or if you're just looking for a great place to eat on the go -- we hope you'll stop by!"
       />
     </container>
   </section>

@@ -97,10 +97,12 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 15px;
+      gap: 1rem;
     }
 
     span {
       color: $color-green;
+      align-self: flex-start;
     }
   }
 
