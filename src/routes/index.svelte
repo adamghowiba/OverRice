@@ -51,8 +51,8 @@
         />
       </div>
       <div class="button">
-        <Button width="400px" outline>Explore Menu</Button>
-        <Button width="400px">Order Online</Button>
+        <Button width="400px" href="/menu" outline>Explore Menu</Button>
+        <Button width="400px" href="https://over-rice-food-truck.square.site/" newTab>Order Online</Button>
       </div>
     </div>
   </section>
