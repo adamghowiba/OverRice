@@ -1,6 +1,6 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
-  import { onDestroy, onMount, tick } from "svelte";
+  import { onMount, tick } from "svelte";
 
   let gsapConfig = {
     ease: "none",
@@ -150,9 +150,9 @@
 </section>
 
 <style lang="scss">
-  @use '../../../lib/scss/0-helpers/vars' as *;
-  @use '../../../lib/scss/0-helpers/mixins' as mix;
-  @use '../../../lib/scss/1-plugins/mquery' as mq;
+  @use '../scss/0-helpers/vars' as *;
+  @use '../scss/0-helpers/mixins' as mix;
+  @use '../scss/1-plugins/mquery' as mq;
 
   p {
     margin-top: $pd-sm;

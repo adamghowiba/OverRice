@@ -13,7 +13,7 @@
         transition:fly|local = {{ x: 400, duration: durations.container }} 
         class="nav__menu"
     >
-        <a in:fade = {{ delay: durations.a * 1,   duration: durations.a }} class="nav__menu__item" href="/home">Home</a>
+        <a in:fade = {{ delay: durations.a * 1,   duration: durations.a }} class="nav__menu__item" href="/">Home</a>
         <a in:fade = {{ delay: durations.a * 1.3, duration: durations.a }} class="nav__menu__item" href="/contact">Contact Us</a>
         <a in:fade = {{ delay: durations.a * 1.6, duration: durations.a }} class="nav__menu__item" href="/about">About Us</a>
         <a in:fade = {{ delay: durations.a * 1.9, duration: durations.a }} class="nav__menu__item" href="/menu">Menu</a>

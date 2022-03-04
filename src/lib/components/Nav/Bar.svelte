@@ -20,7 +20,7 @@
 <nav class="nav">
   <div class="nav-wrap">
     <div class="nav__items nav__items--right">
-      <a class="nav__link" href="/home">Home</a>
+      <a class="nav__link" href="/">Home</a>
       <a class="nav__link" href="/contact">Contact</a>
       <a class="nav__link" href="/about">About Us</a>
     </div>

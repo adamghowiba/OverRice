@@ -60,7 +60,7 @@
 </div>
 
 <style lang="scss">
-  @use '../../../lib/scss/0-helpers/vars' as *;
+  @use '../scss/0-helpers/vars' as *;
 
   .review {
     max-height: 300px;

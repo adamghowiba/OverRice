@@ -29,8 +29,8 @@
 </Header>
 
 <style lang="scss">
-  @use '../../../lib/scss/0-helpers/vars' as *;
-  @use '../../../lib/scss/1-plugins/mquery' as mq;
+  @use '../scss/0-helpers/vars' as *;
+  @use '../scss/1-plugins/mquery' as mq;
 
   .hero__headings {
     color: white;
