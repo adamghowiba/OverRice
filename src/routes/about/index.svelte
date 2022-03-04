@@ -1,8 +1,7 @@
 <script>
   import HeroHeader from '$lib/components/HeroHeader.svelte';
-  import Header from '$lib/components/HeroHeader.svelte';
   import Button from '$lib/components/Button.svelte';
-  import Member from './Member.svelte';
+  import Member from '$lib/components/Member.svelte';
   import CallToAction from '$lib/components/CallToAction.svelte';
   import IntroHeading from '$lib/components/IntroHeading.svelte';
   import ImageCard from '$lib/components/ImageCard.svelte';
