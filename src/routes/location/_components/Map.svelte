@@ -1,13 +1,13 @@
 <script lang="ts">
   import { browser } from '$app/env';
-
+  import type { LatLngExpression, Map } from 'leaflet';
   import { afterUpdate, getContext, onMount, setContext } from 'svelte';
   import type { Writable } from 'svelte/store';
 
   export let address: string;
-  export let showPage: boolean = true;
+  export let showPage = true;
 
-  let map;
+  let map: Map;
   let leaflet;
   let markers = [];
   let iconMarker;
@@ -15,9 +15,54 @@
   const map_access_token =
     'pk.eyJ1Ijoid2VicmV2aXZlZCIsImEiOiJja3Q5djB4N3ExZm5lMndwbG9mYmw5b28zIn0.tMGZEaDUKymaWr0D28gnVA';
 
+  async function getCordsFromAddress(address: string): Promise<LatLngExpression> {
+    let longlat: LatLngExpression = await fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${map_access_token}&limit=1`
+    )
+      .then(res => res.json())
+      .then(coords => {
+        const coord = coords.features[0];
+        return [coord.center[1], coord.center[0]];
+      });
+
+    return longlat;
+  }
+
+  function addTruckMarkerToMap(map: Map, cords: LatLngExpression) {
+    // removes previous markers
+    if (markers.length >= 1) {
+      markers.forEach(marker => map.removeLayer(marker));
+      markers = [];
+    }
+
+    markers.push(leaflet.marker(cords, { icon: iconMarker }));
+    markers.push(
+      leaflet.circle(cords, {
+        radius: 50,
+        color: '#9DC471',
+        fill: true,
+        fillColor: '#FFFFFF',
+        fillOpacity: 0.3,
+      })
+    );
+    markers.forEach(marker => marker.addTo(map));
+  }
+
+  function addFooterAttributionToMap(map: Map) {
+    leaflet
+      .tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution:
+          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        accessToken: map_access_token,
+        tileSize: 512,
+        zoomOffset: -1,
+        maxZoom: 18,
+      })
+      .addTo(map);
+  }
+
   onMount(async () => {
-    // we have to import leaflet this way, as leaflet uses they window object
-    // on import, which is only available after we mounted.
     try {
       if (!leaflet) {
         leaflet = await import('leaflet');
@@ -28,53 +73,43 @@
         });
       }
 
-      let longlat = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${map_access_token}&limit=1`
-      )
-        .then(res => res.json())
-        .then(coords => {
-          const coord = coords.features[0];
-          return [coord.center[1], coord.center[0]];
-        });
+      /* Translate Address to Lat & Long for leaflet */
+      let longlat = await getCordsFromAddress(address);
 
-      if (!map) map = leaflet.map('map');
+      /* Invalidate current leafletmap to avoid rerendering issues */
+      let container = leaflet.DomUtil.get('map');
+      if (container != null) {
+        container._leaflet_id = null;
+      }
+
+      /* Initlize Map Object & Set Location */
+      map = leaflet.map('map');
       map.setView(longlat, 13);
       map.setZoom(17);
 
-      leaflet
-        .tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-          attribution:
-            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-          id: 'mapbox/streets-v11',
-          accessToken: map_access_token,
-          tileSize: 512,
-          zoomOffset: -1,
-          maxZoom: 18,
-        })
-        .addTo(map);
+      /* Add Bottom Right Footer Attribution */
+      addFooterAttributionToMap(map);
 
-      // removes previous markers
-      if (markers.length >= 1) {
-        markers.forEach(marker => map.removeLayer(marker));
-        markers = [];
-      }
-
-      markers.push(leaflet.marker(longlat, { icon: iconMarker }));
-      markers.push(
-        leaflet.circle(longlat, {
-          radius: 50,
-          color: '#9DC471',
-          fill: true,
-          fillColor: '#FFFFFF',
-          fillOpacity: 0.3,
-        })
-      );
-      markers.forEach(marker => marker.addTo(map));
+      /* Add Truck Marker TO map */
+      addTruckMarkerToMap(map, longlat);
     } catch (e) {
       console.error(e);
       showPage = false;
     }
   });
+
+  $: if (address && map) {
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${map_access_token}&limit=1`)
+      .then(res => res.json())
+      .then(coords => {
+        const coord = coords.features[0];
+        let longlat: LatLngExpression = [coord.center[1], coord.center[0]];
+
+        map.setView(longlat, 13);
+        map.setZoom(17);
+        addTruckMarkerToMap(map, longlat);
+      });
+  }
 </script>
 
 <svelte:head>
@@ -110,6 +145,7 @@
       position: absolute;
       top: 25px;
       left: 80px;
+      max-width: 40ch;
 
       // map has a rediculous z-indexing number
       z-index: 500;

@@ -22,6 +22,9 @@ const getFutureDate = (amount=7) => {
 
 function getPublic(maxResults="7") {
     const calendarId = "overricefoodtruck@gmail.com"
+
+    // Testing Calendar
+    // const calendarId = "c_mdel5kkfj8i0c42v3up7erm940@group.calendar.google.com"
     const apiKey = "AIzaSyAix6OcLoOvh009OoPCM4WwKSo0bxSdDQc"
 
     const searchParams = new URLSearchParams();

@@ -3,11 +3,9 @@
   import IntroHeading from '$lib/components/IntroHeading.svelte';
   import Map from './_components/Map.svelte';
   import { getPublic, constructExportUrl, parseTime } from '$lib/google';
-  import { writable } from 'svelte/store';
   import { onMount } from 'svelte';
   import Card from './_components/Card.svelte';
 
-  const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   let days: Locations[] = [];
 
   let selected: Locations = null;
@@ -18,8 +16,22 @@
 
   const select = day => () => {
     selected = day;
-    const map: HTMLDivElement = document.querySelector('#map');
-    map.scrollIntoView();
+  };
+
+  const parseEventTime = (start: Date, end: Date): string => {
+    let parsedString: string = '';
+
+    if (start instanceof Date && start.toString() !== 'Invalid Date') {
+      console.log(start);
+      parsedString += `${start.toLocaleTimeString('en-us', { timeStyle: 'short' })}`;
+    }
+
+    if (end instanceof Date && end.toString() !== 'Invalid Date') {
+      console.log(end);
+      parsedString += ` - ${end.toLocaleTimeString('en-us', { timeStyle: 'short' })}`;
+    }
+
+    return parsedString;
   };
 
   onMount(async () => {
@@ -30,24 +42,25 @@
       scrollPercentage = locationDIV.scrollTop / (locationDIV.scrollHeight - locationDIV.clientHeight);
     };
 
+    /* Get the GCAL Events */
     const events = await getPublic();
-
     console.log(events);
+
+    /* Show no events section */
     if (events.items.length === 0) {
       showPage = false;
-      return; // stop the mount function here
+      return;
     }
 
     for (const [i, event] of events.items.entries()) {
-      // if (event.start.dateTime && event.end.dateTime) {
-      days[i] = {
-        day: daysOfWeek[i],
-        location: event.location,
-        times: parseTime(event.start?.dateTime, event.end?.dateTime),
-      };
+      const startDate = new Date(event?.start?.dateTime || event?.start?.date);
+      const endDate = new Date(event?.end?.dateTime);
 
-      if (event.attachments) days[i].src = constructExportUrl(event.attachments[0].fileId);
-      // }
+      days[i] = {
+        day: startDate.toLocaleDateString('en-us', { weekday: 'long' }),
+        location: event.location,
+        times: parseEventTime(startDate, endDate) ?? null,
+      };
     }
 
     days = days;
@@ -89,7 +102,7 @@
       </div>
 
       <div class="location__map">
-        <Map address={selected?.location ?? 'flordia'} />
+        <Map address={selected?.location || days[0]?.location || 'florida'} />
       </div>
     </section>
   </main>
@@ -121,13 +134,13 @@
       gap: 40px;
 
       justify-content: center;
-      
+
       @include mq.media('<1000px') {
         flex-direction: column-reverse;
         align-items: center;
         gap: 40px;
       }
-      
+
       @include mq.media('>desktop') {
         width: 60%;
       }
