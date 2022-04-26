@@ -4,13 +4,15 @@
 
   export let value: string | null;
   export let placeholder: string;
+  export let label = placeholder;
   export let rows: number = 10;
   export let maxWidth: string = 'none';
+  export let required: boolean = false;
 </script>
 
 <div class="wrapper" style="--maxWidth: {maxWidth}">
-  <Label {id} {placeholder}>
-    <textarea {id} {placeholder} {rows} bind:value />
+  <Label {id} placeholder={label}>
+    <textarea {id} {placeholder} {rows} bind:value {required} />
   </Label>
 </div>
 

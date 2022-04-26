@@ -7,35 +7,43 @@
   import { onMount } from 'svelte';
   import ContactInfo from './_components/ContactInfo.svelte';
 
-  let input: string | null = null;
+  let name: string | null = null;
   let email: string | null = null;
   let message: string | null = null;
-  let status: string = 'Send Message';
-  const onSubmit = (event: SubmitEvent) => {
-    const data = { input, email, message };
-    status = 'Sending....';
+  let statusMessage: string = '';
+  let status: 'error' | 'success';
+  let loading: boolean = false;
 
-    fetch('https://s0prbjfu27.execute-api.us-east-1.amazonaws.com/Prod/submitForm', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(response => {
-        if (!response.ok) {
-          status = 'failed';
-        }
-
-        console.log(response);
-        status = 'Sent';
-      })
-      .catch(err => {
-        status = 'Sending Failed';
-      });
-
+  const onSubmit = async (event: SubmitEvent) => {
     const formElement = event.target as HTMLFormElement;
-    formElement.reset();
+    const data = { name, email, message };
+
+    try {
+      loading = true;
+      const response = await fetch('webrevived.com/api/form/3/submissions', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        statusMessage = 'Submission failed please try again.';
+        status = 'error';
+        return;
+      }
+
+      statusMessage = "Message sent sucessfully, we'll be in touch shortly.";
+      status = 'success';
+      formElement.reset();
+    } catch {
+      statusMessage = 'Submission failed please try again.';
+      status = 'error';
+    } finally {
+      loading = false;
+    }
   };
 </script>
 
@@ -74,9 +82,13 @@
   </section>
 
   <section class="contact__form">
+    {#if statusMessage}
+      <p class="submit-message {status}">{statusMessage}</p>
+    {/if}
+
     <form on:submit|preventDefault={onSubmit}>
       <div class="contact__form__container">
-        <Input id="name" bind:value={input} required placeholder="Full Name" />
+        <Input id="name" bind:value={name} required placeholder="Full Name" />
       </div>
 
       <div id="email" class="contact__form__container">
@@ -84,13 +96,16 @@
       </div>
 
       <div id="message" class="contact__form__container">
-        <TextArea id="message" bind:value={message} placeholder="Message" />
+        <TextArea id="message" bind:value={message} required placeholder="Message" />
       </div>
 
-      <!-- <button type="submit" class="contact__form__submit">{status}</button> -->
       <div class="button">
         <Button form width="400px">
-          {status}
+          {#if loading}
+            Sending...
+          {:else}
+            Send
+          {/if}
         </Button>
       </div>
     </form>
@@ -100,6 +115,15 @@
 <style lang="scss">
   @use '../../lib/scss/0-helpers/vars' as *;
   @use '../../lib/scss/1-plugins/mquery' as mq;
+
+  .submit-message {
+    &.error {
+      color: $color-red;
+    }
+    &.success {
+      color: $color-green;
+    }
+  }
 
   .contact {
     position: relative;
@@ -126,7 +150,7 @@
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
       }
 
       @include mq.media('<phone') {
@@ -143,10 +167,16 @@
 
     &__form {
       justify-self: center;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr min-content;
-      gap: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin: 5rem 0;
+      align-items: center;
+
+      @include mq.media('<phone') {
+        margin: 1rem 0;
+        margin-bottom: 3rem;
+      }
 
       form {
         width: 100vw;

@@ -5,6 +5,9 @@
   import HeroHeader from '$lib/components/HeroHeader.svelte';
 
   let input: string;
+  let errorMessage: string;
+  let loading: boolean = false;
+
   const formInputs = {
     name: '',
     email: '',
@@ -15,9 +18,28 @@
   };
   let formSubmitted: boolean;
 
-  const handleFormSubmit = (event: Event) => {
-    event.preventDefault();
-    formSubmitted = true;
+  const handleFormSubmit = async (event: Event) => {
+    try {
+      loading = true;
+      const response = await fetch('webrevived.com/api/form/4/submissions', {
+        method: 'POST',
+        body: JSON.stringify(formInputs),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        errorMessage = 'Submission failed please try again.';
+        return;
+      }
+
+      formSubmitted = true;
+    } catch {
+      errorMessage = 'Submission failed please try again.';
+    } finally {
+      loading = false;
+    }
   };
 </script>
 
@@ -33,21 +55,30 @@
 
 <section class="section section--white section--small">
   {#if !formSubmitted}
-    <form class="form container" on:submit={handleFormSubmit}>
+    <form class="form container" on:submit|preventDefault={handleFormSubmit}>
+      {#if errorMessage}
+        <p style:color="#D75959">{errorMessage}</p>
+      {/if}
       <div class="form__group">
         <Input id="name" bind:value={formInputs.name} required placeholder="Full Name" />
         <Input id="email" bind:value={formInputs.email} required placeholder="Email" type="email" />
       </div>
       <Input id="phone" bind:value={formInputs.phone} required type="phone" placeholder="Phone" />
-      <Input id="date" bind:value={formInputs.date} label="Requested Date" type="date" />
+      <Input id="date" bind:value={formInputs.date} label="Requested Date" required type="date" />
       <Input
         id="reference"
+        required
         bind:value={formInputs.reference}
         label="Where did you find us?"
         placeholder="E.g Facebook, Event"
       />
-      <TextArea id="details" bind:value={formInputs.details} placeholder="Any other details you'd like to share?" />
-      <Button form>Submit Request</Button>
+      <TextArea
+        id="details"
+        bind:value={formInputs.details}
+        label="Tell us about your request"
+        placeholder="Party, event, festival?"
+      />
+      <Button form>{loading ? 'Sending...' : 'Submit Request'}</Button>
     </form>
   {:else}
     <div class="form__submitted">

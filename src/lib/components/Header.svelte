@@ -18,6 +18,7 @@
         background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), var(--url);
         background-repeat: no-repeat;
         background-size: cover;
+        background-attachment: fixed;
         background-position: var(--bg-pos, center);
         // background-attachment: fixed;
     }

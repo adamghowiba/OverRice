@@ -97,9 +97,7 @@
     <section class="section section--small">
       <div class="container">
         <div class="contact-wrap">
-          <ContactSection>
-            <Button form>Send</Button>
-          </ContactSection>
+          <ContactSection />
         </div>
       </div>
     </section>
