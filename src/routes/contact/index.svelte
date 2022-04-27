@@ -20,7 +20,7 @@
 
     try {
       loading = true;
-      const response = await fetch('webrevived.com/api/form/3/submissions', {
+      const response = await fetch('https://webrevived.com/api/form/3/submissions', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

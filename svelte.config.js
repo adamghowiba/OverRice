@@ -9,8 +9,6 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-		// trailingSlash: 'ignore',
-		// hydrate the <div id="svelte"> element in src/app.html
 	}
 };
 
