@@ -40,13 +40,18 @@
       loading = false;
     }
   };
+
+  function handleTestSubmit(event: SubmitEvent) {
+    console.log('Attempted to submit form');
+    const target = event.target as HTMLFormElement;
+  }
 </script>
 
 <section class="contact__form">
   {#if status}
     <p class="status {status}">{statusMessage}</p>
   {/if}
-  <form on:submit|preventDefault={onSubmit}>
+  <form action="https://webrevived.com/api/form/1/submissions" method="post" on:submit={handleTestSubmit}>
     <div class="contact__form__container">
       <Input id="name" bind:value={name} placeholder="Full Name" required />
     </div>
