@@ -13,10 +13,11 @@
   const onSubmit = async () => {
     const formElement = event.target as HTMLFormElement;
     const data = { name, email, message };
+    event.preventDefault();
 
     try {
       loading = true;
-      const response = await fetch('https://webrevived.com/api/form/3/submissions', {
+      const response = await fetch('https://api.webrevived.com/api/form/1/submissions', {
         method: 'post',
         body: JSON.stringify(data),
         headers: {
@@ -41,18 +42,13 @@
     }
   };
 
-  function handleTestSubmit(event: SubmitEvent) {
-    console.log('Attempted to submit form');
-    const target = event.target as HTMLFormElement;
-  }
 </script>
 
-<h1>Form Testing</h1>
 <section class="contact__form">
   {#if status}
     <p class="status {status}">{statusMessage}</p>
   {/if}
-  <form action="https://webrevived.com/api/form/1/submissions" method="post" on:submit={handleTestSubmit}>
+  <form on:submit={onSubmit}>
     <div class="contact__form__container">
       <Input id="name" bind:value={name} placeholder="Full Name" required />
     </div>
