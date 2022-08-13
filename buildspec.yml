@@ -1,27 +1,30 @@
-version: 0.1
-
-env:
-    variables:
-        CACHE_CONTROL: "86400"
-        # S3_BUCKET: "{{your_url}}"
-        BUILD_FOLDER: "build"
+version: 0.2
 
 phases:
   install:
-    commands:
-      - echo installing nodejs...
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-      - apt-get install -y nodejs  #aws code build use ubuntu environement
+    runtime-versions:
+      nodejs: 12
+
   pre_build:
     commands:
-      - echo installing dependencies...
-      - npm ci
+      # Auth AWS
+      - echo Authenticating into AWS ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 040133161491.dkr.ecr.us-east-1.amazonaws.com
+
   build:
     commands:
-      - echo building...
-      - npm run build
+      - echo Building Frontend Image
+      - docker build -t overrice-website -f ./Dockerfile ./
+
+      # Tag docker images
+      - echo Tagging [Backend, Frontend] image...
+      - docker tag overrice-website:latest 040133161491.dkr.ecr.us-east-1.amazonaws.com/overrice-website:latest
+
+  post_build:
+    commands:
+      - echo Pushing Frontend image...
+      - docker push 040133161491.dkr.ecr.us-east-1.amazonaws.com/overrice-website:latest
+
 artifacts:
   files:
-    - "**/*"
-  discard-paths: no
-  base-directory: build
+    - imagedefinitions.json

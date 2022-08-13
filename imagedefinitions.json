@@ -1,0 +1,6 @@
+[
+    {
+        "name": "overrice-website",
+        "imageUri": "040133161491.dkr.ecr.us-east-1.amazonaws.com/overrice-website:latest"
+    }
+]

@@ -1,0 +1,1 @@
+docker build -t overrice-website -f ./Dockerfile ./
