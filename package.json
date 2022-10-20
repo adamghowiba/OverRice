@@ -14,7 +14,7 @@
     "docker:build": "docker-build.cmd"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-auto": "1.0.0-next.70",
     "@sveltejs/adapter-node": "^1.0.0-next.86",
     "@sveltejs/adapter-static": "^1.0.0-next.29",
     "@sveltejs/kit": "^1.0.0-next.405",
