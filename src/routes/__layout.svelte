@@ -3,10 +3,13 @@
   import { afterUpdate } from 'svelte';
   import { page } from '$app/stores';
   import { RouteHistory } from '$lib/stores';
+  import { QueryClientProvider, QueryClient } from '@sveltestack/svelte-query';
 
   afterUpdate(() => {
     $RouteHistory = { prev: $RouteHistory.curr, curr: $page.url.pathname };
   });
+
+  const queryClient = new QueryClient();
 </script>
 
 <svelte:head>
@@ -15,7 +18,9 @@
   <link href="https://fonts.cdnfonts.com/css/pristina" rel="stylesheet" />
 </svelte:head>
 
-<slot />
+<QueryClientProvider client={queryClient}>
+  <slot />
+</QueryClientProvider>
 <Footer />
 
 <style global lang="scss">
