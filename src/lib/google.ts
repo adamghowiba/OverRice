@@ -33,7 +33,7 @@ interface GCalEvent {
 
 export async function listPublicGCalEvents(maxResults = '7'): Promise<GCalEvent[]> {
   /* Testing Calendar */
-  //   const calendarId = 'c_mdel5kkfj8i0c42v3up7erm940@group.calendar.google.com';
+  // const calendarId = 'c_mdel5kkfj8i0c42v3up7erm940@group.calendar.google.com';
 
   // Testing Calendar
   const calendarId = 'overricefoodtruck@gmail.com';
