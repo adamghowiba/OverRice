@@ -14,7 +14,8 @@
   import * as an from '$lib/animation';
 
   onMount(() => {
-    an.setupHeaderAnimation();
+    /* Currently disabled */
+    // an.setupHeaderAnimation();
   });
 </script>
 
@@ -119,7 +120,6 @@
     prefix="Call"
     href="tel: 3864169030"
   />
-  <BottomBarItem src="/icons/time.svg" content="9 AM - 5 PM" prefix="Hours" href="/contact" />
   <BottomBarItem src="/icons/shopping-cart.svg" content="Menu" --cursor="pointer" prefix="Menu" href="/menu" />
 </BottomBar>
 

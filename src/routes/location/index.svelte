@@ -4,7 +4,7 @@
   import Map from './_components/Map.svelte';
   import { listPublicGCalEvents, parseTime } from '$lib/google';
   import Card from './_components/Card.svelte';
-  import { useQuery } from '@sveltestack/svelte-query';
+  import { createQuery } from '@tanstack/svelte-query';
   import SpinnerLoader from '$lib/components/SpinnerLoader.svelte';
 
   let selected: Locations = null;
@@ -54,18 +54,12 @@
     return transformEvents;
   };
 
-  const eventsQuery = useQuery(
-    'events',
-    () => {
-      return transformEvents();
-    },
-    { staleTime: 1000 * 60 * 2 }
-  );
+  const eventsQuery = createQuery({ queryKey: ['locations'], queryFn: () => transformEvents(), staleTime: 1000 * 60 });
 </script>
 
 <HeroHeader
   header="Our Location"
-  quote="Come stop by for a bite. We'd be happy to see you."
+  quote="Get ready for our new location! 1084 Lee Rd, Orlando Fl, 32810"
   --url="url('/images/chicken_grill2.jpg')"
   --bg-pos="0 51%"
 />
