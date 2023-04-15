@@ -7,6 +7,7 @@
   export let title: string;
   export let active: boolean;
   export let includes: string[] = null;
+  export let price: number | string | undefined;
   export let link = "https://over-rice-food-truck.square.site/";
 
   let acordOpen: boolean = true;
@@ -26,7 +27,6 @@
     window.open(link, '_blank');
   };
 
-  // export let price: number | string;
 </script>
 
 <!-- Accordian -->

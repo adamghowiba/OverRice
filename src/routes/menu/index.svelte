@@ -7,6 +7,7 @@
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
   import Button from '$lib/components/Button.svelte';
+  import type { BaseFood, Mains } from '$lib/interfaces/Foods';
 
   let selectedMenu: 'Mains' | 'Pupus' = 'Mains';
   let menu: Mains[] | BaseFood[] = Food[selectedMenu];
@@ -71,10 +72,10 @@
           {#each menu as food}
             <Acord
               src={food.src}
-              active={food?.includes}
               desc={food.description}
-              price={food.price}
+              price={food?.price}
               title={food.title}
+              active={food.includes}
               includes={food.includes}
               on:acord-toggle={select(food)}
             />
@@ -85,7 +86,7 @@
           <Highlighed
             title={highlight.title}
             description={highlight.description}
-            price={highlight.price}
+            price={highlight?.price}
             --url="url('{highlight.src}')"
           />
         </div>
