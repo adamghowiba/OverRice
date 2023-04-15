@@ -31,22 +31,15 @@
   ];
 
   let reviewIndex = 0;
-  $: currentReview = REVIEWS[0];
-  let intervalID;
+  let intervalID: NodeJS.Timer = undefined;
+  let currentReview = REVIEWS[0];
 
   function changeReview(index: number) {
     if (index >= REVIEWS.length) index = 0;
-    
+
     reviewIndex = index;
     currentReview = REVIEWS[index];
   }
-
-  const handleControlClick = (event: MouseEvent) => {
-    const target = event.target as HTMLElement;
-
-    const controlId = parseInt(target.dataset.id);
-    changeReview(controlId);
-  };
 
   const onMouseEnter = () => {
     if (!intervalID) return;
@@ -80,7 +73,6 @@
   <div class="review">
     <div class="review__content-wrap">
       <img class="review__icon" src="/icons/quote.svg" alt="Green  quote icon" />
-      <!-- TODO Add Slider -->
       {#key currentReview}
         <p in:fade={{ duration: 500 }}>
           {currentReview.review}
@@ -89,8 +81,8 @@
       {/key}
     </div>
     <div class="controls">
-      {#each REVIEWS as _, i}
-        <div class="controls__circle" data-id={i} class:active={i === reviewIndex} on:click={handleControlClick} />
+      {#each REVIEWS as _, index}
+        <div class="controls__circle" class:active={index === reviewIndex} on:click={() => changeReview(index)} />
       {/each}
     </div>
   </div>
