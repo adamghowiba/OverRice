@@ -20,7 +20,7 @@
 
     try {
       loading = true;
-      const response = await fetch('https://api.webrevived.com/api/form/3/submissions', {
+      const response = await fetch('https://api.webrevived.com/v1/f/AMqV3pzlyc-JBy', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -77,8 +77,6 @@
     <a href="/location">
       <ContactInfo src="/icons/large_mail.svg" alt="email">Find Where Are We Now</ContactInfo>
     </a>
-
-    <ContactInfo src="/icons/large_phone.svg" alt="phone number">09:00 AM-05:00 PM</ContactInfo>
   </section>
 
   <section class="contact__form">

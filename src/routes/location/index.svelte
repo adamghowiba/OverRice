@@ -2,17 +2,13 @@
   import HeroHeader from '$lib/components/HeroHeader.svelte';
   import IntroHeading from '$lib/components/IntroHeading.svelte';
   import Map from './_components/Map.svelte';
-  import { getPublic, constructExportUrl, parseTime } from '$lib/google';
-  import { onMount } from 'svelte';
+  import { listPublicGCalEvents, parseTime } from '$lib/google';
   import Card from './_components/Card.svelte';
-
-  let days: Locations[] = [];
+  import { createQuery } from '@tanstack/svelte-query';
+  import SpinnerLoader from '$lib/components/SpinnerLoader.svelte';
 
   let selected: Locations = null;
-  let showPage: boolean = true;
   let locationDIV: HTMLDivElement;
-  let scrollPercentage = 1;
-  let scrollTop = 0;
 
   const select = day => () => {
     selected = day;
@@ -22,59 +18,58 @@
     let parsedString: string = '';
 
     if (start instanceof Date && start.toString() !== 'Invalid Date') {
-      console.log(start);
       parsedString += `${start.toLocaleTimeString('en-us', { timeStyle: 'short' })}`;
     }
 
     if (end instanceof Date && end.toString() !== 'Invalid Date') {
-      console.log(end);
       parsedString += ` - ${end.toLocaleTimeString('en-us', { timeStyle: 'short' })}`;
     }
 
     return parsedString;
   };
 
-  onMount(async () => {
-    scrollPercentage = locationDIV.scrollTop / (locationDIV.scrollHeight - locationDIV.clientHeight);
-    scrollTop = locationDIV.scrollTop;
-    locationDIV.onscroll = () => {
-      scrollTop = locationDIV.scrollTop;
-      scrollPercentage = locationDIV.scrollTop / (locationDIV.scrollHeight - locationDIV.clientHeight);
-    };
+  /**
+   * Transform events to easier to handle object
+   */
+  const transformEvents = async () => {
+    const events = await listPublicGCalEvents();
+    let transformEvents: any[] = [];
 
-    /* Get the GCAL Events */
-    const events = await getPublic();
-    console.log(events);
-
-    /* Show no events section */
-    if (events.items.length === 0) {
-      showPage = false;
-      return;
-    }
-
-    for (const [i, event] of events.items.entries()) {
+    for (const event of events) {
       const startDate = new Date(event?.start?.dateTime || event?.start?.date);
       const endDate = new Date(event?.end?.dateTime);
 
-      days[i] = {
-        day: startDate.toLocaleDateString('en-us', { weekday: 'long' }),
-        location: event.location,
-        times: parseEventTime(startDate, endDate) ?? null,
-      };
+      if (!event.location) continue;
+
+      transformEvents = [
+        ...transformEvents,
+        {
+          day: startDate.toLocaleDateString('en-us', { weekday: 'long' }),
+          location: event.location,
+          times: parseEventTime(startDate, endDate) ?? null,
+        },
+      ];
     }
 
-    days = days;
-  });
+    return transformEvents;
+  };
+
+  const eventsQuery = createQuery({ queryKey: ['locations'], queryFn: () => transformEvents(), staleTime: 1000 * 60 });
 </script>
 
 <HeroHeader
   header="Our Location"
-  quote="Come stop by for a bite. We'd be happy to see you."
+  quote="Get ready for our new location! 1084 Lee Rd, Orlando Fl, 32810"
   --url="url('/images/chicken_grill2.jpg')"
   --bg-pos="0 51%"
 />
 
-{#if showPage}
+{#if $eventsQuery.isLoading}
+  <section class="section--white loading-container">
+    <SpinnerLoader color="#9DC471" />
+    <span>Loading location data...</span>
+  </section>
+{:else if $eventsQuery.isSuccess && $eventsQuery.data?.length}
   <main class="location">
     <section>
       <IntroHeading
@@ -86,23 +81,19 @@
 
     <section class="location__body">
       <div class="location__list" bind:this={locationDIV}>
-        {#each days as day}
-          {#if day?.location}
-            <Card
-              times={day.times}
-              location={day.location}
-              day={day.day}
-              active={selected?.day === day.day}
-              on:click={select(day)}
-            />
-          {/if}
+        {#each $eventsQuery.data as day}
+          <Card
+            times={day.times}
+            location={day.location}
+            day={day.day}
+            active={selected?.day === day.day}
+            on:click={select(day)}
+          />
         {/each}
-
-        <div class="location__list--overlay" style="--opacity: {1 - scrollPercentage}; --t-y: {scrollTop}px;" />
       </div>
 
       <div class="location__map">
-        <Map address={selected?.location || days[0]?.location || 'florida'} />
+        <Map address={selected?.location || $eventsQuery.data?.[0]?.location || 'Orlando, Florida'} />
       </div>
     </section>
   </main>
@@ -118,6 +109,15 @@
 <style lang="scss">
   @use '../../lib/scss/0-helpers/vars' as *;
   @use '../../lib/scss/1-plugins/mquery' as mq;
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    min-height: 45vh;
+    flex-direction: column;
+  }
 
   .location {
     display: flex;

@@ -1,23 +1,22 @@
-
-interface BaseFood {
-    src: string;
-    title: string;
-    sides: string;
-    description: string;
-    price: number;
+export interface BaseFood {
+  src: string;
+  title: string;
+  sides: string;
+  price?: number;
+  description: string;
 }
 
-interface Meats {
-    title: string;
-    description: string;
+export interface Meats {
+  title: string;
+  description: string;
 }
 
-interface Mains extends BaseFood {
-    includes: string[];
-    meats? : Meats[]
+export interface Mains extends BaseFood {
+  includes: string[];
+  meats?: Meats[];
 }
 
-interface Foods {
-    Mains: Mains[];
-    Pupus: BaseFood[];
+export interface Foods {
+  Mains: Mains[];
+  Pupus: BaseFood[];
 }

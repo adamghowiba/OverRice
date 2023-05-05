@@ -1,12 +1,34 @@
 <script>
   import Footer from '$lib/components/Footer.svelte';
-  import { afterUpdate } from 'svelte';
+  import { afterUpdate, onMount } from 'svelte';
   import { page } from '$app/stores';
   import { RouteHistory } from '$lib/stores';
+  import { QueryClientProvider, QueryClient } from '@tanstack/svelte-query';
+  import Alert from '$lib/components/Alert.svelte';
+
+  const NOTFICATION_LOCAL_KEY = 'NOTFICATION-CLOSE-COUNT';
+  let notficationClosed = true;
 
   afterUpdate(() => {
     $RouteHistory = { prev: $RouteHistory.curr, curr: $page.url.pathname };
   });
+
+  const handleCloseNotfication = () => {
+    const notficationCloseCount = +localStorage.getItem(NOTFICATION_LOCAL_KEY);
+
+    localStorage.setItem(NOTFICATION_LOCAL_KEY, JSON.stringify(notficationCloseCount + 1));
+
+    notficationClosed = true;
+    console.log(notficationCloseCount);
+  };
+
+  onMount(() => {
+    const notficationCloseCount = +localStorage.getItem(NOTFICATION_LOCAL_KEY);
+
+    if (notficationCloseCount <= 2) notficationClosed = false;
+  });
+
+  const queryClient = new QueryClient();
 </script>
 
 <svelte:head>
@@ -15,7 +37,16 @@
   <link href="https://fonts.cdnfonts.com/css/pristina" rel="stylesheet" />
 </svelte:head>
 
-<slot />
+{#if !notficationClosed}
+  <Alert on:click={handleCloseNotfication}
+    >Opening new location soon!
+    <a class="link" href="https://goo.gl/maps/WoeVBLnsVp593cYM6">1084 Lee Rd, Orlando Fl, 32810</a>
+  </Alert>
+{/if}
+
+<QueryClientProvider client={queryClient}>
+  <slot />
+</QueryClientProvider>
 <Footer />
 
 <style global lang="scss">
@@ -35,6 +66,10 @@
     width: 100%;
     height: 100%;
     z-index: 0;
+  }
+
+  .link {
+    color: white;
   }
 
   .hide {

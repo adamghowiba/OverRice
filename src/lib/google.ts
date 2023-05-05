@@ -2,57 +2,55 @@ import convertTime from 'convert-time';
 const currentDate = new Date();
 
 export function parseTime(start: Date, end: Date) {
-    if (!start || !end) return "Call for time"
+  if (!start || !end) return 'Call for time';
 
-    const startDate = new Date(start);
-    const endDate = new Date(end);
+  const startDate = new Date(start);
+  const endDate = new Date(end);
 
-    const startTime = convertTime(startDate.getHours() + ":" + startDate.getMinutes());
-    const endTime = convertTime(endDate.getHours() + ":" + endDate.getMinutes());
+  const startTime = convertTime(startDate.getHours() + ':' + startDate.getMinutes());
+  const endTime = convertTime(endDate.getHours() + ':' + endDate.getMinutes());
 
-    return startTime + " - " + endTime;
+  return startTime + ' - ' + endTime;
 }
 
-const getFutureDate = (amount=7) => {
-    const futureDate = new Date();
-    futureDate.setDate(currentDate.getDate() + amount);
+const getFutureDate = (amount = 7) => {
+  const futureDate = new Date();
+  futureDate.setDate(currentDate.getDate() + amount);
 
-    return futureDate;
+  return futureDate;
+};
+
+interface GCalEvent {
+  created: string;
+  etag: string;
+  eventType: string;
+  htmlLink: string;
+  id: string;
+  location: string;
+  end: { date?: string; dateTime?: string };
+  start: { date?: string; dateTime?: string };
 }
 
-function getPublic(maxResults="7") {
-    const calendarId = "overricefoodtruck@gmail.com"
+export async function listPublicGCalEvents(maxResults = '7'): Promise<GCalEvent[]> {
+  /* Testing Calendar */
+  // const calendarId = 'c_mdel5kkfj8i0c42v3up7erm940@group.calendar.google.com';
 
-    // Testing Calendar
-    // const calendarId = "c_mdel5kkfj8i0c42v3up7erm940@group.calendar.google.com"
-    const apiKey = "AIzaSyAix6OcLoOvh009OoPCM4WwKSo0bxSdDQc"
+  // Testing Calendar
+  const calendarId = 'overricefoodtruck@gmail.com';
+  const apiKey = 'AIzaSyD1lrZPYIGdvo9NLiGfX38P_ywdphKV7IU';
 
-    const searchParams = new URLSearchParams();
-    searchParams.append('key', apiKey);
-    searchParams.append('timeMin', currentDate.toISOString());
-    searchParams.append('timeMax', getFutureDate().toISOString());
-    searchParams.append('showDeleted', "false");
-    searchParams.append('singleEvents', "true");
+  const searchParams = new URLSearchParams();
+  searchParams.append('key', apiKey);
+  searchParams.append('timeMin', currentDate.toISOString());
+  searchParams.append('timeMax', getFutureDate().toISOString());
+  searchParams.append('showDeleted', 'false');
+  searchParams.append('singleEvents', 'true');
 
-    searchParams.append('maxResults', maxResults);
-    searchParams.append('orderBy', "startTime");
+  searchParams.append('maxResults', maxResults);
+  searchParams.append('orderBy', 'startTime');
 
+  const calendarUrl = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?${searchParams.toString()}`;
 
-    const calendarUrl = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?${searchParams.toString()}`;
-
-
-    return fetch(calendarUrl).then(response => {
-        return (response.json());
-    })
+  const response = await fetch(calendarUrl);
+  return (await response.json()).items;
 }
-
-/* Construct a google drive url to be exported into an
-embedded format */
-function constructExportUrl(id) {
-    // Sample: https://drive.google.com/file/d/1NY3iepaTDFFET8dztRyhfIhHeL2bPXHI/view?usp=drive_web"
-    const exportUrl = `https://drive.google.com/uc?export=view&id=${id}`
-
-    return exportUrl;
-}
-
-export { getPublic, constructExportUrl }

@@ -3,15 +3,14 @@
   export let body: string;
   export let footer: string = null;
 
-  import { onMount } from "svelte";
-
+  import { onMount } from 'svelte';
 </script>
 
 <div>
   <h2>{title}</h2>
   <h1>{body}</h1>
   {#if footer}
-  <p>{footer}</p>
+    <p>{footer}</p>
   {/if}
 </div>
 <slot />
@@ -30,7 +29,7 @@
   }
 
   h2 {
-    font-family: "Pristina";
+    font-family: 'Pristina';
     font-size: 2.3rem;
     font-weight: 400;
     line-height: 44px;
@@ -57,7 +56,7 @@
     margin-bottom: calc(23px * var(--gap));
   }
 
-  @include mq.media("<tablet") {
+  @include mq.media('<tablet') {
     h2,
     h1,
     p {

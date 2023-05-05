@@ -21,7 +21,7 @@
   const handleFormSubmit = async (event: Event) => {
     try {
       loading = true;
-      const response = await fetch('https://api.webrevived.com/api/form/4/submissions', {
+      const response = await fetch('https://api.webrevived.com/v1/f/TQ3NTtrYuVX7KN', {
         method: 'POST',
         body: JSON.stringify(formInputs),
         headers: {

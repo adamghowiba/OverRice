@@ -6,9 +6,9 @@
   export let title: string;
   export let sides: string = null;
   export let description: string;
-  export let price: number;
+  export let price: number | undefined;
 
-  $: _price = price.toFixed(2);
+  $: _price = price ? price.toFixed(2) : '';
 </script>
 
 //
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <p class="highlight__price">${_price}</p>
+  <p class="highlight__price">{_price ? `$${_price}` : ""}</p>
 </div>
 
 <style lang="scss">
@@ -86,7 +86,6 @@
       display: flex;
       place-items: center;
       gap: 37px;
-
     }
 
     &__price {
