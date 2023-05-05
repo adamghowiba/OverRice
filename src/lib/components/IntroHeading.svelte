@@ -1,13 +1,13 @@
 <script lang="ts">
-  export let title: string;
+  export let title: string = undefined;
   export let body: string;
   export let footer: string = null;
-
-  import { onMount } from 'svelte';
 </script>
 
 <div>
-  <h2>{title}</h2>
+  {#if title}
+    <h2>{title}</h2>
+  {/if}
   <h1>{body}</h1>
   {#if footer}
     <p>{footer}</p>

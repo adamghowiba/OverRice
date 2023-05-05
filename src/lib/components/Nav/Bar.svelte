@@ -35,7 +35,7 @@
 
     <div class="nav__items nav__items--left">
       <a class="nav__link" href="/menu">Menu</a>
-      <a class="nav__link" href="/location">Our Location</a>
+      <a class="nav__link" href="/location">Location & Hours</a>
       <a class="nav__link" href="/catering">Catering Info</a>
     </div>
 

@@ -6,6 +6,7 @@
   import Card from './_components/Card.svelte';
   import { createQuery } from '@tanstack/svelte-query';
   import SpinnerLoader from '$lib/components/SpinnerLoader.svelte';
+  import LocationCard from './_components/LocationCard.svelte';
 
   let selected: Locations = null;
   let locationDIV: HTMLDivElement;
@@ -29,7 +30,7 @@
   };
 
   /**
-   * Transform events to easier to handle object
+   * Transform events to an easier to handle object
    */
   const transformEvents = async () => {
     const events = await listPublicGCalEvents();
@@ -58,13 +59,44 @@
 </script>
 
 <HeroHeader
-  header="Our Location"
-  quote="Get ready for our new location! 1084 Lee Rd, Orlando Fl, 32810"
+  header="Location"
+  quote="New location, same great flavors."
   --url="url('/images/chicken_grill2.jpg')"
   --bg-pos="0 51%"
 />
 
-{#if $eventsQuery.isLoading}
+<main class="location">
+  <section>
+    <IntroHeading
+      body="We might be close by!"
+      footer="Take a break from your routine with an invitation to explore new tastes."
+    />
+  </section>
+
+  <section>
+    <div class="locations">
+      <LocationCard icon="/icons/food_truck.svg" name="Food Truck" iconYOffset={-7}
+        >For our food truck we post our schedule every Monday on Social Media
+        <a class="link link--green" href="https://www.instagram.com/overricecfl/"> @overricecfl </a>
+      </LocationCard>
+      <LocationCard icon="/icons/resturant.svg" name="Resturant">
+        <div class="resturant-list">
+          <span>1084 Lee Rd, Orlando Fl, 32810</span>
+          <span>Wednesday - Friday</span>
+          <span>Dinner 5pm-8pm</span>
+          <span>Lunch 11am-2:30pm </span>
+          <a
+            class="link link--green"
+            href="https://www.google.com/maps/dir//1084+Lee+Rd,+Orlando,+FL+32810,+USA/@28.6054115,-81.4009849,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88e77093b873714f:0x8d580193ec04fefa!2m2!1d-81.3984046!2d28.6054068"
+            >Get Directions</a
+          >
+        </div>
+      </LocationCard>
+    </div>
+  </section>
+</main>
+
+<!-- {#if $eventsQuery.isLoading}
   <section class="section--white loading-container">
     <SpinnerLoader color="#9DC471" />
     <span>Loading location data...</span>
@@ -104,8 +136,7 @@
       <h2 class="subheading">Check back later as we update our schedule regularly.</h2>
     </div>
   </section>
-{/if}
-
+{/if} -->
 <style lang="scss">
   @use '../../lib/scss/0-helpers/vars' as *;
   @use '../../lib/scss/1-plugins/mquery' as mq;
@@ -117,6 +148,23 @@
     padding: 3rem;
     min-height: 45vh;
     flex-direction: column;
+  }
+
+  .link--green {
+    color: $color-green;
+  }
+
+  .resturant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .locations {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 3rem;
   }
 
   .location {

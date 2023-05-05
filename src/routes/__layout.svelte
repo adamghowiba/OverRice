@@ -6,7 +6,9 @@
   import { QueryClientProvider, QueryClient } from '@tanstack/svelte-query';
   import Alert from '$lib/components/Alert.svelte';
 
-  const NOTFICATION_LOCAL_KEY = 'NOTFICATION-CLOSE-COUNT';
+  const PREVIOUS_NOTFICATION_LOCAL_KEY = 'NOTFICATION-CLOSE-COUNT';
+  const NOTFICATION_LOCAL_KEY = 'NOTFICATION-CLOSE-COUNT-v2';
+  const MAX_NOTFICATION_CLOSED_COUNT = 5;
   let notficationClosed = true;
 
   afterUpdate(() => {
@@ -19,13 +21,13 @@
     localStorage.setItem(NOTFICATION_LOCAL_KEY, JSON.stringify(notficationCloseCount + 1));
 
     notficationClosed = true;
-    console.log(notficationCloseCount);
   };
 
   onMount(() => {
+    localStorage.removeItem(PREVIOUS_NOTFICATION_LOCAL_KEY)
     const notficationCloseCount = +localStorage.getItem(NOTFICATION_LOCAL_KEY);
 
-    if (notficationCloseCount <= 2) notficationClosed = false;
+    if (notficationCloseCount <= MAX_NOTFICATION_CLOSED_COUNT) notficationClosed = false;
   });
 
   const queryClient = new QueryClient();
@@ -39,14 +41,15 @@
 
 {#if !notficationClosed}
   <Alert on:click={handleCloseNotfication}
-    >Opening new location soon!
-    <a class="link" href="https://goo.gl/maps/WoeVBLnsVp593cYM6">1084 Lee Rd, Orlando Fl, 32810</a>
+    >See our updated
+    <a class="link" href="http://overricecfl.com/location">location & hours</a>
   </Alert>
 {/if}
 
 <QueryClientProvider client={queryClient}>
   <slot />
 </QueryClientProvider>
+
 <Footer />
 
 <style global lang="scss">
