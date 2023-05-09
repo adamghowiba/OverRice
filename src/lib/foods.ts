@@ -51,7 +51,7 @@ let foods: Foods | Mains = {
     },
     {
       src: '/images/beautfy_shot_egg_rolls.jpg',
-      title: 'Frozen Lumpia Shanghia (Dozen)',
+      title: 'Frozen Lumpia Shanghai (Dozen)',
       sides: 'Meat by the Pound',
       description: 'Enjoy our hand rolled lumpias from the comfort of your home. ',
       price: 15,
