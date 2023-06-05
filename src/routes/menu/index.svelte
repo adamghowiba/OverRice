@@ -75,8 +75,8 @@
               desc={food.description}
               price={food?.price}
               title={food.title}
-              active={food.includes}
-              includes={food.includes}
+              active={food?.includes}
+              includes={food?.includes}
               on:acord-toggle={select(food)}
             />
           {/each}

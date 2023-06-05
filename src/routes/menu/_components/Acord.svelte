@@ -6,12 +6,12 @@
   export let src: string;
   export let title: string;
   export let active: boolean;
-  export let includes: string[] = null;
+  export let includes: string[] = [];
   export let price: number | string | undefined;
   export let link =
     'https://food.google.com/chooseprovider?restaurantId=/g/11j6bqckc0&g2lbs=ADZRdktiEy5ZSrPJb7yWwcY3BreouLZXAykzRdP5ySxTXrfc99wHhwQ27Y8CzhmpnXB1GUXX-Q0myJZNifEQDEzMFw_OWksD8o83tcNH8tXFU0A2-QPF4Af2DWVBWpvOisWVYQx8R3lfHUO_VB3vKdnk_wNym98GIw%3D%3D&hl=en-US&gl=us&ssta=1&fo_m=MfohQo559jFvMWvkddHzV46uMT_RFPQ05bfKMQVr5-7IofUJMU_hT8vrWuwRMUv3d8yCO4PgMUOzJVpjPL1YMfZ3bInYwBDuMfaXTPp5KXh-&gei=5XpBZIqABcOs5NoP08K8wAc&ei=5XpBZIqABcOs5NoP08K8wAc&sei=CXXLEUVtp2KHEQwWy4qJ293W&utm_campaign&utm_source=search&addressId&orderType=2&partnerId=11964329533172037388&fulfillmentTime&menuSearchQuery&cartId&fo_s=OA&dineInLocationId';
 
-  let acordOpen: boolean = !!includes.length;
+  let acordOpen: boolean = !!includes?.length;
 
   const mainIcon = 'plus_button.svg';
   const sideIcon = 'cart.svg';
@@ -19,7 +19,7 @@
   const dispatch = createEventDispatcher();
 
   const toggleAcordDropdown = (event: MouseEvent) => {
-    if (!includes.length) return;
+    if (!includes?.length) return;
     dispatch('acord-toggle');
     acordOpen = !acordOpen;
   };
@@ -49,13 +49,11 @@
         </p>
       </div>
 
-      {#if includes.length}
         <div
           class="acord__button"
           style="content: url(/icons/{active ? mainIcon : sideIcon})"
           on:click={handleAcordButtonCLick}
         />
-      {/if}
     </div>
 
     {#if active && includes && acordOpen}
@@ -63,7 +61,7 @@
       <div class="dropdown" transition:slide={{ duration: 250 }}>
         <div class="wrap">
           <ul>
-            {#if includes.length}
+            {#if includes?.length}
               <h1>Included</h1>
               {#each includes as item}
                 <li>{item}</li>
