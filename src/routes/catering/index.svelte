@@ -44,7 +44,7 @@
       note: 'Feeds 15 people',
     },
     {
-      title: 'Frozen Lumpia Shanghia (Dozen)',
+      title: 'Frozen Lumpia Shanghai (Dozen)',
       price: '$15',
       desc: 'Enjoy our hand rolled lumpias from the comfort of your home.',
     },
