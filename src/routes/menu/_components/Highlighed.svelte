@@ -11,7 +11,6 @@
   $: _price = price ? price.toFixed(2) : '';
 </script>
 
-//
 <div class="highlight">
   <div class="highlight__container">
     <h1 class="highlight__title">{title}</h1>

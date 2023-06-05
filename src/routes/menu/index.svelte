@@ -167,10 +167,6 @@
   }
 
   .plates {
-    &__heading {
-      position: sticky;
-      top: 0;
-    }
     &__nav {
       position: sticky;
       position: -webkit-sticky;

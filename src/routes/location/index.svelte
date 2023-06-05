@@ -81,12 +81,13 @@
       </LocationCard>
       <LocationCard icon="/icons/resturant.svg" name="Resturant">
         <div class="resturant-list">
-          <span>1084 Lee Rd, Orlando Fl, 32810</span>
           <span>Wednesday - Friday</span>
           <span>Dinner 5pm-8pm</span>
           <span>Lunch 11am-2:30pm </span>
+          <span>Saturday 11am-5pm. </span>
           <a
             class="link link--green"
+            target="_blank"
             href="https://www.google.com/maps/dir//1084+Lee+Rd,+Orlando,+FL+32810,+USA/@28.6054115,-81.4009849,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88e77093b873714f:0x8d580193ec04fefa!2m2!1d-81.3984046!2d28.6054068"
             >Get Directions</a
           >

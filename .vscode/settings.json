@@ -1,3 +1,14 @@
 {
-    "cSpell.enabled": false
+    "cSpell.enabled": true,
+    "cSpell.words": [
+        "Haupia",
+        "Katsu",
+        "Lumpia",
+        "Pancit",
+        "panko",
+        "sisig"
+    ],
+    "cSpell.enableFiletypes": [
+        "svelte"
+    ]
 }
