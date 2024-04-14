@@ -81,10 +81,8 @@
       </LocationCard>
       <LocationCard icon="/icons/resturant.svg" name="Resturant">
         <div class="resturant-list">
-          <span>Wednesday - Friday</span>
-          <span>Dinner 5pm-8pm</span>
-          <span>Lunch 11am-2:30pm </span>
-          <span>Saturday 11am-5pm. </span>
+          <span>Tuesday-Friday <b>11am - 8pm</b></span>
+          <span>Saturday <b>11am-5pm.</b> </span>
           <a
             class="link link--green"
             target="_blank"
